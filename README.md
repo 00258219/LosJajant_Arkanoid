@@ -1,6 +1,7 @@
 # Proyecto final - POO
 
 ## Avisos
+* Añadidas sprites para uso de todos, en dado caso no quieran crear las propias. No es evaluado si las crean o no
 * El manual técnico cambia entre los grupos de tres y cuatro personas, leer sección de [documentación](#documentación)
 * Entrega primer avance - **sábado 13 de junio (sin ponderación)**
 * Entrega final - **lunes 22 de junio**

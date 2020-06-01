@@ -1,8 +1,0 @@
-D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Arkanoid\bin\Debug\Arkanoid.exe.config
-D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Arkanoid\bin\Debug\Arkanoid.exe
-D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Arkanoid\bin\Debug\Arkanoid.pdb
-D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Arkanoid\obj\Debug\Arkanoid.csprojAssemblyReference.cache
-D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Arkanoid\obj\Debug\Arkanoid.Properties.Resources.resources
-D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Arkanoid\obj\Debug\Arkanoid.csproj.GenerateResource.cache
-D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Arkanoid\obj\Debug\Arkanoid.exe
-D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Arkanoid\obj\Debug\Arkanoid.pdb

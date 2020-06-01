@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\walte\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\walte\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_Arkanoid.-1240593327.00" t="ExcludeRecursive" />
-    <e p="C:\Users\walte\Documents\Workspaces\POO\ProyectoPOO\Source Code\Arkanoid" t="IncludeRecursive">
+    <e p="D:\Users\oscarorellana\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="D:\Users\oscarorellana\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Arkanoid.-1477134468.00" t="ExcludeRecursive" />
+    <e p="D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid" t="IncludeRecursive">
       <e p="App.config" t="Include" />
       <e p="Arkanoid.csproj" t="IncludeRecursive" />
       <e p="Arkanoid.sln" t="IncludeFlat" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="Form1.cs" t="Include" />
       <e p="Form1.Designer.cs" t="Include" />
-      <e p="Form1.resx" t="Include" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Program.cs" t="Include" />

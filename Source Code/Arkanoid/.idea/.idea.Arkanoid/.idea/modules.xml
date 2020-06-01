@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/.idea.Arkanoid/.idea/.idea.Arkanoid.iml" filepath="$PROJECT_DIR$/.idea/.idea.Arkanoid/.idea/.idea.Arkanoid.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/.idea.Arkanoid/riderModule.iml" filepath="$PROJECT_DIR$/.idea/.idea.Arkanoid/riderModule.iml" />
     </modules>
   </component>

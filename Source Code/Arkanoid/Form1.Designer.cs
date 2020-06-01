@@ -29,34 +29,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.CadetBlue;
-            this.pictureBox1.Location = new System.Drawing.Point(302, 425);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(169, 20);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(790, 457);
-            this.Controls.Add(this.pictureBox1);
-            this.Location = new System.Drawing.Point(19, 19);
-            this.Name = "Form1";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyPress);
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "Form1";
         }
-
-        private System.Windows.Forms.PictureBox pictureBox1;
 
         #endregion
     }

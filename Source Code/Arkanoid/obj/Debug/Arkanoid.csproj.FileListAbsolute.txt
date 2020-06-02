@@ -14,3 +14,4 @@ D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug
 D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csproj.GenerateResource.cache
 D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.exe
 D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.pdb
+D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Form1.resources

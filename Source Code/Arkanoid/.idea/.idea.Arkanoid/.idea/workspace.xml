@@ -1,37 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46d3286d-5b32-4d28-bae4-2cd97d9d6986" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/.idea/.idea.Arkanoid/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/.idea/.idea.Arkanoid/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/.idea/.idea.Arkanoid/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/.idea/.idea.Arkanoid/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/.idea/.idea.Arkanoid/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/.idea/.idea.Arkanoid/.idea/projectSettingsUpdater.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/.idea/.idea.Arkanoid/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/.idea/.idea.Arkanoid/riderModule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/App.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/Arkanoid.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/Arkanoid.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/Form1.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/Form1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/Properties/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/Properties/Resources.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/Properties/Resources.resx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/Properties/Settings.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/Properties/Settings.settings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/bin/Debug/Arkanoid.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/bin/Debug/Arkanoid.exe.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/bin/Debug/Arkanoid.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/obj/Debug/Arkanoid.Properties.Resources.resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/obj/Debug/Arkanoid.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/obj/Debug/Arkanoid.csproj.GenerateResource.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/obj/Debug/Arkanoid.csprojAssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/obj/Debug/Arkanoid.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Arkanoid/obj/Debug/Arkanoid.pdb" beforeDir="false" />
-    </list>
+    <list default="true" id="46d3286d-5b32-4d28-bae4-2cd97d9d6986" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +11,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Form1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Vista/Form1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Vista/Form1.Designer.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Form1.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1ch8SSXMoEYMy5r0vUTWw8zLhDB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -88,6 +66,7 @@
       <updated>1590969463615</updated>
       <workItem from="1590969466852" duration="511000" />
       <workItem from="1590971388328" duration="1007000" />
+      <workItem from="1591064433419" duration="776000" />
     </task>
     <servers />
   </component>
@@ -97,21 +76,25 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="WindowStateProjectService">
-    <state width="1237" height="157" key="GridCell.Tab.0.bottom" timestamp="1591037381427">
-      <screen x="0" y="0" width="1280" height="662" />
+    <state width="1259" height="172" key="GridCell.Tab.0.bottom" timestamp="1591065071856">
+      <screen x="0" y="0" width="1280" height="663" />
     </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.bottom/0.0.1280.662@0.0.1280.662" timestamp="1591037381427" />
-    <state width="1237" height="157" key="GridCell.Tab.0.center" timestamp="1591037381427">
-      <screen x="0" y="0" width="1280" height="662" />
+    <state width="1259" height="172" key="GridCell.Tab.0.bottom/0.0.1280.662@0.0.1280.662" timestamp="1591064832943" />
+    <state width="1259" height="172" key="GridCell.Tab.0.bottom/0.0.1280.663@0.0.1280.663" timestamp="1591065071856" />
+    <state width="1259" height="172" key="GridCell.Tab.0.center" timestamp="1591065071856">
+      <screen x="0" y="0" width="1280" height="663" />
     </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.center/0.0.1280.662@0.0.1280.662" timestamp="1591037381427" />
-    <state width="1237" height="157" key="GridCell.Tab.0.left" timestamp="1591037381427">
-      <screen x="0" y="0" width="1280" height="662" />
+    <state width="1259" height="172" key="GridCell.Tab.0.center/0.0.1280.662@0.0.1280.662" timestamp="1591064832943" />
+    <state width="1259" height="172" key="GridCell.Tab.0.center/0.0.1280.663@0.0.1280.663" timestamp="1591065071856" />
+    <state width="1259" height="172" key="GridCell.Tab.0.left" timestamp="1591065071856">
+      <screen x="0" y="0" width="1280" height="663" />
     </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.left/0.0.1280.662@0.0.1280.662" timestamp="1591037381427" />
-    <state width="1237" height="157" key="GridCell.Tab.0.right" timestamp="1591037381427">
-      <screen x="0" y="0" width="1280" height="662" />
+    <state width="1259" height="172" key="GridCell.Tab.0.left/0.0.1280.662@0.0.1280.662" timestamp="1591064832943" />
+    <state width="1259" height="172" key="GridCell.Tab.0.left/0.0.1280.663@0.0.1280.663" timestamp="1591065071856" />
+    <state width="1259" height="172" key="GridCell.Tab.0.right" timestamp="1591065071856">
+      <screen x="0" y="0" width="1280" height="663" />
     </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.right/0.0.1280.662@0.0.1280.662" timestamp="1591037381427" />
+    <state width="1259" height="172" key="GridCell.Tab.0.right/0.0.1280.662@0.0.1280.662" timestamp="1591064832943" />
+    <state width="1259" height="172" key="GridCell.Tab.0.right/0.0.1280.663@0.0.1280.663" timestamp="1591065071856" />
   </component>
 </project>

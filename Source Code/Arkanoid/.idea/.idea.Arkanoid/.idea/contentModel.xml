@@ -27,6 +27,9 @@
         <e p="Form1.cs" t="Include" />
         <e p="Form1.Designer.cs" t="Include" />
         <e p="Form1.resx" t="Include" />
+        <e p="Top10.cs" t="Include" />
+        <e p="Top10.Designer.cs" t="Include" />
+        <e p="Top10.resx" t="Include" />
       </e>
     </e>
   </component>

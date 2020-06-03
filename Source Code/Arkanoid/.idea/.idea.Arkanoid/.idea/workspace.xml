@@ -12,12 +12,17 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Vista/Form1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Vista/Top10.Designer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Vista/Top10.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Form1.Designer.cs" />
         <option value="$PROJECT_DIR$/Form1.cs" />
+        <option value="$PROJECT_DIR$/Vista/Top10.Designer.cs" />
+        <option value="$PROJECT_DIR$/Vista/Top10.cs" />
+        <option value="$PROJECT_DIR$/Vista/Form1.cs" />
       </list>
     </option>
   </component>
@@ -67,7 +72,10 @@
       <workItem from="1590969466852" duration="511000" />
       <workItem from="1590971388328" duration="1007000" />
       <workItem from="1591053807026" duration="5641000" />
-      <workItem from="1591065906328" duration="220000" />
+      <workItem from="1591065906328" duration="1518000" />
+      <workItem from="1591130266968" duration="5354000" />
+      <workItem from="1591136157160" duration="1167000" />
+      <workItem from="1591137551737" duration="5410000" />
     </task>
     <servers />
   </component>
@@ -77,25 +85,29 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="WindowStateProjectService">
-    <state width="1323" height="2" key="GridCell.Tab.0.bottom" timestamp="1591066234026">
+    <state x="547" y="310" key="Assembly removing confirmation dialog" timestamp="1591141877677">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="547" y="310" key="Assembly removing confirmation dialog/0.0.1366.728@0.0.1366.728" timestamp="1591141877677" />
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom" timestamp="1591143042804">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.bottom/0.0.1280.662@0.0.1280.662" timestamp="1591037381427" />
-    <state width="1323" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591066234026" />
-    <state width="1323" height="2" key="GridCell.Tab.0.center" timestamp="1591066234025">
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591143042804" />
+    <state width="1323" height="2" key="GridCell.Tab.0.center" timestamp="1591143042803">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.center/0.0.1280.662@0.0.1280.662" timestamp="1591037381427" />
-    <state width="1323" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591066234025" />
-    <state width="1323" height="2" key="GridCell.Tab.0.left" timestamp="1591066234025">
+    <state width="1323" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591143042803" />
+    <state width="1323" height="2" key="GridCell.Tab.0.left" timestamp="1591143042803">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.left/0.0.1280.662@0.0.1280.662" timestamp="1591037381427" />
-    <state width="1323" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591066234025" />
-    <state width="1323" height="2" key="GridCell.Tab.0.right" timestamp="1591066234026">
+    <state width="1323" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591143042803" />
+    <state width="1323" height="2" key="GridCell.Tab.0.right" timestamp="1591143042804">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.right/0.0.1280.662@0.0.1280.662" timestamp="1591037381427" />
-    <state width="1323" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591066234026" />
+    <state width="1323" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591143042804" />
   </component>
 </project>

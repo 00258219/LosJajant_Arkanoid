@@ -29,7 +29,6 @@ namespace Arkanoid
             fillRowTest(Resources.block2t, 2);
             fillRowTest(Resources.block1t, 3);
 
-
         }
         private void fillRowTest(Image im, int rowN)
         {
@@ -44,10 +43,6 @@ namespace Arkanoid
                 
                 tableLayoutPanel4.Controls.Add(pb, i+1, rowN);
             }
-
-
-
         }
-        
     }
 }

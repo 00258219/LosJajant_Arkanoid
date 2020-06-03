@@ -60,6 +60,12 @@
         <Compile Include="Vista\Game.Designer.cs">
           <DependentUpon>Game.cs</DependentUpon>
         </Compile>
+        <Compile Include="Vista\Menu.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="Vista\Menu.Designer.cs">
+          <DependentUpon>Menu.cs</DependentUpon>
+        </Compile>
         <Compile Include="Vista\Top10.cs">
           <SubType>UserControl</SubType>
         </Compile>
@@ -80,6 +86,9 @@
         </EmbeddedResource>
         <EmbeddedResource Include="Vista\Game.resx">
           <DependentUpon>Game.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Vista\Menu.resx">
+          <DependentUpon>Menu.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Vista\Top10.resx">
           <DependentUpon>Top10.cs</DependentUpon>

@@ -19,7 +19,7 @@ namespace Arkanoid
         {
             InitializeComponent();
             MaximizeBox = false;
-            //uc = *ElUserControlQueQuieroProbar*;
+            //uc = *ponganElUserQueQuierenProbar*;
             this.panel1.Controls.Add(uc);
         }
         

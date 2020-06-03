@@ -28,3 +28,15 @@ C:\Users\USUARIO\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkan
 C:\Users\USUARIO\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Top10.resources
 D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Top10.resources
 D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Game.resources
+C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\Arkanoid.exe.config
+C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\Arkanoid.exe
+C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\Arkanoid.pdb
+C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csprojAssemblyReference.cache
+C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Properties.Resources.resources
+C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Form1.resources
+C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Game.resources
+C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Top10.resources
+C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csproj.GenerateResource.cache
+C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.exe
+C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.pdb
+C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Menu.resources

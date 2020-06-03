@@ -143,7 +143,7 @@ namespace Arkanoid
             this.labPlayers.Location = new System.Drawing.Point(3, 26);
             this.labPlayers.Name = "labPlayers";
             this.labPlayers.Padding = new System.Windows.Forms.Padding(75, 0, 0, 0);
-            this.labPlayers.Size = new System.Drawing.Size(444, 538);
+            this.labPlayers.Size = new System.Drawing.Size(443, 538);
             this.labPlayers.TabIndex = 2;
             this.labPlayers.Text =
                 "   Players\r\n1   Henry\r\n2  Oscar\r\n3  Carlos\r\n4  Diana\r\n5  Enrique\r\n6  Chino\r\n7  Ch" +

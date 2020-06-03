@@ -26,3 +26,5 @@ C:\Users\USUARIO\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkan
 C:\Users\USUARIO\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.exe
 C:\Users\USUARIO\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.pdb
 C:\Users\USUARIO\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Top10.resources
+D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Top10.resources
+D:\Users\oscarorellana\Desktop\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Game.resources

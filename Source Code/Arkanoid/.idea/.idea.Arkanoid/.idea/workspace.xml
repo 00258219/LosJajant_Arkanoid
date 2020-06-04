@@ -11,16 +11,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Modelo/Score.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Modelo/Player.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Vista/Top10.Designer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Vista/Form1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Controlador/ConnectionDB.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Vista/Menu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Vista/Menu.Designer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Vista/Game.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Vista/Menu.Designer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Vista/Top10.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Vista/PlayerRegister.Designer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Vista/Form1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Vista/PlayerRegister.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Vista/Top10.Designer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controlador/ConnectionDB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Modelo/Score.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -36,7 +38,10 @@
         <option value="$PROJECT_DIR$/Modelo/ConnectionDB.cs" />
         <option value="$PROJECT_DIR$/Vista/Menu.Designer.cs" />
         <option value="$PROJECT_DIR$/Vista/Menu.cs" />
+        <option value="$PROJECT_DIR$/Vista/PlayerRegister.Designer.cs" />
+        <option value="$PROJECT_DIR$/Vista/PlayerRegister.cs" />
         <option value="$PROJECT_DIR$/Vista/Form1.cs" />
+        <option value="$PROJECT_DIR$/Controlador/ConnectionDB.cs" />
       </list>
     </option>
   </component>
@@ -44,7 +49,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -70,7 +74,7 @@
       <option name="PROJECT_KIND" value="Console" />
       <option name="PROJECT_TFM" value="" />
       <method v="2">
-        <option name="Build" enabled="true" />
+        <option name="Build" />
       </method>
     </configuration>
   </component>
@@ -94,39 +98,43 @@
       <workItem from="1591146922859" duration="1342000" />
       <workItem from="1591153356809" duration="4109000" />
       <workItem from="1591213960970" duration="800000" />
+      <workItem from="1591303092140" duration="1566000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="547" y="310" key="Assembly removing confirmation dialog" timestamp="1591141877677">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="547" y="310" key="Assembly removing confirmation dialog/0.0.1366.728@0.0.1366.728" timestamp="1591141877677" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1591214985501">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1591304472363">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1259" height="172" key="GridCell.Tab.0.bottom/0.0.1280.662@0.0.1280.662" timestamp="1591148223542" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591214985501" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1591214985501">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591304472363" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1591304472363">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1259" height="172" key="GridCell.Tab.0.center/0.0.1280.662@0.0.1280.662" timestamp="1591148223542" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591214985501" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1591214985501">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591304472363" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1591304472363">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1259" height="172" key="GridCell.Tab.0.left/0.0.1280.662@0.0.1280.662" timestamp="1591148223542" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591214985501" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1591214985501">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591304472363" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1591304472363">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1259" height="172" key="GridCell.Tab.0.right/0.0.1280.662@0.0.1280.662" timestamp="1591148223542" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591214985501" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591304472363" />
     <state x="141" y="0" key="SettingsEditor" timestamp="1591147023291">
       <screen x="0" y="0" width="1280" height="662" />
     </state>

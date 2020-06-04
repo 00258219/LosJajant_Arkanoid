@@ -64,3 +64,32 @@ C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkano
 C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.exe
 C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.pdb
 C:\Users\paty6\Arkanoid\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Menu.resources
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csprojResolveAssemblyReference.cache
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Properties.Resources.resources
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Form1.resources
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Game.resources
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Menu.resources
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.Top10.resources
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.csproj.GenerateResource.Cache
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.exe
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\obj\Debug\Arkanoid.pdb
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\Arkanoid.exe.config
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\Arkanoid.exe
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\Arkanoid.pdb
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\AltoControls.dll
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Buffers.dll
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Memory.dll
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Text.Json.dll
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Buffers.xml
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Memory.xml
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Text.Json.xml
+C:\Users\Ely Montes\Desktop\Repositorio\LosJajant_Arkanoid\Source Code\Arkanoid\bin\Debug\System.Threading.Tasks.Extensions.xml

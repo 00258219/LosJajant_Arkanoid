@@ -19,7 +19,7 @@ namespace Arkanoid
         {
             InitializeComponent();
             MaximizeBox = false;
-            uc = new Game();
+            uc = new PlayerRegister();
             this.panel1.Controls.Add(uc);
         }
         

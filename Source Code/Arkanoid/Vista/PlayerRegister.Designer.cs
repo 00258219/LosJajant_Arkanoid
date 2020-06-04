@@ -43,9 +43,6 @@ namespace Arkanoid
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tableLayoutPanel1
-            // 
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -65,9 +62,6 @@ namespace Arkanoid
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.511737F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(786, 426);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
             this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.46154F));
@@ -81,9 +75,6 @@ namespace Arkanoid
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(780, 100);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // txtNickname
-            // 
             this.txtNickname.BackColor = System.Drawing.Color.Transparent;
             this.txtNickname.Br = System.Drawing.Color.FromArgb(((int) (((byte) (7)))), ((int) (((byte) (0)))), ((int) (((byte) (48)))));
             this.txtNickname.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -94,9 +85,6 @@ namespace Arkanoid
             this.txtNickname.Size = new System.Drawing.Size(543, 94);
             this.txtNickname.TabIndex = 0;
             this.txtNickname.Text = "nickname";
-            // 
-            // tableLayoutPanel3
-            // 
             this.tableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.71795F));
@@ -110,9 +98,6 @@ namespace Arkanoid
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(780, 79);
             this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // lblUser
-            // 
             this.lblUser.BackColor = System.Drawing.Color.Transparent;
             this.lblUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblUser.Font = new System.Drawing.Font("Blader", 90F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
@@ -123,9 +108,6 @@ namespace Arkanoid
             this.lblUser.TabIndex = 0;
             this.lblUser.Text = "USUARIO";
             this.lblUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel4
-            // 
             this.tableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.743589F));
@@ -139,9 +121,6 @@ namespace Arkanoid
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(780, 89);
             this.tableLayoutPanel4.TabIndex = 2;
-            // 
-            // lblButton
-            // 
             this.lblButton.BackColor = System.Drawing.Color.Transparent;
             this.lblButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblButton.Font = new System.Drawing.Font("Blader", 84.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
@@ -154,9 +133,6 @@ namespace Arkanoid
             this.lblButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblButton.MouseEnter += new System.EventHandler(this.lblButton_MouseEnter);
             this.lblButton.MouseLeave += new System.EventHandler(this.lblButton_MouseLeave);
-            // 
-            // PlayerRegister
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;

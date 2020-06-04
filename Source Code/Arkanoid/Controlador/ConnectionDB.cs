@@ -13,7 +13,7 @@ namespace Arkanoid.Controlador
 
         private static readonly string password = "f84e5348422d0a85a1bfca731578c72461258f0fa9cb0180077820ef4959d289";
 
-        private static readonly string sConnection =
+        private static readonly string sConnection=
             $"Host={host};Port=5432;User Id={userId};Password={password};Database={database};" +
             $"sslmode=Require;Trust Server Certificate=true";
         

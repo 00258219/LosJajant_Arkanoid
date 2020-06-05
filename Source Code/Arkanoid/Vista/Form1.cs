@@ -8,19 +8,21 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Arkanoid.Controlador;
 
 namespace Arkanoid
 {
     public partial class Form1 : Form
     {
-        
-        private UserControl uc = new UserControl();
         public Form1()
         {
             InitializeComponent();
             MaximizeBox = false;
-            uc = new PlayerRegister();
-            this.panel1.Controls.Add(uc);
+            this.DoubleBuffered = true;
+            //Agregando componente al panel mediante la clase controladora
+            PanelControlator.panel1 = this.panel1;
+            PanelControlator.panel1.Controls.Add(PanelControlator.menu);
+            PanelControlator.uc = PanelControlator.menu;
         }
         
         protected override void WndProc(ref Message m)

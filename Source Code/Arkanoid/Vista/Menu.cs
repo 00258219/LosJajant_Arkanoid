@@ -6,8 +6,10 @@
 
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using Arkanoid.Controlador;
 
 namespace Arkanoid
 {
@@ -54,6 +56,27 @@ namespace Arkanoid
         {
             labelExit.BackColor=Color.Transparent;
         }
+        //funcionamiento del click en 'Play'
+        private void labelPlay_Click(object sender, EventArgs e)
+        {
+            //cambiando el componente que esta dentro del panel en el Form1 
+            PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
+            PanelControlator.uc = PanelControlator.playeregister;
+            PanelControlator.panel1.Controls.Add(PanelControlator.uc);
+        }
 
+        //funcionamiento del click en 'Top10'
+        private void labelTop_Click(object sender, EventArgs e)
+        { 
+            //cambiando el componente que esta dentro del panel en el Form1 
+            PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
+            PanelControlator.uc = PanelControlator.top10;
+            PanelControlator.panel1.Controls.Add(PanelControlator.uc);
+        }
+        //funcionamiento del click en 'Exit'
+        private void labelExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

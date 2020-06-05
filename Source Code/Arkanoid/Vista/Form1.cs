@@ -23,6 +23,7 @@ namespace Arkanoid
             PanelControlator.panel1 = this.panel1;
             PanelControlator.panel1.Controls.Add(PanelControlator.menu);
             PanelControlator.uc = PanelControlator.menu;
+            
         }
         
         protected override void WndProc(ref Message m)

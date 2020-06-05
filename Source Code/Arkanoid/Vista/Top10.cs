@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using Arkanoid.Controlador;
+using Arkanoid.Modelo;
 
 namespace Arkanoid
 {
@@ -20,7 +23,6 @@ namespace Arkanoid
             labTop10.BackColor = Color.FromArgb(125, labTop10.BackColor);
             labPlayers.BackColor = Color.FromArgb(125, labTop10.BackColor);
             labScore.BackColor = Color.FromArgb(125, labTop10.BackColor);
-
         }
     }
 }

@@ -54,7 +54,7 @@ namespace Arkanoid
             this.tableLayoutPanel1.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.672609F));
             this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 337F));
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 346F));
             this.tableLayoutPanel1.Controls.Add(this.labelPlay, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.labelTop, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.labelExit, 2, 6);
@@ -90,12 +90,13 @@ namespace Arkanoid
             this.labelPlay.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Bold,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.labelPlay.ForeColor = System.Drawing.Color.White;
-            this.labelPlay.Location = new System.Drawing.Point(178, 96);
+            this.labelPlay.Location = new System.Drawing.Point(176, 96);
             this.labelPlay.Name = "labelPlay";
-            this.labelPlay.Size = new System.Drawing.Size(322, 150);
+            this.labelPlay.Size = new System.Drawing.Size(317, 150);
             this.labelPlay.TabIndex = 4;
             this.labelPlay.Text = "Play";
             this.labelPlay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelPlay.Click += new System.EventHandler(this.labelPlay_Click);
             this.labelPlay.MouseLeave += new System.EventHandler(this.labelPlay_MouseLeave);
             this.labelPlay.MouseHover += new System.EventHandler(this.labelPlay_MouseHover);
             // 
@@ -106,12 +107,13 @@ namespace Arkanoid
             this.labelTop.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Bold,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.labelTop.ForeColor = System.Drawing.Color.White;
-            this.labelTop.Location = new System.Drawing.Point(178, 278);
+            this.labelTop.Location = new System.Drawing.Point(176, 278);
             this.labelTop.Name = "labelTop";
-            this.labelTop.Size = new System.Drawing.Size(322, 144);
+            this.labelTop.Size = new System.Drawing.Size(317, 144);
             this.labelTop.TabIndex = 1;
             this.labelTop.Text = "top 10";
             this.labelTop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTop.Click += new System.EventHandler(this.labelTop_Click);
             this.labelTop.MouseLeave += new System.EventHandler(this.labelTop_MouseLeave);
             this.labelTop.MouseHover += new System.EventHandler(this.labelTop_MouseHover);
             // 
@@ -122,12 +124,13 @@ namespace Arkanoid
             this.labelExit.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Bold,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.labelExit.ForeColor = System.Drawing.Color.White;
-            this.labelExit.Location = new System.Drawing.Point(178, 452);
+            this.labelExit.Location = new System.Drawing.Point(176, 452);
             this.labelExit.Name = "labelExit";
-            this.labelExit.Size = new System.Drawing.Size(322, 120);
+            this.labelExit.Size = new System.Drawing.Size(317, 120);
             this.labelExit.TabIndex = 0;
             this.labelExit.Text = "Exit";
             this.labelExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelExit.Click += new System.EventHandler(this.labelExit_Click);
             this.labelExit.MouseLeave += new System.EventHandler(this.labelExit_MouseLeave);
             this.labelExit.MouseHover += new System.EventHandler(this.labelExit_MouseHover);
             // 
@@ -136,9 +139,9 @@ namespace Arkanoid
             this.tableLayoutPanel1.SetColumnSpan(this.pictureBox1, 3);
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image) (resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(140, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(138, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(390, 81);
+            this.pictureBox1.Size = new System.Drawing.Size(384, 81);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;

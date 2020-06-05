@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador\ConnectionDB.cs" />
+    <Compile Include="Controlador\PanelControlator.cs" />
     <Compile Include="Modelo\Player.cs" />
     <Compile Include="Modelo\Score.cs" />
     <Compile Include="Program.cs" />

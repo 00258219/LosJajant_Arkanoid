@@ -146,6 +146,9 @@
     <EmbeddedResource Include="Vista\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\PlayerRegister.resx">
+      <DependentUpon>PlayerRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Top10.resx">
       <DependentUpon>Top10.cs</DependentUpon>
     </EmbeddedResource>

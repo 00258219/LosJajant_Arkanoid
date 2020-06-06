@@ -13,7 +13,7 @@ namespace Arkanoid
             this.DoubleBuffered = true;
             this.Dock = DockStyle.Fill;
             txtNickname.box.MaxLength = 10;
-
+            txtNickname.box.TextAlign = HorizontalAlignment.Center;
         }
         
         private void PlayerRegister_Load(object sender, EventArgs e)
@@ -49,5 +49,6 @@ namespace Arkanoid
                 MessageBox.Show("Tienes que escribir tu nickname para jugar");
             
         }
+        
     }
 }

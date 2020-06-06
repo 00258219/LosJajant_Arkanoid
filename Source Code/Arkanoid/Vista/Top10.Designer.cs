@@ -31,6 +31,8 @@ namespace Arkanoid
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(Top10));
             this.lbltop10 = new System.Windows.Forms.TableLayoutPanel();
             this.btnback = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -89,6 +91,7 @@ namespace Arkanoid
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image) (resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(644, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(231, 113);
@@ -145,9 +148,6 @@ namespace Arkanoid
             this.labPlayers.Padding = new System.Windows.Forms.Padding(75, 0, 0, 0);
             this.labPlayers.Size = new System.Drawing.Size(443, 538);
             this.labPlayers.TabIndex = 2;
-            this.labPlayers.Text =
-                "   Players\r\n1   Henry\r\n2  Oscar\r\n3  Carlos\r\n4  Diana\r\n5  Enrique\r\n6  Chino\r\n7  Ch" +
-                "ule\r\n8  Chobe\r\n9  Alexander\r\n10 Roberto";
             this.labPlayers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labScore
@@ -162,7 +162,6 @@ namespace Arkanoid
             this.labScore.Name = "labScore";
             this.labScore.Size = new System.Drawing.Size(212, 528);
             this.labScore.TabIndex = 3;
-            this.labScore.Text = "Score\r\n1000\r\n999\r\n998\r\n997\r\n996\r\n995\r\n994\r\n993\r\n992\r\n991";
             this.labScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Top10

@@ -9,6 +9,8 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.Threading;
 using Arkanoid.Controlador;
 
 namespace Arkanoid
@@ -17,8 +19,13 @@ namespace Arkanoid
     {
         public Menu()
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             InitializeComponent();
             Dock = DockStyle.Fill; 
+            //{código de ejecución}
+            watch.Stop();
+            MessageBox.Show($"Time: {watch.ElapsedMilliseconds} ms");
+
         }
 
         /*
@@ -73,10 +80,19 @@ namespace Arkanoid
             PanelControlator.uc = PanelControlator.top10;
             PanelControlator.panel1.Controls.Add(PanelControlator.uc);
         }
+        
         //funcionamiento del click en 'Exit'
         private void labelExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+        var watch = System.Diagnostics.Stopwatch.StartNew();
+        //{código de ejecución}
+        watch.Stop();
+        //MessageBox.Show($"Time: {watch.ElapsedMilliseconds} ms");
+        }     
     }
 }

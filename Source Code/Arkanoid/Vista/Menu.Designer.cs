@@ -149,16 +149,14 @@ namespace Arkanoid
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Menu";
             this.Size = new System.Drawing.Size(873, 593);
-            this.Load += new System.EventHandler(this.Menu_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-
         #endregion
-
+        
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelPlay;
         private System.Windows.Forms.Label labelExit;

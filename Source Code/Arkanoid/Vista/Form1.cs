@@ -26,6 +26,9 @@ namespace Arkanoid
             
         }
         
+        //Cuando se deja maximimazada la ventana aun ocurren dos cosas que queremos evitar y es el movimiento de la
+        //ventana y el minimizado por doble clic en la barra superior, entonces recibimos esas acciones y evitamos
+        //que hagan cambios, osea las suprimimos.
         protected override void WndProc(ref Message m)
         {
             const int wmSyscommand = 0x0112;

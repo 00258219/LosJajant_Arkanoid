@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Arkanoid.Controlador;
 using Arkanoid.Modelo;
+using Arkanoid.Properties;
 
 namespace Arkanoid
 {
@@ -12,14 +13,13 @@ namespace Arkanoid
         public Top10()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
-            this.Dock = DockStyle.Fill;
         }
-
-
+        
         private void Top10_Load(object sender, EventArgs e)
         {
-            this.DoubleBuffered = true;
+            DoubleBuffered = true;
+            Dock = DockStyle.Fill;
+            pictureBox1.Image = Resources.logo;
             labTop10.BackColor = Color.FromArgb(125, labTop10.BackColor);
             labPlayers.BackColor = Color.FromArgb(125, labTop10.BackColor);
             labScore.BackColor = Color.FromArgb(125, labTop10.BackColor);

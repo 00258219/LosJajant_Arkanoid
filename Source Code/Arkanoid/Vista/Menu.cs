@@ -19,13 +19,8 @@ namespace Arkanoid
     {
         public Menu()
         {
-            var watch = System.Diagnostics.Stopwatch.StartNew();
             InitializeComponent();
-            Dock = DockStyle.Fill; 
-            //{código de ejecución}
-            watch.Stop();
-            MessageBox.Show($"Time: {watch.ElapsedMilliseconds} ms");
-
+            Dock = DockStyle.Fill;
         }
 
         /*
@@ -86,13 +81,6 @@ namespace Arkanoid
         {
             Application.Exit();
         }
-
-        private void Menu_Load(object sender, EventArgs e)
-        {
-        var watch = System.Diagnostics.Stopwatch.StartNew();
-        //{código de ejecución}
-        watch.Stop();
-        //MessageBox.Show($"Time: {watch.ElapsedMilliseconds} ms");
-        }     
+        
     }
 }

@@ -161,7 +161,7 @@ namespace Arkanoid
             this.label2.Padding = new System.Windows.Forms.Padding(2);
             this.label2.Size = new System.Drawing.Size(190, 33);
             this.label2.TabIndex = 1;
-            this.label2.Text = "0000";
+            this.label2.Text = "000000";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
@@ -288,6 +288,7 @@ namespace Arkanoid
             this.Name = "Game";
             this.Size = new System.Drawing.Size(864, 445);
             this.Load += new System.EventHandler(this.Game_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox3)).EndInit();

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Arkanoid.Controlador;
+using Arkanoid.Properties;
 
 namespace Arkanoid
 {
@@ -18,12 +19,21 @@ namespace Arkanoid
         {
             InitializeComponent();
             MaximizeBox = false;
-            this.DoubleBuffered = true;
+        }
+        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            DoubleBuffered = true;
+            BackgroundImage = Resources.background;
+            //Cambiando el size de cada userControl
+            PanelControlator.game.Size = panel1.Size;
+            PanelControlator.menu.Size = panel1.Size;
+            PanelControlator.top10.Size = panel1.Size;
+            PanelControlator.playeregister.Size = panel1.Size;
             //Agregando componente al panel mediante la clase controladora
-            PanelControlator.panel1 = this.panel1;
+            PanelControlator.panel1 = panel1;
             PanelControlator.panel1.Controls.Add(PanelControlator.menu);
             PanelControlator.uc = PanelControlator.menu;
-            
         }
         
         //Cuando se deja maximimazada la ventana aun ocurren dos cosas que queremos evitar y es el movimiento de la

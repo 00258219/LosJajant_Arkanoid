@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{869964BB-C4AF-43B6-947A-F3512416E246}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Vista/Form1.cs">
+    <Files>
+      <File FileName="Vista/Form1.cs" Line="76" Column="16" />
+      <File FileName="Vista/Game.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Arkanoid" expanded="True">
+            <Node name="Arkanoid" expanded="True">
+              <Node name="Vista" expanded="True">
+                <Node name="Form1.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Arkanoid PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

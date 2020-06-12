@@ -17,5 +17,7 @@ namespace Arkanoid.Controlador
         
         //Tambien guardaremos el usuario que este actualmente jugando.
         public static string player = "";
+        //y el puntuaje del usuario que esta jugando.
+        public static int score = 0;
     }
 }

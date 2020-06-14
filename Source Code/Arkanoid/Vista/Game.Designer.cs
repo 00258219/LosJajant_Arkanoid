@@ -45,6 +45,7 @@ namespace Arkanoid
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.timeLimit = new System.Windows.Forms.Timer(this.components);
+            this.timePlayer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox3)).BeginInit();
@@ -58,6 +59,7 @@ namespace Arkanoid
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -81,6 +83,7 @@ namespace Arkanoid
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Gray;
+            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 6;
             this.tableLayoutPanel2.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.95258F));
@@ -101,7 +104,7 @@ namespace Arkanoid
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 3, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(22, 20);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(23, 21);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(22, 20, 22, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -109,17 +112,17 @@ namespace Arkanoid
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(820, 33);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(818, 32);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Location = new System.Drawing.Point(778, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(774, 13);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 9);
+            this.pictureBox3.Size = new System.Drawing.Size(31, 6);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
@@ -128,10 +131,10 @@ namespace Arkanoid
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(731, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(727, 13);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(23, 9);
+            this.pictureBox2.Size = new System.Drawing.Size(22, 6);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
@@ -143,10 +146,10 @@ namespace Arkanoid
             this.label3.Font = new System.Drawing.Font("Blader", 36F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(346, 0);
+            this.label3.Location = new System.Drawing.Point(345, 1);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(2);
-            this.label3.Size = new System.Drawing.Size(321, 33);
+            this.label3.Size = new System.Drawing.Size(317, 30);
             this.label3.TabIndex = 2;
             this.label3.Text = "LIVES :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -158,10 +161,10 @@ namespace Arkanoid
             this.scoreLabel.Font = new System.Drawing.Font("Blader", 36F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.scoreLabel.ForeColor = System.Drawing.Color.White;
-            this.scoreLabel.Location = new System.Drawing.Point(150, 0);
+            this.scoreLabel.Location = new System.Drawing.Point(150, 1);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Padding = new System.Windows.Forms.Padding(2);
-            this.scoreLabel.Size = new System.Drawing.Size(190, 33);
+            this.scoreLabel.Size = new System.Drawing.Size(188, 30);
             this.scoreLabel.TabIndex = 1;
             this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -172,10 +175,10 @@ namespace Arkanoid
             this.label1.Font = new System.Drawing.Font("Blader", 36F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(2);
-            this.label1.Size = new System.Drawing.Size(141, 33);
+            this.label1.Size = new System.Drawing.Size(139, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "SCORE :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -184,10 +187,10 @@ namespace Arkanoid
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(682, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(678, 13);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 9);
+            this.pictureBox1.Size = new System.Drawing.Size(24, 6);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -195,7 +198,7 @@ namespace Arkanoid
             // pictureBox4
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox4.Location = new System.Drawing.Point(318, 394);
+            this.pictureBox4.Location = new System.Drawing.Point(318, 393);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(227, 38);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -204,6 +207,7 @@ namespace Arkanoid
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
@@ -214,7 +218,7 @@ namespace Arkanoid
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.pictureBox5, 1, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 53);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1, 54);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
@@ -224,12 +228,13 @@ namespace Arkanoid
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54F));
             this.tableLayoutPanel3.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(864, 338);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(862, 335);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel4.ColumnCount = 8;
             this.tableLayoutPanel4.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -248,29 +253,29 @@ namespace Arkanoid
             this.tableLayoutPanel4.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(25, 27);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(27, 28);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 6;
             this.tableLayoutPanel4.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66556F));
             this.tableLayoutPanel4.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66556F));
             this.tableLayoutPanel4.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66556F));
             this.tableLayoutPanel4.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66556F));
             this.tableLayoutPanel4.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66889F));
             this.tableLayoutPanel4.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(812, 182);
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66889F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(806, 178);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox5.Location = new System.Drawing.Point(410, 252);
+            this.pictureBox5.Location = new System.Drawing.Point(409, 249);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(42, 42);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -281,6 +286,10 @@ namespace Arkanoid
             // 
             this.timeLimit.Interval = 1;
             this.timeLimit.Tick += new System.EventHandler(this.timeLimit_Tick);
+            // 
+            // timePlayer
+            // 
+            this.timePlayer.Tick += new System.EventHandler(this.timePlayer_Tick);
             // 
             // Game
             // 
@@ -322,5 +331,6 @@ namespace Arkanoid
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Timer timeLimit;
         private System.Windows.Forms.Label scoreLabel;
+        private System.Windows.Forms.Timer timePlayer;
     }
 }

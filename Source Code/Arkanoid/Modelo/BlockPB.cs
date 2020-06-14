@@ -18,7 +18,7 @@ namespace Arkanoid.Modelo
             Hits = hits;
             Points = hits * 1000;
             Dock = DockStyle.Fill;
-            Margin = new Padding(6, 0, 6, 8);
+           // Margin = new Padding(6, 0, 6, 8);
             SizeMode = PictureBoxSizeMode.StretchImage;
         }
 

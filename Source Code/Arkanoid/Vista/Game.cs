@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using Arkanoid.Properties;
 using System.Windows.Input;
 using Arkanoid.Controlador;
 using Arkanoid.Modelo;
+using ContentAlignment = System.Drawing.ContentAlignment;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 
 namespace Arkanoid
@@ -15,7 +19,10 @@ namespace Arkanoid
         private int currentTime = 240; //4 mins
         //variable que describe si la pelota esta fijada con la plataforma
         private bool trapped = true;
-
+        
+        //Variable
+        List<BlockPB> bloques = new List<BlockPB>();
+        
         public Game()
         {
             InitializeComponent(); 
@@ -27,12 +34,15 @@ namespace Arkanoid
         {
             //cargando las imagenes y fondos
             tableLayoutPanel2.BackColor = Color.FromArgb(70, tableLayoutPanel2.BackColor);
-            BackgroundImage = Resources.gameBackground;
+            //BackgroundImage = Resources.gameBackground;
             pictureBox1.Image = Resources.heartf;
             pictureBox2.Image = Resources.heartf;
             pictureBox3.Image = Resources.heartf;
             pictureBox4.Image = Resources.plataform;
             pictureBox5.Image = Resources.ball;
+            
+            pictureBox4.BackColor=Color.Azure;
+            pictureBox5.BackColor=Color.Bisque;
             
             //Debemos quitar el tableyout para el movimiento de la pelota y plataforma, asi que guardamos
             //los componentes importantes
@@ -40,9 +50,11 @@ namespace Arkanoid
             var pb4 = pictureBox4;
             var pb5 = pictureBox5;
             var tlp4 = tableLayoutPanel4;
+            
 
             var tlp2size = tableLayoutPanel2.Size;
             var tlp4size = tableLayoutPanel4.Size;
+
             //Borramos todos lo componentes que esten en este userControl
             Controls.Clear();
             
@@ -69,20 +81,51 @@ namespace Arkanoid
             tlp4.Dock = DockStyle.None;
             tlp4.Size = tlp4size;
             Controls.Add(tlp4);//[4]los bloques
-
+            
+            
             //Hacer que la pelota inicie justo arriba de la plataforma y ajustando la posicion de los bloques
             pb5.Location = new Point(pb5.Location.X, pb4.Location.Y-pb5.Height);
             tlp4.Location = new Point(tlp4.Location.X, tlp4.Location.Y+100);
 
+            
             //colocando los bloques en el juego
             fillRowBlock(Resources.block5t, 5, 0, tlp4);
             fillRowBlock(Resources.block3t, 3, 1, tlp4);
             fillRowBlock(Resources.block2t, 2, 2, tlp4);
             fillRowBlock(Resources.block1t, 1, 3, tlp4);
             
+
             //Iniciar puntaje
             scoreLabel.Text = PanelControlator.score.ToString("D7");
             
+            //Comenzando el timerPlayer
+            startTimePlayer();
+            
+            //Activando el timeLimit para llevar el conteo  del tiempo de partida
+            startTime();
+
+            //Removiendo el TableLayoutPanel que contiene los bloques
+            //Guardamos la ubicacion y tamaño que deben llevar
+            int valueY = tlp4.Top;
+            int valueX = tlp4.Left;
+            var blockSize = tlp4.Controls[0].Size;
+            //Quitamos el tlp del userControl
+            Controls.Remove(tlp4);
+            //Recorremos el controls de tlp4 que es quien contiene los bloques
+            foreach (var i in tlp4.Controls)
+            {
+                BlockPB blockAux = (BlockPB) i;
+                blockAux.Dock = DockStyle.None;
+                bloques.Add(blockAux);//lo agregamos a una lista simple
+            }
+
+            foreach (var i in bloques)//recorremos la lista simple que contiene los bloques
+            {
+                Controls.Add(i);//los agregamos al UserControl
+                i.Size = blockSize;
+                i.Top += valueY;
+                i.Left += valueX;
+            }
             
             Focus();
         }
@@ -103,6 +146,13 @@ namespace Arkanoid
             timeLimit.Enabled = true;
             timeLimit.Interval = (1000);
             timeLimit.Start();
+        }
+        
+        //Metodo que inicia los movimientos de la pelota;
+        private void startTimePlayer()
+        {
+            timePlayer.Enabled = true;
+            timePlayer.Start();
         }
         private void timeLimit_Tick(object sender, EventArgs e)
         {
@@ -143,6 +193,12 @@ namespace Arkanoid
         //Evento para el movimiento de la plataforma e inicio del juego
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Space) {
+                GameData.StartGame = true;
+                trapped = false; //Cambiar la condicion para que se muevan independientemente
+               
+            }
+
             //Si tiene las siguientes dos teclas presionadas que la plataforma se detenga
             if ((Keyboard.IsKeyDown(Key.Left) && Keyboard.IsKeyDown(Key.Right))||
                 (Keyboard.IsKeyDown(Key.A) && Keyboard.IsKeyDown(Key.D))||
@@ -173,5 +229,60 @@ namespace Arkanoid
             }
         }
         
+        //Metodo que realiza lleva a cabo los movimientos de la pelota
+        private void timePlayer_Tick(object sender, EventArgs e)
+        {
+            //Si el juego no ha inicia no realiza moviemientos de la pelota
+            if (!GameData.StartGame)
+                return;
+            
+            //Movimiento de la pelota    
+            BallMoves();
+            
+            //Colisiones
+            Bounces();
+        }
+
+        //Metodo para realizar los movimientos de la pelota
+        private void BallMoves()
+        {
+            pictureBox5.Left += GameData.xSpeed;
+            pictureBox5.Top += GameData.ySpeed;
+        }
+
+        //Metodo que se encarga de revisar las colisiones
+        private void Bounces()
+        {
+            //Genera un rebote en la parte superior
+            if(pictureBox5.Top<tableLayoutPanel2.Bottom)
+                GameData.ySpeed = -GameData.ySpeed;
+            
+            //Condicion para que rebote cuando colisione con el borde
+            if(pictureBox5.Left<0 || pictureBox5.Right>Width){
+                GameData.xSpeed = -GameData.xSpeed;
+                return;
+            }
+            
+            // Condicion para que la pelota rebote con la plataforma
+            if (pictureBox5.Bounds.IntersectsWith(pictureBox4.Bounds))
+            {
+                GameData.ySpeed = -GameData.ySpeed;
+                return;
+            }
+            
+            //Para conocer las colisiones entre la pelota y el bloque
+            foreach (var block in bloques) 
+            {
+            
+                //Condicion para conocer si el bloque esta activo y existe colision
+                if (block.Enabled && Controls[3].Bounds.IntersectsWith(block.Bounds))
+                {
+                    block.Beaten(scoreLabel); // Verificando golpes y puntaje
+                    
+                    GameData.ySpeed = -GameData.ySpeed; //Cambia la direccion al chocar
+                      
+                }
+            }
+        }
     }
 }

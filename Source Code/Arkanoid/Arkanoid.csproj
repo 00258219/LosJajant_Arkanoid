@@ -115,6 +115,12 @@
     <Compile Include="Vista\Game.Designer.cs">
       <DependentUpon>Game.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\GameOver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\GameOver.Designer.cs">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Menu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Game.resx">
       <DependentUpon>Game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\GameOver.resx">
+      <DependentUpon>GameOver.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

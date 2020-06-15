@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using Arkanoid.Properties;
@@ -18,7 +21,7 @@ namespace Arkanoid
         //variable que guarda el tiempo de juego
         private int currentTime = 240; //4 mins
         //variable que describe si la pelota esta fijada con la plataforma
-        private bool trapped = true;
+        public static bool trapped = true;
         
         //Variable
         List<BlockPB> bloques = new List<BlockPB>();
@@ -30,7 +33,7 @@ namespace Arkanoid
             DoubleBuffered = true;
         }
         
-        private void Game_Load(object sender, EventArgs e)
+        public void Game_Load(object sender, EventArgs e)
         {
             //cargando las imagenes y fondos
             tableLayoutPanel2.BackColor = Color.FromArgb(70, tableLayoutPanel2.BackColor);
@@ -282,6 +285,54 @@ namespace Arkanoid
                     GameData.ySpeed = -GameData.ySpeed; //Cambia la direccion al chocar
                       
                 }
+            }
+
+            //Cuando no tiene más vidas, aparece la ventana de GameOver
+            if(pictureBox5.Bottom>pictureBox4.Bottom+10)
+            {
+                timePlayer.Stop();
+                timeLimit.Stop();
+                //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game mientras esté abierto GameOver
+                NewGameOver();
+            }   
+        }
+
+        //Método que muestra la ventana de GameOver y deja el fondo oscuro
+        private void NewGameOver()
+        {
+            //Tomando una "captura" del form completo con sus controles existentes
+            //bmp se convierte en una "copia" de nuestro form Game
+            Bitmap bmp = new Bitmap(this.ClientRectangle.Width, this.ClientRectangle.Height);
+            
+            using (Graphics G = Graphics.FromImage(bmp))
+            {
+                G.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
+                G.CopyFromScreen(this.PointToScreen(new Point(0, 0)), new Point(0, 0), this.ClientRectangle.Size);
+                //Haciendo oscuro el fondo
+                Color darken = Color.FromArgb(220, Color.Black);
+                using (Brush brsh = new SolidBrush(darken))
+                {
+                    //Coloreando el fondo de la copia del Form
+                    G.FillRectangle(brsh, this.ClientRectangle);
+                }
+            }
+
+            //Poniendo la "captura oscura" del form por delante del form actual
+            using (Panel p = new Panel())
+            {
+                p.Location = new Point(0, 0);
+                p.Size = this.ClientRectangle.Size;
+                p.BackgroundImage = bmp;
+                this.Controls.Add(p);
+                p.BringToFront();
+
+                //Mostrando el Game Over
+                GameOver gameOver = new GameOver();
+                gameOver.StartPosition = FormStartPosition.CenterParent;
+                
+                //Se mostrará dde esta forma, ya que deja inabilitado el form del fondo, y a su vez esperará
+                //una respuesta para volver a la normalidad (form no oscurecido)
+                gameOver.ShowDialog(this);
             }
         }
     }

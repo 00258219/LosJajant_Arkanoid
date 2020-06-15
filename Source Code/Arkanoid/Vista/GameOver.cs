@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Arkanoid.Controlador;
+using Arkanoid.Modelo;
 using Arkanoid.Properties;
 
 namespace Arkanoid
@@ -20,6 +21,7 @@ namespace Arkanoid
             DoubleBuffered = true;
             BackgroundImage = Image.FromFile("../../Resources/FondoEstrellas.jpg");
             BackgroundImageLayout = ImageLayout.Stretch;
+            label3.Text = "Score: " + PanelControlator.score.ToString("D7");
             label1.BackColor = Color.FromArgb(125, 5, 235, 179);
             label2.BackColor = Color.FromArgb(125, Color.Red);
             label4.BackColor = Color.FromArgb(125, 7, 0, 48);
@@ -64,8 +66,9 @@ namespace Arkanoid
         {
             //Limpiando el user control game para volver a implementarlo 
             PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
-            PanelControlator.panel1=null;
-            PanelControlator.uc = PanelControlator.game;
+            PanelControlator.uc = new Game();
+            //Restableciendo los valores que hacen funcionar correctamente a Game
+            GameReset();
             PanelControlator.panel1.Controls.Add(PanelControlator.uc);
             this.Hide();
         }
@@ -74,6 +77,9 @@ namespace Arkanoid
         {
             //Cambiando el user control dentro del Form 
             PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
+            PanelControlator.game=new Game();
+            //Restableciendo los valores que hacen funcionar correctamente a Game
+            GameMenuReset();
             PanelControlator.uc = PanelControlator.menu;
             PanelControlator.panel1.Controls.Add(PanelControlator.uc);
             this.Hide();
@@ -83,6 +89,21 @@ namespace Arkanoid
         {
             Application.Exit();
         }
+
+        private void GameReset()
+        {
+            PanelControlator.uc.Size = PanelControlator.panel1.Size;
+            PanelControlator.score = 0;
+            GameData.StartGame=false;
+            Game.trapped = true;
+        }
         
+        private void GameMenuReset()
+        {
+            PanelControlator.game.Size = PanelControlator.panel1.Size;
+            PanelControlator.score = 0;
+            GameData.StartGame=false;
+            Game.trapped = true;
+        }
     }
 }

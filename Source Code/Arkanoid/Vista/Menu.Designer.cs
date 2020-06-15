@@ -31,8 +31,7 @@ namespace Arkanoid
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(Menu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelExit = new System.Windows.Forms.Label();
@@ -46,8 +45,7 @@ namespace Arkanoid
             // 
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelExit, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.labelTop, 0, 3);
@@ -57,46 +55,35 @@ namespace Arkanoid
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.99999F));
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.000008F));
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38981F));
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38981F));
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.39038F));
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.829998F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(873, 593);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.99999F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.000008F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38981F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38981F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.39038F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.829998F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(748, 514);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
-                                                       System.Windows.Forms.AnchorStyles.Bottom)));
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pictureBox1.Image = ((System.Drawing.Image) (resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(51, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(44, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(770, 171);
+            this.pictureBox1.Size = new System.Drawing.Size(660, 148);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // labelExit
             // 
-            this.labelExit.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
-                                                       System.Windows.Forms.AnchorStyles.Bottom)));
+            this.labelExit.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelExit.BackColor = System.Drawing.Color.Transparent;
-            this.labelExit.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.labelExit.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.labelExit.ForeColor = System.Drawing.Color.White;
-            this.labelExit.Location = new System.Drawing.Point(155, 434);
+            this.labelExit.Location = new System.Drawing.Point(132, 377);
             this.labelExit.Name = "labelExit";
-            this.labelExit.Size = new System.Drawing.Size(563, 114);
+            this.labelExit.Size = new System.Drawing.Size(483, 99);
             this.labelExit.TabIndex = 3;
             this.labelExit.Text = "exit";
             this.labelExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -106,16 +93,13 @@ namespace Arkanoid
             // 
             // labelTop
             // 
-            this.labelTop.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
-                                                       System.Windows.Forms.AnchorStyles.Bottom)));
+            this.labelTop.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelTop.BackColor = System.Drawing.Color.Transparent;
-            this.labelTop.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.labelTop.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.labelTop.ForeColor = System.Drawing.Color.White;
-            this.labelTop.Location = new System.Drawing.Point(70, 320);
+            this.labelTop.Location = new System.Drawing.Point(60, 278);
             this.labelTop.Name = "labelTop";
-            this.labelTop.Size = new System.Drawing.Size(733, 114);
+            this.labelTop.Size = new System.Drawing.Size(628, 99);
             this.labelTop.TabIndex = 2;
             this.labelTop.Text = "Top 10";
             this.labelTop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -125,16 +109,13 @@ namespace Arkanoid
             // 
             // labelPlay
             // 
-            this.labelPlay.Anchor =
-                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
-                                                       System.Windows.Forms.AnchorStyles.Bottom)));
+            this.labelPlay.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelPlay.BackColor = System.Drawing.Color.Transparent;
-            this.labelPlay.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.labelPlay.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.labelPlay.ForeColor = System.Drawing.Color.White;
-            this.labelPlay.Location = new System.Drawing.Point(229, 206);
+            this.labelPlay.Location = new System.Drawing.Point(196, 179);
             this.labelPlay.Name = "labelPlay";
-            this.labelPlay.Size = new System.Drawing.Size(414, 114);
+            this.labelPlay.Size = new System.Drawing.Size(355, 99);
             this.labelPlay.TabIndex = 1;
             this.labelPlay.Text = "Play";
             this.labelPlay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -144,22 +125,22 @@ namespace Arkanoid
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Menu";
-            this.Size = new System.Drawing.Size(873, 593);
+            this.Size = new System.Drawing.Size(748, 514);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
         }
 
-        #endregion
-        
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label labelPlay;
         private System.Windows.Forms.Label labelExit;
+        private System.Windows.Forms.Label labelPlay;
         private System.Windows.Forms.Label labelTop;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+
+        #endregion
     }
 }

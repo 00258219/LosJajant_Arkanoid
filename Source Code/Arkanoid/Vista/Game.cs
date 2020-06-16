@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using Arkanoid.Properties;
 using System.Windows.Input;
 using Arkanoid.Controlador;
@@ -35,9 +33,9 @@ namespace Arkanoid
             //cargando las imagenes y fondos
             tableLayoutPanel2.BackColor = Color.FromArgb(70, tableLayoutPanel2.BackColor);
             //BackgroundImage = Resources.gameBackground;
-            pictureBox1.Image = Resources.heartf;
-            pictureBox2.Image = Resources.heartf;
-            pictureBox3.Image = Resources.heartf;
+            life1.Image = Resources.heartf;
+            life2.Image = Resources.heartf;
+            life3.Image = Resources.heartf;
             pictureBox4.Image = Resources.plataform;
             pictureBox5.Image = Resources.ball;
             
@@ -54,7 +52,13 @@ namespace Arkanoid
 
             var tlp2size = tableLayoutPanel2.Size;
             var tlp4size = tableLayoutPanel4.Size;
+             //posiciones pelota y plataforma
+             pb4.Top = Height - pb4.Height - 80;
+             pb4.Left = (Width / 2) - (pb4.Width / 2);
 
+             pb5.Height = pb5.Width = pictureBox5.Height = pictureBox5.Width;
+             pb5.Top = pb5.Top - pb5.Height;
+             pb5.Left = pb4.Left + (pb4.Width / 2) - (pb5.Width / 2);
             //Borramos todos lo componentes que esten en este userControl
             Controls.Clear();
             
@@ -81,8 +85,7 @@ namespace Arkanoid
             tlp4.Dock = DockStyle.None;
             tlp4.Size = tlp4size;
             Controls.Add(tlp4);//[4]los bloques
-            
-            
+
             //Hacer que la pelota inicie justo arriba de la plataforma y ajustando la posicion de los bloques
             pb5.Location = new Point(pb5.Location.X, pb4.Location.Y-pb5.Height);
             tlp4.Location = new Point(tlp4.Location.X, tlp4.Location.Y+100);
@@ -96,7 +99,7 @@ namespace Arkanoid
             
 
             //Iniciar puntaje
-            scoreLabel.Text = PanelControlator.score.ToString("D7");
+            scoreLabel.Text = GameData.score.ToString("D7");
             
             //Comenzando el timerPlayer
             startTimePlayer();
@@ -129,6 +132,7 @@ namespace Arkanoid
             
             Focus();
         }
+       
         
         //Esta funcion rellana cada fila de un tableLayout que contendra los bloques del juego.
         private void fillRowBlock(Image im, int hits, int rowN, TableLayoutPanel tlp)
@@ -195,6 +199,7 @@ namespace Arkanoid
         {
             if (e.KeyCode == Keys.Space) {
                 GameData.StartGame = true;
+                timePlayer.Start();
                 trapped = false; //Cambiar la condicion para que se muevan independientemente
                
             }
@@ -249,10 +254,43 @@ namespace Arkanoid
             pictureBox5.Left += GameData.xSpeed;
             pictureBox5.Top += GameData.ySpeed;
         }
+        
+        //metodo para reposicionar la pelota y la platafroma al centro cuando se  pierde una vida
+        private void Relocation()
+        { 
+            
+            Controls[1].Left = (Width / 2) - (Controls[1].Width / 2);
+            Controls[3].Top = Controls[1].Top - Controls[3].Height;
+            Controls[3].Left = Controls[1].Left + (Controls[1].Width / 2) - (Controls[3].Width / 2);
+            trapped = true;
+        }
 
         //Metodo que se encarga de revisar las colisiones
         private void Bounces()
         {
+            //verifica si la pelota cae al vacio
+            if (pictureBox5.Bottom > Height)
+            {
+                GameData.life--;
+                GameData.StartGame = false;
+                timePlayer.Stop();
+                if (GameData.life == 2)
+                    life3.Image = Resources.heartn;
+                else if (GameData.life == 1)
+                    life2.Image = Resources.heartn;
+                
+                Relocation();
+                //verificacion cuando ya no quedan mas vidas
+                if (GameData.life == 0)
+                {
+                    life1.Image = Resources.heartn;
+                    PanelControlator.game= new Game();
+                    PanelControlator.game.Size = PanelControlator.panel1.Size;
+                    PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
+                    PanelControlator.uc = PanelControlator.menu;
+                    PanelControlator.panel1.Controls.Add(PanelControlator.uc);
+                }
+            }
             //Genera un rebote en la parte superior
             if(pictureBox5.Top<tableLayoutPanel2.Bottom)
                 GameData.ySpeed = -GameData.ySpeed;

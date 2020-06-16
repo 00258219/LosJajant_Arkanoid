@@ -107,6 +107,21 @@ namespace Arkanoid.Controlador
             }
             return listScore;
         }
+
+        public static void AddScore(int score, string nickname)
+        {
+            try
+            {
+                string query = $"INSERT INTO SCORE(score, nickname) VALUES ({score},'{nickname}');";
+                ConnectionDB.ExecuteNonQuery(query);
+                MessageBox.Show("Score añadido!");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ha ocurrido un error!");
+            }
+        }
+        
         
     }
 }

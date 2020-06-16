@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Arkanoid.Controlador;
+using Arkanoid.Modelo;
 
 namespace Arkanoid
 {
@@ -39,9 +40,8 @@ namespace Arkanoid
             if (!txtNickname.Text.Equals(""))
             {
                 string actualPlayer = txtNickname.Text.ToLower();
-                PanelControlator.player = actualPlayer;
+                GameData.player = actualPlayer;
                 Parent.Parent.Text += "            PLAYER: "+actualPlayer;
-                
                 PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
                 PanelControlator.uc = PanelControlator.game;
                 PanelControlator.panel1.Controls.Add(PanelControlator.uc);

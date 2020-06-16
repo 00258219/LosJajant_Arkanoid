@@ -34,12 +34,12 @@ namespace Arkanoid
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.life3 = new System.Windows.Forms.PictureBox();
+            this.life2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.life1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -48,9 +48,9 @@ namespace Arkanoid
             this.timePlayer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.life3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.life2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.life1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox4)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox5)).BeginInit();
@@ -97,12 +97,12 @@ namespace Arkanoid
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.763079F));
             this.tableLayoutPanel2.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.468761F));
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox3, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.life3, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.life2, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.scoreLabel, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.life1, 3, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(23, 21);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(22, 20, 22, 0);
@@ -117,27 +117,27 @@ namespace Arkanoid
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Location = new System.Drawing.Point(774, 13);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(31, 6);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
+            this.life3.BackColor = System.Drawing.Color.Transparent;
+            this.life3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.life3.Location = new System.Drawing.Point(774, 13);
+            this.life3.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.life3.Name = "life3";
+            this.life3.Size = new System.Drawing.Size(31, 6);
+            this.life3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.life3.TabIndex = 5;
+            this.life3.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(727, 13);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(22, 6);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
+            this.life2.BackColor = System.Drawing.Color.Transparent;
+            this.life2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.life2.Location = new System.Drawing.Point(727, 13);
+            this.life2.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.life2.Name = "life2";
+            this.life2.Size = new System.Drawing.Size(22, 6);
+            this.life2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.life2.TabIndex = 4;
+            this.life2.TabStop = false;
             // 
             // label3
             // 
@@ -185,15 +185,15 @@ namespace Arkanoid
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(678, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 6);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.life1.BackColor = System.Drawing.Color.Transparent;
+            this.life1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.life1.Location = new System.Drawing.Point(678, 13);
+            this.life1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.life1.Name = "life1";
+            this.life1.Size = new System.Drawing.Size(24, 6);
+            this.life1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.life1.TabIndex = 3;
+            this.life1.TabStop = false;
             // 
             // pictureBox4
             // 
@@ -307,9 +307,9 @@ namespace Arkanoid
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Game_PreviewKeyDown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.life3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.life2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.life1)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox4)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox5)).EndInit();
@@ -322,9 +322,9 @@ namespace Arkanoid
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox life1;
+        private System.Windows.Forms.PictureBox life2;
+        private System.Windows.Forms.PictureBox life3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;

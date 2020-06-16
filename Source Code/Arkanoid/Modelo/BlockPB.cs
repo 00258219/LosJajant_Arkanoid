@@ -43,8 +43,8 @@ namespace Arkanoid.Modelo
             // No estoy seguro si esto serviria como para que no vuelva a rebotar en este block (probar que funcione!)
             if (Hits == 0)
             {
-                PanelControlator.score += Points;
-                scoreGame.Text = PanelControlator.score.ToString("D7");
+                GameData.score += Points;
+                scoreGame.Text = GameData.score.ToString("D7");
                 Points = 0;
                 Visible = false;
                 Enabled = false;

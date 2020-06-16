@@ -15,9 +15,5 @@ namespace Arkanoid.Controlador
         public static UserControl uc = new UserControl();
         public static Panel panel1=new Panel();
         
-        //Tambien guardaremos el usuario que este actualmente jugando.
-        public static string player = "";
-        //y el puntuaje del usuario que esta jugando.
-        public static int score = 0;
     }
 }

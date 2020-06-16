@@ -21,7 +21,7 @@ namespace Arkanoid
             DoubleBuffered = true;
             BackgroundImage = Image.FromFile("../../Resources/FondoEstrellas.jpg");
             BackgroundImageLayout = ImageLayout.Stretch;
-            label3.Text = "Score: " + PanelControlator.score.ToString("D7");
+            label3.Text = "Score: " + GameData.score.ToString("D7");
             label1.BackColor = Color.FromArgb(125, 5, 235, 179);
             label2.BackColor = Color.FromArgb(125, Color.Red);
             label4.BackColor = Color.FromArgb(125, 7, 0, 48);
@@ -93,16 +93,18 @@ namespace Arkanoid
         private void GameReset()
         {
             PanelControlator.uc.Size = PanelControlator.panel1.Size;
-            PanelControlator.score = 0;
+            GameData.score = 0;
             GameData.StartGame=false;
+            GameData.life = 3;
             Game.trapped = true;
         }
         
         private void GameMenuReset()
         {
             PanelControlator.game.Size = PanelControlator.panel1.Size;
-            PanelControlator.score = 0;
+            GameData.score = 0;
             GameData.StartGame=false;
+            GameData.life = 3;
             Game.trapped = true;
         }
     }

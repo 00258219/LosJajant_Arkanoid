@@ -287,6 +287,7 @@ namespace Arkanoid
                 }
             }
 
+            /*
             //Cuando no tiene más vidas, aparece la ventana de GameOver
             if(pictureBox5.Bottom>pictureBox4.Bottom+10)
             {
@@ -295,8 +296,10 @@ namespace Arkanoid
                 //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game mientras esté abierto GameOver
                 NewGameOver();
             }   
+            */
         }
 
+        /*
         //Método que muestra la ventana de GameOver y deja el fondo oscuro
         private void NewGameOver()
         {
@@ -335,5 +338,6 @@ namespace Arkanoid
                 gameOver.ShowDialog(this);
             }
         }
+        */
     }
 }

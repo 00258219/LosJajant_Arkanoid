@@ -7,7 +7,10 @@ namespace Arkanoid.Modelo
         // Boleano que verifica la ejecucion del juego
         public static bool StartGame = false;
         //Velocidades con las cuales se movera la pelota
-        public static int xSpeed =15, ySpeed =-xSpeed-1;
+        public static int xSpeed =15, ySpeed =-(xSpeed-1); //version 1.0
+        
+        //public static int xSpeed =4, ySpeed =-(xSpeed-1); version 2.0
+        
         //Tambien guardaremos el usuario que este actualmente jugando,
         public static string player = "";
         //el puntuaje del usuario que esta jugando,

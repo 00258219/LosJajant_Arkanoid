@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using Arkanoid.Controlador;
 using Arkanoid.Modelo;
@@ -26,8 +27,8 @@ namespace Arkanoid
             
             //Calculando el puntaje total
             scoreBonus = GameData.BonusPoints(GameData.timePlayer);
-            scoreTotal = GameData.score + scoreBonus;
-            
+            scoreTotal = GameData.score;// + scoreBonus;
+
             //Mostrando mensaje de "GANASTE" o "PERDISTE" según vidas
             if (GameData.life == 3) label1.Text = "Ganaste!";
             else if (GameData.life == 2) label1.Text = "Bien hecho!";
@@ -38,6 +39,9 @@ namespace Arkanoid
             label3.Text = "Score: " + GameData.score.ToString();
             label7.Text = "Bonus: " + scoreBonus.ToString();
             label8.Text = "Total: " + scoreTotal.ToString();
+            
+            //Activando el timer
+            timerPoints.Enabled = true;
             
             //Creando efecto de opacidad en algunos labels
             label1.BackColor = Color.FromArgb(100, 5, 235, 179);
@@ -134,6 +138,21 @@ namespace Arkanoid
             GameData.StartGame=false;
             GameData.life = 3;
             Game.trapped = true;
+        }
+
+        //Método encargado de realizar la animacion de sumar puntos
+        private void timerPoints_Tick(object sender, EventArgs e)
+        {
+            //Realizando cuenta regresiva hasta cero
+            if (scoreBonus != 0)
+            {
+                scoreBonus--;
+                scoreTotal++;
+                label7.Text = "Bonus: " + scoreBonus.ToString();
+                label8.Text = "Total: " + scoreTotal.ToString();
+            }
+            else
+                timerPoints.Stop();
         }
     }
 }

@@ -49,6 +49,16 @@ namespace Arkanoid
                 MessageBox.Show("Tienes que escribir tu nickname para jugar");
             
         }
-        
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            //Limpiando el texto si se habia escrito algo
+            txtNickname.Text = "";
+            
+            //cambiando el componente que esta dentro del panel en el Form1 
+            PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
+            PanelControlator.uc = PanelControlator.menu;
+            PanelControlator.panel1.Controls.Add(PanelControlator.uc);
+        }
     }
 }

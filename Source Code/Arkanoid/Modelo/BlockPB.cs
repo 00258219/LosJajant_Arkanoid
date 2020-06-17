@@ -37,7 +37,7 @@ namespace Arkanoid.Modelo
         public void Beaten(Label scoreGame)
         {
             if (Hits > 0){
-                blinkBlock();
+                //blinkBlock(); 
                 Hits--;
             }
             // No estoy seguro si esto serviria como para que no vuelva a rebotar en este block (probar que funcione!)
@@ -48,6 +48,32 @@ namespace Arkanoid.Modelo
                 Points = 0;
                 Visible = false;
                 Enabled = false;
+            }
+        }
+        
+        //Se encarga de cambiar la imagen de los bloques al colisionar
+        public void CollisionImage(int xPosition)
+        {
+            int im = Hits - 1; //Detecta cuantos hit quedan
+            
+            //xPosition guarda la ubicacion del bloque actual
+            switch (xPosition)
+            {
+                  
+                case 148: //Bloques grises
+                    if(im>=2)
+                        Image=Image.FromFile("../../Resources/BloqueGris"+im+".png");
+                    break;
+               
+                case 198: //Bloques azules
+                    if(im>=1)
+                        Image=Image.FromFile("../../Resources/BloqueAzul"+im+".png");
+                    break;
+               
+                case 248: //Bloques rosados
+                    if(im>=1)
+                        Image=Image.FromFile("../../Resources/BloqueRosa"+im+".png"); 
+                    break; 
             }
         }
         

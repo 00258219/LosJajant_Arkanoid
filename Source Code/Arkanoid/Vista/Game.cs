@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Runtime.CompilerServices;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Arkanoid.Properties;
 using System.Windows.Input;
-using Arkanoid.Controlador;
 using Arkanoid.Modelo;
 using ContentAlignment = System.Drawing.ContentAlignment;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
@@ -22,7 +18,7 @@ namespace Arkanoid
         public static bool trapped = true;
         
         //Variable
-        List<BlockPB> bloques = new List<BlockPB>();
+        List<BlockPB> blocksList = new List<BlockPB>();
         
         public Game()
         {
@@ -122,10 +118,10 @@ namespace Arkanoid
             {
                 BlockPB blockAux = (BlockPB) i;
                 blockAux.Dock = DockStyle.None;
-                bloques.Add(blockAux);//lo agregamos a una lista simple
+                blocksList.Add(blockAux);//lo agregamos a una lista simple
             }
 
-            foreach (var i in bloques)//recorremos la lista simple que contiene los bloques
+            foreach (var i in blocksList)//recorremos la lista simple que contiene los bloques
             {
                 Controls.Add(i);//los agregamos al UserControl
                 i.Size = blockSize;
@@ -271,31 +267,42 @@ namespace Arkanoid
         //Metodo que se encarga de revisar las colisiones
         private void Bounces()
         {
+            bool isEmpty = false;
+            
             //verifica si la pelota cae al vacio
             if (pictureBox5.Bottom > Height)
             {
                 GameData.life--;
                 GameData.StartGame = false;
+                
                 timePlayer.Stop();
+                
                 if (GameData.life == 2)
-                    life3.Image = Resources.heartn;
+                    life3.Image = Image.FromFile("../../Resources/heartn.png");
                 else if (GameData.life == 1)
-                    life2.Image = Resources.heartn;
+                    life2.Image = Image.FromFile("../../Resources/heartn.png");
                 
                 Relocation();
+                
                 //verificacion cuando ya no quedan mas vidas
                 if (GameData.life == 0)
                 {
-                    life1.Image = Resources.heartn;
+                    life1.Image = Image.FromFile("../../Resources/heartn.png");
+                    
+                    //Guardando el tiempo que demoró jugando para calcular el puntaje 
+                    //bonus por tiempo
+                    GameData.timePlayer = currentTime;
                     
                     //Parando los timers exitentes
                     timePlayer.Stop();
                     timeLimit.Stop();
+                    
                     //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
                     //mientras esté abierto GameOver
                     NewGameOver();
                 }
             }
+
             //Genera un rebote en la parte superior
             if(pictureBox5.Top<tableLayoutPanel2.Bottom)
                 GameData.ySpeed = -GameData.ySpeed;
@@ -314,16 +321,29 @@ namespace Arkanoid
             }
             
             //Para conocer las colisiones entre la pelota y el bloque
-            foreach (var block in bloques) 
+            foreach (var block in blocksList)
             {
-            
                 //Condicion para conocer si el bloque esta activo y existe colision
                 if (block.Enabled && Controls[3].Bounds.IntersectsWith(block.Bounds))
                 {
                     block.Beaten(scoreLabel); // Verificando golpes y puntaje
-                    
                     GameData.ySpeed = -GameData.ySpeed; //Cambia la direccion al chocar
-                      
+
+                    //Si ya no hay bloques, se puede simular verificando si el puntaje máximo se alcanzó
+                    if (GameData.score == 66000)
+                    {
+                        //Guardando el tiempo que demoró jugando para calcular el puntaje 
+                        //bonus por tiempo
+                        GameData.timePlayer = currentTime;
+                    
+                        //Parando los timers exitentes
+                        timePlayer.Stop();
+                        timeLimit.Stop();
+                    
+                        //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
+                        //mientras esté abierto GameOver
+                        NewGameOver();
+                    }
                 }
             }   
         }

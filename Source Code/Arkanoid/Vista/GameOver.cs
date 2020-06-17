@@ -3,7 +3,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using Arkanoid.Controlador;
 using Arkanoid.Modelo;
-using Arkanoid.Properties;
 
 namespace Arkanoid
 {

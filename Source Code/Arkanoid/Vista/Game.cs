@@ -4,16 +4,16 @@ using System.Drawing;
 using System.Windows.Forms;
 using Arkanoid.Properties;
 using System.Windows.Input;
-using Arkanoid.Modelo;
 using ContentAlignment = System.Drawing.ContentAlignment;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
+using Arkanoid.Modelo;
 
 namespace Arkanoid
 {
     public sealed partial class Game : UserControl
     {
         //variable que guarda el tiempo de juego
-        private int currentTime = 240; //4 mins
+        private int currentTime = 150; //2 mins y 30 seg
         //variable que describe si la pelota esta fijada con la plataforma
         public static bool trapped = true;
         
@@ -31,16 +31,13 @@ namespace Arkanoid
         {
             //cargando las imagenes y fondos
             tableLayoutPanel2.BackColor = Color.FromArgb(70, tableLayoutPanel2.BackColor);
-            //BackgroundImage = Resources.gameBackground;
+            BackgroundImage = Resources.gameBackground;
             life1.Image = Resources.heartf;
             life2.Image = Resources.heartf;
             life3.Image = Resources.heartf;
             pictureBox4.Image = Resources.plataform;
             pictureBox5.Image = Resources.ball;
-            
-            pictureBox4.BackColor=Color.Azure;
-            pictureBox5.BackColor=Color.Bisque;
-            
+
             //Debemos quitar el tableyout para el movimiento de la pelota y plataforma, asi que guardamos
             //los componentes importantes
             var tlp2 = tableLayoutPanel2;
@@ -48,7 +45,6 @@ namespace Arkanoid
             var pb5 = pictureBox5;
             var tlp4 = tableLayoutPanel4;
             
-
             var tlp2size = tableLayoutPanel2.Size;
             var tlp4size = tableLayoutPanel4.Size;
              //posiciones pelota y plataforma
@@ -89,22 +85,14 @@ namespace Arkanoid
             pb5.Location = new Point(pb5.Location.X, pb4.Location.Y-pb5.Height);
             tlp4.Location = new Point(tlp4.Location.X, tlp4.Location.Y+100);
 
-            
             //colocando los bloques en el juego
             fillRowBlock(Resources.block5t, 5, 0, tlp4);
             fillRowBlock(Resources.block3t, 3, 1, tlp4);
             fillRowBlock(Resources.block2t, 2, 2, tlp4);
             fillRowBlock(Resources.block1t, 1, 3, tlp4);
             
-
             //Iniciar puntaje
             scoreLabel.Text = GameData.score.ToString("D7");
-            
-            //Comenzando el timerPlayer
-            startTimePlayer();
-            
-            //Activando el timeLimit para llevar el conteo  del tiempo de partida
-            startTime();
 
             //Removiendo el TableLayoutPanel que contiene los bloques
             //Guardamos la ubicacion y tamaño que deben llevar
@@ -143,19 +131,19 @@ namespace Arkanoid
             }
         }
         
-        //Funcion que inicia el conteo de tiempo del juego mediante el timeLimit_Tick.
-        private void startTime()
-        {
-            timeLimit.Enabled = true;
-            timeLimit.Interval = (1000);
-            timeLimit.Start();
-        }
         
         //Metodo que inicia los movimientos de la pelota;
         private void startTimePlayer()
         {
             timePlayer.Enabled = true;
             timePlayer.Start();
+        }
+        //Funcion que inicia el conteo de tiempo del juego mediante el timeLimit_Tick.
+        private void startTime()
+        {
+            timeLimit.Enabled = true;
+            timeLimit.Interval = (1000);
+            timeLimit.Start();
         }
         private void timeLimit_Tick(object sender, EventArgs e)
         {
@@ -189,7 +177,7 @@ namespace Arkanoid
             var plat = Controls[1];
             var ball = Controls[3];
             var limitRight = ClientSize.Width - plat.Width;
-            if (left && (plat.Left != 0))
+            if (left && (plat.Left > 0))
             {
                 plat.Left -= speed;
                 if (trapped)
@@ -207,10 +195,13 @@ namespace Arkanoid
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space) {
+                //Comenzando el timerPlayer
+                startTimePlayer();
+                //Activando el timeLimit para llevar el conteo  del tiempo de partida
+                startTime();
+                
                 GameData.StartGame = true;
-                timePlayer.Start();
                 trapped = false; //Cambiar la condicion para que se muevan independientemente
-               
             }
 
             //Si tiene las siguientes dos teclas presionadas que la plataforma se detenga
@@ -266,8 +257,7 @@ namespace Arkanoid
         
         //metodo para reposicionar la pelota y la platafroma al centro cuando se  pierde una vida
         private void Relocation()
-        { 
-            
+        {
             Controls[1].Left = (Width / 2) - (Controls[1].Width / 2);
             Controls[3].Top = Controls[1].Top - Controls[3].Height;
             Controls[3].Left = Controls[1].Left + (Controls[1].Width / 2) - (Controls[3].Width / 2);
@@ -368,7 +358,9 @@ namespace Arkanoid
             using (Graphics G = Graphics.FromImage(bmp))
             {
                 G.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
-                G.CopyFromScreen(this.PointToScreen(new Point(0, 0)), new Point(0, 0), this.ClientRectangle.Size);
+                G.CopyFromScreen(this.PointToScreen(new Point(0, 0)),
+                    new Point(0, 0), this.ClientRectangle.Size);
+                
                 //Haciendo oscuro el fondo
                 Color darken = Color.FromArgb(220, Color.Black);
                 using (Brush brsh = new SolidBrush(darken))

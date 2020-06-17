@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Arkanoid.Controlador;
 using Arkanoid.Properties;
@@ -62,15 +54,8 @@ namespace Arkanoid
 
             base.WndProc(ref m);
         }
-
-        //Método encargado de aumentar considerablemente el proceso de carga
-        //de los userControl que se colocarán en este Form, generando una
-        //experiencia visual más atractiva del programa en el proceso de carga,
-        //ya que se tuvo problemas anteriormente al cambiar de userControl porque
-        //tardaban mucho en cargar al cambiar y se podía apreciar el proceso de
-        //"pintado" del userControl en el Form. Esta función evita eso.
-        //Método tomado de:
-        //https://stackoverflow.com/questions/2612487/how-to-fix-the-flickering-in-user-controls/2613272#2613272
+        
+        //La funcion que paso Walter
         protected override CreateParams CreateParams
         {
             get

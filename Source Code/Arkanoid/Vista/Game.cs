@@ -162,7 +162,17 @@ namespace Arkanoid
             //Mientras el tiempo no llegue a cero restar 1 segundo, si es cero entonces se para.
             if (currentTime == 0)
             {
+                //Guardando el tiempo que demoró jugando para calcular el puntaje 
+                //bonus por tiempo
+                GameData.timePlayer = currentTime;
+                    
+                //Parando los timers exitentes
+                timePlayer.Stop();
                 timeLimit.Stop();
+                    
+                //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
+                //mientras esté abierto GameOver
+                NewGameOver();
             }
             else
             {

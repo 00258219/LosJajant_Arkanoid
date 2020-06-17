@@ -9,22 +9,24 @@ namespace Arkanoid.Modelo
         public static bool StartGame = false;
         
         //Velocidades con las cuales se movera la pelota
-        public static int xSpeed =14, ySpeed =-xSpeed-1;
+        public static int xSpeed =15, ySpeed =-xSpeed-1;
                 
-        //Tambien guardaremos el usuario que este actualmente jugando.
+        //Tambien guardaremos el usuario que este actualmente jugando,
         public static string player = "";
-        //y el puntuaje del usuario que esta jugando.
+        //el puntuaje del usuario que esta jugando,
         public static int score = 0;
-        //numero de vidas restantes del jugador
+        //el numero de vidas restantes del jugador
         public static int life = 3;
+        //y el tiempo que tarda en jugar
+        public static int timePlayer = 0;
 
         //funcion para calcular los puntos extras
         public static int BonusPoints(int time)
         {
-            int bonusPoints = 0, timeLeft = 0, bonusperLife=0;
+            int bonusPoints = 0, timeLeft = 0, bonusPerLife=0;
             timeLeft = (time)/60;
-            bonusperLife = life * 10;
-            bonusPoints = timeLeft * bonusperLife;
+            bonusPerLife = life * 10;
+            bonusPoints = timeLeft * bonusPerLife;
             
             return bonusPoints;
         }

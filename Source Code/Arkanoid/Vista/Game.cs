@@ -211,8 +211,27 @@ namespace Arkanoid
         //Evento para el movimiento de la plataforma e inicio del juego
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Space) {
+            //Cuando presione ESC se pausará el juego
+            if (Keyboard.IsKeyDown(Key.Escape))
+            {
+                timePlayer.Stop();
+                timeLimit.Stop();
+
+                DialogResult dR = MessageBox.Show("Pausa");
                 
+                if (dR == DialogResult.OK)
+                {
+                    timePlayer.Start();
+                    timeLimit.Start();
+                    timeActions.Invoke();
+                }
+            }
+            
+            if(GameData.StartGame==false && !Keyboard.IsKeyDown(Key.Space)
+            && !Keyboard.IsKeyDown(Key.Escape))
+                MessageBox.Show("Presiona la tecla ESPACIO para jugar");
+
+            if (e.KeyCode == Keys.Space) {
                 //Inicio de tiempo de jugador e inicio de conteo para tiempo de partida
                 timeActions.Invoke();
                 
@@ -230,10 +249,10 @@ namespace Arkanoid
             //movimiento a la izquierda
             if (Keyboard.IsKeyDown(Key.A) || Keyboard.IsKeyDown(Key.Left))
                 plataformMove(true);
+            
             //movimiento a la derecha
             else if(Keyboard.IsKeyDown(Key.D) || Keyboard.IsKeyDown(Key.Right))
                 plataformMove(false);
-
         }
         
         private void Game_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -360,8 +379,7 @@ namespace Arkanoid
                         //Parando los timers exitentes
                         timePlayer.Stop();
                         timeLimit.Stop();
-                        
-                        
+
                         //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
                         //mientras esté abierto GameOver
                         NewGameOver();

@@ -19,7 +19,7 @@ namespace Arkanoid.Controlador
             {
                 dt= ConnectionDB.ExecuteQuery("SELECT * FROM PLAYER");
             }
-            catch (Exception e)
+            catch (GetPlayerException Ex)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }
@@ -42,7 +42,7 @@ namespace Arkanoid.Controlador
                 ConnectionDB.ExecuteNonQuery(query);
                 MessageBox.Show("Usuario registrado!");
             }
-            catch (Exception e)
+            catch (PlayerRegistrationException Ex)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }

@@ -14,43 +14,38 @@ namespace Arkanoid.Modelo
         //Tambien guardaremos el usuario que este actualmente jugando,
         public static string player = "";
         //el puntuaje del usuario que esta jugando,
-        public static int score = 0;
+        public static int scoreBlocks = 0;
         //el numero de vidas restantes del jugador
         public static int life = 3;
         //y el tiempo que tarda en jugar
         public static int timePlayer = 0;
+        //variable para saber si gano o no
+        public static bool winner = false;
+        //guarda los bloques restantes
+        public static int remainingBlocks = 24;
 
         //funcion para calcular los puntos extras
-        public static int BonusPoints(int time)
+        public static int BonusPoints()
         {
-            int bonusPoints = 0, timeLeft = 0, bonusPerLife=0;
-            timeLeft = (time)/60;
-            bonusPerLife = life * 10;
-            bonusPoints = timeLeft * bonusPerLife;
-            
+            int bonusPoints = 0, bonustime = 0;
+            bonustime = (150-timePlayer)*200;
+            bonusPoints = bonustime * life;
             return bonusPoints;
         }
         
         //funcion para registrar el puntaje en la base de datos
         public static void AddScoreDB()
         {
-            int newplayer = 0;
-            
             foreach(Player user in PlayerDAO.getPlayer())
             {
                 if (user.nickname.Equals(player))
                 {
-                    ScoreDAO.AddScore(score, player);
-                    newplayer++;
+                    ScoreDAO.AddScore(scoreBlocks+BonusPoints(), player);
+                    return;
                 }
             }
-
-            if (newplayer == 0)
-            {
-                PlayerDAO.insertPlayer(player);
-                ScoreDAO.AddScore(score, player);
-            }
+            PlayerDAO.insertPlayer(player);
+            ScoreDAO.AddScore(scoreBlocks+BonusPoints(), player);
         }
-        
     }
 }

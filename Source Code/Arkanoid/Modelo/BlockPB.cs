@@ -43,14 +43,14 @@ namespace Arkanoid.Modelo
             // No estoy seguro si esto serviria como para que no vuelva a rebotar en este block (probar que funcione!)
             if (Hits == 0)
             {
-                GameData.score += Points;
-                scoreGame.Text = GameData.score.ToString("D7");
+                GameData.remainingBlocks--;
+                GameData.scoreBlocks += Points;
+                scoreGame.Text = GameData.scoreBlocks.ToString("D7");
                 Points = 0;
                 Visible = false;
                 Enabled = false;
             }
         }
-        
         //Se encarga de cambiar la imagen de los bloques al colisionar
         public void CollisionImage(int xPosition)
         {

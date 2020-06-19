@@ -11,9 +11,11 @@ namespace Arkanoid
     {
         private int scoreTotal = 0;
         private int scoreBonus = 0;
+        private int diffScore = 200;
         public GameOver()
         {
             InitializeComponent();
+            timerPoints.Interval = 1;
         }
 
         //Método que se realiza cuando este formulario carga, agregando el BackGround y el color de fondo 
@@ -26,23 +28,27 @@ namespace Arkanoid
             BackgroundImageLayout = ImageLayout.Stretch;
             
             //Calculando el puntaje total
-            scoreBonus = GameData.BonusPoints(GameData.timePlayer);
-            scoreTotal = GameData.score;// + scoreBonus;
+            if (GameData.winner==true)
+                scoreBonus = GameData.BonusPoints();
+            else
+                scoreBonus = 0;
+            scoreTotal = GameData.scoreBlocks;// + scoreBonus;
 
             //Mostrando mensaje de "GANASTE" o "PERDISTE" según vidas
-            if (GameData.life == 3) label1.Text = "Ganaste!";
+            if (GameData.winner) label1.Text = "Ganaste!";
+            else if (GameData.life == 3) label1.Text = "Muy bien!";
             else if (GameData.life == 2) label1.Text = "Bien hecho!";
             else if (GameData.life == 1) label1.Text = "Por Poco!";
             else label1.Text = "Perdiste!";
             
             //Mostrando el puntaje en la ventana
-            label3.Text = "Score: " + GameData.score.ToString();
+            label3.Text = "Score: " + GameData.scoreBlocks.ToString();
             label7.Text = "Bonus: " + scoreBonus.ToString();
             label8.Text = "Total: " + scoreTotal.ToString();
             
             //Activando el timer
             timerPoints.Enabled = true;
-            
+
             //Creando efecto de opacidad en algunos labels
             label1.BackColor = Color.FromArgb(100, 5, 235, 179);
             label2.BackColor = Color.FromArgb(125, Color.Red);
@@ -105,7 +111,7 @@ namespace Arkanoid
             PanelControlator.game=new Game();
             
             //Restableciendo los valores que hacen funcionar correctamente a Game
-            GameMenuReset();
+            GameReset();
             
             //Agregando el nuevo UserControl
             PanelControlator.uc = PanelControlator.menu;
@@ -118,27 +124,19 @@ namespace Arkanoid
             Application.Exit();
         }
 
-        //Método encargado de restablecer el UserControl Game para "Volver a jugar"
+        //Método encargado de restablecer el UserControl Game 
         private void GameReset()
         {
             //Restableciendo los valores necesarios para que Game funcione correctamente
             PanelControlator.uc.Size = PanelControlator.panel1.Size;
-            GameData.score = 0;
+            GameData.scoreBlocks = 0;
             GameData.StartGame=false;
             GameData.life = 3;
             Game.trapped = true;
+            GameData.remainingBlocks = 24;
+            GameData.winner = false;
         }
         
-        //Método encargado de restablecer el UserControl Game para luego salir al Menu
-        private void GameMenuReset()
-        {
-            //Restableciendo los valores necesarios para que Game funcione correctamente
-            PanelControlator.game.Size = PanelControlator.panel1.Size;
-            GameData.score = 0;
-            GameData.StartGame=false;
-            GameData.life = 3;
-            Game.trapped = true;
-        }
 
         //Método encargado de realizar la animacion de sumar puntos
         private void timerPoints_Tick(object sender, EventArgs e)
@@ -146,13 +144,23 @@ namespace Arkanoid
             //Realizando cuenta regresiva hasta cero
             if (scoreBonus != 0)
             {
-                scoreBonus--;
-                scoreTotal++;
+                if (scoreBonus - diffScore < diffScore)
+                {
+                    diffScore = scoreBonus; //Evita restar mas
+                }
+
+                //Cambia el score
+                scoreBonus -= diffScore;
+                scoreTotal += diffScore;
+
+                //Actualiza los labels
                 label7.Text = "Bonus: " + scoreBonus.ToString();
                 label8.Text = "Total: " + scoreTotal.ToString();
             }
             else
+            {
                 timerPoints.Stop();
+            }
         }
     }
 }

@@ -114,7 +114,6 @@ namespace Arkanoid.Controlador
             {
                 string query = $"INSERT INTO SCORE(score, nickname) VALUES ({score},'{nickname}');";
                 ConnectionDB.ExecuteNonQuery(query);
-                MessageBox.Show("Score añadido!");
             }
             catch (Exception e)
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Arkanoid.Controlador;
+using Arkanoid.Modelo;
 using Arkanoid.Properties;
 
 namespace Arkanoid
@@ -32,23 +33,31 @@ namespace Arkanoid
         //ventana y el minimizado por doble clic en la barra superior, entonces recibimos esas acciones y evitamos
         //que hagan cambios, osea las suprimimos.
         protected override void WndProc(ref Message m)
-        {
+        {  
+            const int SC_MINIMIZE = 0xF020;
             const int wmSyscommand = 0x0112;
             const int scMove = 0xF010;
             const int wmNclbuttondblclk = 0x00A3;
-
             switch(m.Msg)
             {
                 case wmSyscommand:
                     int command = m.WParam.ToInt32() & 0xfff0;
                     if (command == scMove)
                         return;
+                    
+                    /*//Minimizar perzonalizado
+                    if (m.WParam == (IntPtr)SC_MINIMIZE)
+                        MessageBox.Show("Hacer lo que quieras en vez de minimizar");*/
+
+                    base.WndProc(ref m);
                     break;
             }
-            
+
+
             if (m.Msg == wmNclbuttondblclk)
             {
                 m.Result = IntPtr.Zero;
+                
                 return;
             }
 
@@ -63,6 +72,15 @@ namespace Arkanoid
                 CreateParams cp = base.CreateParams;
                 cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
                 return cp;
+            }
+        }
+
+        //Permite que la ventana luego de estar minimizada, al abrirla se maximice siempre
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState==FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
             }
         }
     }

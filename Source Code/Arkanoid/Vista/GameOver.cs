@@ -95,6 +95,7 @@ namespace Arkanoid
             //Eliminando el user control game para volver a implementarlo 
             PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
             PanelControlator.uc = new Game();
+            PanelControlator.uc.Size = PanelControlator.panel1.Size;
             
             //Restableciendo los valores que hacen funcionar correctamente a Game
             GameReset();
@@ -109,6 +110,7 @@ namespace Arkanoid
             //Cambiando el user control dentro del Form 
             PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
             PanelControlator.game=new Game();
+            PanelControlator.game.Size = PanelControlator.panel1.Size;
             
             //Restableciendo los valores que hacen funcionar correctamente a Game
             GameReset();
@@ -128,7 +130,6 @@ namespace Arkanoid
         private void GameReset()
         {
             //Restableciendo los valores necesarios para que Game funcione correctamente
-            PanelControlator.uc.Size = PanelControlator.panel1.Size;
             GameData.scoreBlocks = 0;
             GameData.StartGame=false;
             GameData.life = 3;

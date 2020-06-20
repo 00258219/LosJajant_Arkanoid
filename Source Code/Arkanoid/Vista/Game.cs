@@ -5,6 +5,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Arkanoid.Properties;
 using System.Windows.Input;
+using Arkanoid.Controlador;
 using ContentAlignment = System.Drawing.ContentAlignment;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 using Arkanoid.Modelo;
@@ -37,7 +38,7 @@ namespace Arkanoid
             ballActions += Bounces;
             //Suscribiendo la accion de inicio de tiempo
             timeActions = startTimePlayer;
-            //suscriendo acciones de finishgame and wingame
+            //suscribiendo acciones de finishgame and wingame
             FinishGame = () =>
             {
                 GameData.timePlayer = 150 - Convert.ToInt32(Math.Floor(currentTime));
@@ -127,8 +128,10 @@ namespace Arkanoid
             int valueY = tlp4.Top;
             int valueX = tlp4.Left;
             var blockSize = tlp4.Controls[0].Size;
+            
             //Quitamos el tlp del userControl
             Controls.Remove(tlp4);
+            
             //Recorremos el controls de tlp4 que es quien contiene los bloques
             foreach (var i in tlp4.Controls)
             {
@@ -177,40 +180,67 @@ namespace Arkanoid
             var plat = Controls[1];
             var ball = Controls[3];
             var limitRight = ClientSize.Width - plat.Width;
-            if (left && (plat.Left > 0))
+
+            try
             {
-                plat.Left -= speed;
-                if (trapped)
-                    ball.Left -= speed;
+                if (left && (plat.Left > 0))
+                {
+                    plat.Left -= speed;
+                    if (trapped)
+                        ball.Left -= speed;
+                }
+                else if(left == false && (plat.Left < limitRight))
+                {
+                    plat.Left += speed;
+                    if (trapped)
+                        ball.Left += speed;
+                }
+                else throw new OutOfBoundsException("Fuera de los límites");
             }
-            else if(left == false && (plat.Left < limitRight))
+            catch (OutOfBoundsException Ex)
             {
-                plat.Left += speed;
-                if (trapped)
-                    ball.Left += speed;
+                DialogResult dr =MessageBox.Show(Ex.Message);
+                if (dr == DialogResult.OK)
+                {
+                    //Regresando la plataforma al centro
+                    pictureBox4.Top = Height - pictureBox4.Height - 80;
+                    pictureBox4.Left = (Width / 2) - (pictureBox4.Width / 2);
+                }
             }
         }
         
         //Evento para el movimiento de la plataforma e inicio del juego
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            //Cuando presione ESC se pausará el juego
-            if (Keyboard.IsKeyDown(Key.Escape))
+            try
+            {
+                //Cuando presione ESC se pausará el juego
+                if (Keyboard.IsKeyDown(Key.Escape))
+                    throw new GamePausedException("PAUSA");
+                
+                //Detectar SPACE para comenzar el juego
+                if(GameData.StartGame==false && !Keyboard.IsKeyDown(Key.Space) && 
+                   !Keyboard.IsKeyDown(Key.Escape) && !Keyboard.IsKeyDown(Key.Left) && 
+                   !Keyboard.IsKeyDown(Key.Right) && !Keyboard.IsKeyDown(Key.A) && 
+                   !Keyboard.IsKeyDown(Key.D))
+                    throw new StartOfTheGameException("Presiona SPACE para jugar");
+            }
+            catch (GamePausedException Ex)
             {
                 timePlayer.Stop();
 
-                DialogResult dR = MessageBox.Show("Pausa");
+                DialogResult dR = MessageBox.Show(Ex.Message);
                 
-                if (dR == DialogResult.OK)
+                if (dR == DialogResult.OK && GameData.StartGame==true)
                 {
                     timePlayer.Start();
                     timeActions.Invoke();
                 }
             }
-            
-            if(GameData.StartGame==false && !Keyboard.IsKeyDown(Key.Space)
-            && !Keyboard.IsKeyDown(Key.Escape))
-                MessageBox.Show("Presiona la tecla ESPACIO para jugar");
+            catch (StartOfTheGameException Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
 
             if (e.KeyCode == Keys.Space) {
                 //Inicio de tiempo de jugador e inicio de conteo para tiempo de partida
@@ -392,7 +422,7 @@ namespace Arkanoid
                 
                 //Se mostrará dde esta forma, ya que deja inabilitado el form del fondo, y a su vez esperará
                 //una respuesta para volver a la normalidad (form no oscurecido)
-                gameOver.ShowDialog(this);
+                gameOver.ShowDialog();
             }
         }
         
@@ -416,6 +446,11 @@ namespace Arkanoid
                 }
             }
             return aCollision;
+        }
+
+        private void Game_Resize(object sender, EventArgs e)
+        {
+            
         }
     }
 }

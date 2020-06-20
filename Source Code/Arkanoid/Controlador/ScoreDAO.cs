@@ -20,7 +20,7 @@ namespace Arkanoid.Controlador
             {
                 dt = ConnectionDB.ExecuteQuery("SELECT nickname FROM SCORE ORDER BY score DESC, score LIMIT 10");
             }
-            catch (GetFirstTenNickNameException Ex)
+            catch (GetDataException Ex)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }
@@ -42,7 +42,7 @@ namespace Arkanoid.Controlador
             {
                 dt = ConnectionDB.ExecuteQuery("SELECT score FROM SCORE ORDER BY score DESC, score LIMIT 10");
             }
-            catch (GetFirstTenScoreException Ex)
+            catch (GetDataException Ex)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }
@@ -65,7 +65,7 @@ namespace Arkanoid.Controlador
             {
                 dt = ConnectionDB.ExecuteQuery("SELECT * FROM SCORE ORDER BY score DESC, score LIMIT 1");
             }
-            catch (GetFirsScoreException e)
+            catch (GetDataException e)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }
@@ -92,7 +92,7 @@ namespace Arkanoid.Controlador
             {
                 dt = ConnectionDB.ExecuteQuery("SELECT * FROM SCORE");
             }
-            catch (GetPlayerScoreException e)
+            catch (GetDataException e)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }

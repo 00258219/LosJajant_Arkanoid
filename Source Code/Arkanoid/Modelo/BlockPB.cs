@@ -61,7 +61,7 @@ namespace Arkanoid.Modelo
             {
                   
                 case 148: //Bloques grises
-                    if(im>=2)
+                    if(im>=1)
                         Image=Image.FromFile("../../Resources/BloqueGris"+im+".png");
                     break;
                

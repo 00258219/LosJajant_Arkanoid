@@ -19,7 +19,7 @@ namespace Arkanoid.Controlador
             {
                 dt= ConnectionDB.ExecuteQuery("SELECT * FROM PLAYER");
             }
-            catch (GetPlayerException Ex)
+            catch (GetDataException Ex)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }

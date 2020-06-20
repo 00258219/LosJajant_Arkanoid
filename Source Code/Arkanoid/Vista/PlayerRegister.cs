@@ -8,6 +8,8 @@ namespace Arkanoid
 {
     public partial class PlayerRegister : UserControl
     {
+        private delegate void MyDelegatePlayerRegiser(object sender, EventArgs e);
+        private static MyDelegatePlayerRegiser clickSimulator;
         public PlayerRegister()
         {
             InitializeComponent();
@@ -60,7 +62,7 @@ namespace Arkanoid
             }
             catch (EmptyNickNameException Ex)
             {
-                MessageBox.Show(Ex.ToString());
+                MessageBox.Show(Ex.Message);
             }
         }
 

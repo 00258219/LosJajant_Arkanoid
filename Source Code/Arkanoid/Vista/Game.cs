@@ -43,12 +43,14 @@ namespace Arkanoid
             {
                 GameData.timePlayer = 150 - Convert.ToInt32(Math.Floor(currentTime));
                 timePlayer.Stop();
+                GameData.tmrPlayer = false;
                 NewGameOver();
             };
             WinningGame = () =>
             {
                 GameData.timePlayer = 150 - Convert.ToInt32(Math.Floor(currentTime));
                 timePlayer.Stop();
+                GameData.tmrPlayer = false;
                 GameData.winner = true;
                 GameData.AddScoreDB();
                 //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
@@ -170,6 +172,7 @@ namespace Arkanoid
             timePlayer.Interval = 70; //version 1.0
             //timePlayer.Interval=1; version 2.0
             timePlayer.Start();
+            GameData.tmrPlayer = true;
         }
         
         //Funcion que realiza el movimiento de la plataforma, ya sea de lado izquierdo o derecho, con o sin la pelota
@@ -195,11 +198,10 @@ namespace Arkanoid
                     if (trapped)
                         ball.Left += speed;
                 }
-                else throw new OutOfBoundsException("Fuera de los límites");
             }
             catch (OutOfBoundsException Ex)
             {
-                DialogResult dr =MessageBox.Show(Ex.Message);
+                DialogResult dr = MessageBox.Show(Ex.Message);
                 if (dr == DialogResult.OK)
                 {
                     //Regresando la plataforma al centro
@@ -216,7 +218,11 @@ namespace Arkanoid
             {
                 //Cuando presione ESC se pausará el juego
                 if (Keyboard.IsKeyDown(Key.Escape))
-                    throw new GamePausedException("PAUSA");
+                    throw new GamePausedException("Juego en pausa, presione ACEPTAR para continuar");
+                
+                //Cuando minimice la pantalla, se pondrá en pausa
+                if(GameData.StartGame==true && GameData.tmrPlayer==false)
+                    throw new MinimizingPauseException("Juego en pausa, presione ACEPTAR para continuar");
                 
                 //Detectar SPACE para comenzar el juego
                 if(GameData.StartGame==false && !Keyboard.IsKeyDown(Key.Space) && 
@@ -228,12 +234,14 @@ namespace Arkanoid
             catch (GamePausedException Ex)
             {
                 timePlayer.Stop();
+                GameData.tmrPlayer = false;
 
                 DialogResult dR = MessageBox.Show(Ex.Message);
                 
                 if (dR == DialogResult.OK && GameData.StartGame==true)
                 {
                     timePlayer.Start();
+                    GameData.tmrPlayer = true;
                     timeActions.Invoke();
                 }
             }
@@ -241,6 +249,18 @@ namespace Arkanoid
             {
                 MessageBox.Show(Ex.Message);
             }
+            catch (MinimizingPauseException Ex)
+            {
+                DialogResult dR = MessageBox.Show(Ex.Message);
+                
+                if (dR == DialogResult.OK && GameData.StartGame==true)
+                {
+                    timePlayer.Start();
+                    GameData.tmrPlayer = true;
+                    timeActions.Invoke();
+                }   
+            }
+            
 
             if (e.KeyCode == Keys.Space) {
                 //Inicio de tiempo de jugador e inicio de conteo para tiempo de partida
@@ -278,6 +298,7 @@ namespace Arkanoid
                     break;
             }
         }
+        
         //funcion que verifica el tiempo restante de juego
         private void RemainingTimePlayer()
         {
@@ -334,6 +355,7 @@ namespace Arkanoid
                 GameData.life--;
                 timePlayer.Stop();
                 
+                
                 switch (GameData.life)
                 {
                     case 2:
@@ -366,7 +388,7 @@ namespace Arkanoid
             {
                 //version 1.0
                 pictureBox5.Top -= (pictureBox5.Bottom - pictureBox4.Top);
-                GameData.ySpeed = -random.Next(13, 19);
+                GameData.ySpeed = -random.Next(13, 23);
                 
                 //GameData.ySpeed = -(rnd.Next(3,6)); version 2.0
                 
@@ -430,7 +452,6 @@ namespace Arkanoid
         private bool Collisions()
         {
             //Detecta que haya al menos una colision
-            bool aCollision = false;
             foreach (var block in blocksList)
             {
                 //Condicion para conocer si el bloque esta activo y existe colision
@@ -442,15 +463,21 @@ namespace Arkanoid
                     // Verificando golpes y puntaje
                     block.Beaten(scoreLabel);
  
-                    aCollision = true; //Si hay colisiones su valor cambia
+                    return true; //Si hay colisiones su valor cambia
                 }
             }
-            return aCollision;
+            return false;
         }
-
-        private void Game_Resize(object sender, EventArgs e)
+        
+        //Método que se usará con el delegate de Form para pausar el juego al minimizar
+        //la pantalla
+        public void StopTimerPlayer()
         {
-            
+            if (GameData.StartGame == true)
+            {
+                timePlayer.Stop();
+                GameData.tmrPlayer = false;
+            }
         }
     }
 }

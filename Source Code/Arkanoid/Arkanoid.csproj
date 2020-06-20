@@ -100,6 +100,7 @@
     <Compile Include="Controlador\GameData.cs" />
     <Compile Include="Controlador\GamePausedException.cs" />
     <Compile Include="Controlador\GetDataException.cs" />
+    <Compile Include="Controlador\MinimizingPauseException.cs" />
     <Compile Include="Controlador\OutOfBoundsException.cs" />
     <Compile Include="Controlador\PanelControlator.cs" />
     <Compile Include="Controlador\PlayerDAO.cs" />

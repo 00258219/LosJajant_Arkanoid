@@ -6,6 +6,7 @@ namespace Arkanoid.Controlador
     {
         public OutOfBoundsException(string Ex) : base(Ex)
         {
+            Ex = "Fuera de los limites";
         }
     }
 }

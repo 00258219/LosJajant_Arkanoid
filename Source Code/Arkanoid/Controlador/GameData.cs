@@ -6,6 +6,8 @@ namespace Arkanoid.Modelo
     {
         // Boleano que verifica la ejecucion del juego
         public static bool StartGame = false;
+        // Boleano que verifica si el timer está activo o no
+        public static bool tmrPlayer = false;
         //Velocidades con las cuales se movera la pelota
         public static int xSpeed =15, ySpeed =-(xSpeed-1); //version 1.0
         

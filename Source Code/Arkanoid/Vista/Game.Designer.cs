@@ -107,7 +107,7 @@ namespace Arkanoid
             this.life3.BackColor = System.Drawing.Color.Transparent;
             this.life3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.life3.Location = new System.Drawing.Point(662, 10);
-            this.life3.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.life3.Margin = new System.Windows.Forms.Padding(10);
             this.life3.Name = "life3";
             this.life3.Size = new System.Drawing.Size(29, 8);
             this.life3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -119,7 +119,7 @@ namespace Arkanoid
             this.life2.BackColor = System.Drawing.Color.Transparent;
             this.life2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.life2.Location = new System.Drawing.Point(622, 10);
-            this.life2.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.life2.Margin = new System.Windows.Forms.Padding(10);
             this.life2.Name = "life2";
             this.life2.Size = new System.Drawing.Size(20, 8);
             this.life2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -172,7 +172,7 @@ namespace Arkanoid
             this.life1.BackColor = System.Drawing.Color.Transparent;
             this.life1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.life1.Location = new System.Drawing.Point(581, 10);
-            this.life1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.life1.Margin = new System.Windows.Forms.Padding(10);
             this.life1.Name = "life1";
             this.life1.Size = new System.Drawing.Size(21, 8);
             this.life1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

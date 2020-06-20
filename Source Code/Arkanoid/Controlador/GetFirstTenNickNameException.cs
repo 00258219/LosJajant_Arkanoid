@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Arkanoid.Modelo
+namespace Arkanoid.Controlador
 {
     public class GetFirstTenNickNameException : Exception
     {

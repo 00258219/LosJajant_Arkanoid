@@ -94,21 +94,21 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\AddScoreException.cs" />
     <Compile Include="Controlador\ConnectionDB.cs" />
+    <Compile Include="Controlador\EmptyNickNameException.cs" />
     <Compile Include="Controlador\GameData.cs" />
+    <Compile Include="Controlador\GetFirsScoreException.cs" />
+    <Compile Include="Controlador\GetFirstTenNickNameException.cs" />
+    <Compile Include="Controlador\GetFirstTenScoreException.cs" />
+    <Compile Include="Controlador\GetPlayerException.cs" />
+    <Compile Include="Controlador\GetPlayerScoreException.cs" />
     <Compile Include="Controlador\PanelControlator.cs" />
     <Compile Include="Controlador\PlayerDAO.cs" />
+    <Compile Include="Controlador\PlayerRegistrationException.cs" />
     <Compile Include="Controlador\ScoreDAO.cs" />
-    <Compile Include="Modelo\AddScoreException.cs" />
     <Compile Include="Modelo\BlockPB.cs" />
-    <Compile Include="Modelo\EmptyNickNameException.cs" />
-    <Compile Include="Modelo\GetFirsScoreException.cs" />
-    <Compile Include="Modelo\GetFirstTenNickNameException.cs" />
-    <Compile Include="Modelo\GetFirstTenScoreException.cs" />
-    <Compile Include="Modelo\GetPlayerException.cs" />
-    <Compile Include="Modelo\GetPlayerScoreException.cs" />
     <Compile Include="Modelo\Player.cs" />
-    <Compile Include="Modelo\PlayerRegistrationException.cs" />
     <Compile Include="Modelo\Score.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

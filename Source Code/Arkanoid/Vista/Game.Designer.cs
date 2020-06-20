@@ -44,7 +44,6 @@ namespace Arkanoid
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.timeLimit = new System.Windows.Forms.Timer(this.components);
             this.timePlayer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -100,6 +99,11 @@ namespace Arkanoid
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(701, 28);
+            this.tableLayoutPanel2.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(818, 32);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // life3
@@ -244,11 +248,6 @@ namespace Arkanoid
             this.pictureBox5.TabIndex = 1;
             this.pictureBox5.TabStop = false;
             // 
-            // timeLimit
-            // 
-            this.timeLimit.Interval = 1;
-            this.timeLimit.Tick += new System.EventHandler(this.timeLimit_Tick);
-            // 
             // timePlayer
             // 
             this.timePlayer.Tick += new System.EventHandler(this.timePlayer_Tick);
@@ -290,9 +289,7 @@ namespace Arkanoid
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Timer timeLimit;
         private System.Windows.Forms.Timer timePlayer;
-
         #endregion
     }
 }

@@ -40,7 +40,6 @@ namespace Arkanoid.Controlador
             {
                 string query = $"INSERT INTO PLAYER(nickname) VALUES ('{player}')";
                 ConnectionDB.ExecuteNonQuery(query);
-                MessageBox.Show("Usuario registrado!");
             }
             catch (PlayerRegistrationException Ex)
             {

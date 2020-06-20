@@ -14,17 +14,16 @@ namespace Arkanoid
     public sealed partial class Game : UserControl
     {
         //variable que guarda el tiempo de juego
-        private int currentTime = 150; //2 mins y 30 seg
+        private double currentTime = 150.00; //2 mins y 30 seg
         //variable que describe si la pelota esta fijada con la plataforma
-        public static bool trapped = true,isEmpty=false;
-        
-        //Variable
+        public static bool trapped = true, isEmpty=false;
+        private Action FinishGame, WinningGame;
+
+        //Lista que identifica a los bloques
         List<BlockPB> blocksList = new List<BlockPB>();
         
         //Agregando delegates 
-
         private delegate void MyDelegate();
-
         static MyDelegate ballActions,timeActions;
         
         public Game()
@@ -36,12 +35,26 @@ namespace Arkanoid
             //Suscribiendo las acciones de la pelota
             ballActions = BallMoves;
             ballActions += Bounces;
-
-            //Suscribiendo las accines de inicio de tiempo
+            //Suscribiendo la accion de inicio de tiempo
             timeActions = startTimePlayer;
-            timeActions += startTime;
+            //suscriendo acciones de finishgame and wingame
+            FinishGame = () =>
+            {
+                GameData.timePlayer = 150 - Convert.ToInt32(Math.Floor(currentTime));
+                timePlayer.Stop();
+                NewGameOver();
+            };
+            WinningGame = () =>
+            {
+                GameData.timePlayer = 150 - Convert.ToInt32(Math.Floor(currentTime));
+                timePlayer.Stop();
+                GameData.winner = true;
+                GameData.AddScoreDB();
+                //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
+                //mientras esté abierto GameOver
+                NewGameOver();
+            };
         }
-        
         public void Game_Load(object sender, EventArgs e)
         {
             //cargando las imagenes y fondos
@@ -107,7 +120,7 @@ namespace Arkanoid
             fillRowBlock(Resources.block1t, 1, 3, tlp4);
             
             //Iniciar puntaje
-            scoreLabel.Text = GameData.score.ToString("D7");
+            scoreLabel.Text = GameData.scoreBlocks.ToString("D7");
 
             //Removiendo el TableLayoutPanel que contiene los bloques
             //Guardamos la ubicacion y tamaño que deben llevar
@@ -155,36 +168,6 @@ namespace Arkanoid
             //timePlayer.Interval=1; version 2.0
             timePlayer.Start();
         }
-        //Funcion que inicia el conteo de tiempo del juego mediante el timeLimit_Tick.
-        private void startTime()
-        {
-            timeLimit.Enabled = true;
-            timeLimit.Interval = (1000);
-            timeLimit.Start();
-        }
-        private void timeLimit_Tick(object sender, EventArgs e)
-        {
-            //Mientras el tiempo no llegue a cero restar 1 segundo, si es cero entonces se para.
-            if (currentTime == 0)
-            {
-                //Guardando el tiempo que demoró jugando para calcular el puntaje 
-                //bonus por tiempo
-                GameData.timePlayer = currentTime;
-                    
-                //Parando los timers exitentes
-                timePlayer.Stop();
-                timeLimit.Stop();
-                    
-                //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
-                //mientras esté abierto GameOver
-                NewGameOver();
-            }
-            else
-            {
-                currentTime--;
-                Controls[2].Text = currentTime.ToString("D3");
-            }
-        }
         
         //Funcion que realiza el movimiento de la plataforma, ya sea de lado izquierdo o derecho, con o sin la pelota
         //fijada, por medio de variables booleanas
@@ -215,14 +198,12 @@ namespace Arkanoid
             if (Keyboard.IsKeyDown(Key.Escape))
             {
                 timePlayer.Stop();
-                timeLimit.Stop();
 
                 DialogResult dR = MessageBox.Show("Pausa");
                 
                 if (dR == DialogResult.OK)
                 {
                     timePlayer.Start();
-                    timeLimit.Start();
                     timeActions.Invoke();
                 }
             }
@@ -234,7 +215,6 @@ namespace Arkanoid
             if (e.KeyCode == Keys.Space) {
                 //Inicio de tiempo de jugador e inicio de conteo para tiempo de partida
                 timeActions.Invoke();
-                
                 GameData.StartGame = true;
                 trapped = false; //Cambiar la condicion para que se muevan independientemente
             }
@@ -268,10 +248,25 @@ namespace Arkanoid
                     break;
             }
         }
+        //funcion que verifica el tiempo restante de juego
+        private void RemainingTimePlayer()
+        {
+            if (currentTime <= 1)
+            {
+                FinishGame?.Invoke();
+            }
+            else
+            {
+                currentTime-=0.07;
+                //mostrar el tiempo restante
+                Controls[2].Text = Convert.ToInt32(Math.Floor(currentTime)).ToString("D3");
+            }
+        }
         
         //Metodo que realiza lleva a cabo los movimientos de la pelota
         private void timePlayer_Tick(object sender, EventArgs e)
         {
+            RemainingTimePlayer();
             //Si el juego no ha inicia no realiza moviemientos de la pelota
             if (!GameData.StartGame)
                 return;
@@ -287,7 +282,8 @@ namespace Arkanoid
             pictureBox5.Top += GameData.ySpeed;
         }
         
-        //Metodo para reposicionar la pelota y la platafroma al centro cuando se  pierde una vida
+        //Metodo para reposicionar la pelota y la plataforma al centro cuando se  pierde una vida
+        
         private void Relocation()
         {
             Controls[1].Left = (Width / 2) - (Controls[1].Width / 2);
@@ -299,48 +295,32 @@ namespace Arkanoid
         //Metodo que se encarga de revisar las colisiones
         private void Bounces()
         {
-
             //Random para el rebote
             Random random= new Random();
-            
             
             //verifica si la pelota cae al vacio
             if (pictureBox5.Bottom > Height)
             {
                 GameData.life--;
-
                 timePlayer.Stop();
                 
-                if (GameData.life == 2)
-                    life3.Image = Image.FromFile("../../Resources/heartn.png");
-                else if (GameData.life == 1)
-                    life2.Image = Image.FromFile("../../Resources/heartn.png");
-                else if(GameData.life==0)
-                    life1.Image = Image.FromFile("../../Resources/heartn.png");
-                
-                Relocation();
-                
-                //verificacion cuando ya no quedan mas vidas
-                if (GameData.life == 0)
+                switch (GameData.life)
                 {
-                    
-                    life1.Image = Image.FromFile("../../Resources/heartn.png");
-                    //Guardando el tiempo que demoró jugando para calcular el puntaje 
-                    //bonus por tiempo
-                    GameData.timePlayer = currentTime;
-                    
-                    //Parando los timers exitentes
-                    timePlayer.Stop();
-                    timeLimit.Stop();
-                    
-                    //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
-                    //mientras esté abierto GameOver
-                    NewGameOver();
+                    case 2:
+                        life3.Image = Image.FromFile("../../Resources/heartn.png");
+                        Relocation();
+                        break;
+                    case 1:
+                        life2.Image = Image.FromFile("../../Resources/heartn.png");
+                        Relocation();
+                        break;
+                    case 0:
+                        life1.Image = Image.FromFile("../../Resources/heartn.png");
+                        FinishGame?.Invoke();
+                        break;
                 }
-                
             }
             
-
             //Genera un rebote en la parte superior
             if(pictureBox5.Top<tableLayoutPanel2.Bottom)
                 GameData.ySpeed = -GameData.ySpeed;
@@ -366,23 +346,11 @@ namespace Arkanoid
             //Condicion para conocer si el bloque esta activo y existen colisiones
                 if (Collisions())
                 {
-                    
                     GameData.ySpeed = -GameData.ySpeed; //Cambia la direccion al chocar
-
-                    //Si ya no hay bloques, se puede simular verificando si el puntaje máximo se alcanzó
-                    if (GameData.score == 66000)
-                    {
-                        //Guardando el tiempo que demoró jugando para calcular el puntaje 
-                        //bonus por tiempo
-                        GameData.timePlayer = currentTime;
                     
-                        //Parando los timers exitentes
-                        timePlayer.Stop();
-                        timeLimit.Stop();
-
-                        //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
-                        //mientras esté abierto GameOver
-                        NewGameOver();
+                    if (GameData.remainingBlocks==0)
+                    {
+                        WinningGame?.Invoke(); 
                     }
                 }
         }
@@ -447,7 +415,6 @@ namespace Arkanoid
                     aCollision = true; //Si hay colisiones su valor cambia
                 }
             }
- 
             return aCollision;
         }
     }

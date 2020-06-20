@@ -20,7 +20,7 @@ namespace Arkanoid.Controlador
             {
                 dt = ConnectionDB.ExecuteQuery("SELECT nickname FROM SCORE ORDER BY score DESC, score LIMIT 10");
             }
-            catch (Exception e)
+            catch (GetDataException Ex)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }
@@ -42,7 +42,7 @@ namespace Arkanoid.Controlador
             {
                 dt = ConnectionDB.ExecuteQuery("SELECT score FROM SCORE ORDER BY score DESC, score LIMIT 10");
             }
-            catch (Exception e)
+            catch (GetDataException Ex)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }
@@ -65,7 +65,7 @@ namespace Arkanoid.Controlador
             {
                 dt = ConnectionDB.ExecuteQuery("SELECT * FROM SCORE ORDER BY score DESC, score LIMIT 1");
             }
-            catch (Exception e)
+            catch (GetDataException e)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }
@@ -92,7 +92,7 @@ namespace Arkanoid.Controlador
             {
                 dt = ConnectionDB.ExecuteQuery("SELECT * FROM SCORE");
             }
-            catch (Exception e)
+            catch (GetDataException e)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }
@@ -108,6 +108,7 @@ namespace Arkanoid.Controlador
             return listScore;
         }
 
+        //Método que añade los score a la base de datos
         public static void AddScore(int score, string nickname)
         {
             try
@@ -115,7 +116,7 @@ namespace Arkanoid.Controlador
                 string query = $"INSERT INTO SCORE(score, nickname) VALUES ({score},'{nickname}');";
                 ConnectionDB.ExecuteNonQuery(query);
             }
-            catch (Exception e)
+            catch (AddScoreException e)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }

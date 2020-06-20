@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Arkanoid.Modelo;
 
 namespace Arkanoid.Controlador
 {
@@ -11,9 +12,7 @@ namespace Arkanoid.Controlador
         public static Top10 top10 = new Top10();
         public static PlayerRegister playeregister = new PlayerRegister();
         public static Game game = new Game();
-
         public static UserControl uc = new UserControl();
-        public static Panel panel1=new Panel();
-        
+        public static Panel panel1 = new Panel();
     }
 }

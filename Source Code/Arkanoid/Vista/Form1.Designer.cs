@@ -56,6 +56,7 @@
             this.Text = "Arkanoid by Jajan\'tGames";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.ResumeLayout(false);
         }
 

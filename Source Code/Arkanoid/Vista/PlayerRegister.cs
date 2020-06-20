@@ -8,6 +8,8 @@ namespace Arkanoid
 {
     public partial class PlayerRegister : UserControl
     {
+        private delegate void MyDelegatePlayerRegiser(object sender, EventArgs e);
+        private static MyDelegatePlayerRegiser clickSimulator;
         public PlayerRegister()
         {
             InitializeComponent();
@@ -37,17 +39,31 @@ namespace Arkanoid
         //para luego mandarlo a la base de datos y tambien cambiaremos al panel Game
         private void lblButton_Click(object sender, EventArgs e)
         {
-            if (!txtNickname.Text.Equals(""))
+            try
             {
-                string actualPlayer = txtNickname.Text.ToLower();
-                GameData.player = actualPlayer;
-                Parent.Parent.Text += "            PLAYER: "+actualPlayer;
-                PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
-                PanelControlator.uc = PanelControlator.game;
-                PanelControlator.panel1.Controls.Add(PanelControlator.uc);
-            }else
-                MessageBox.Show("Tienes que escribir tu nickname para jugar");
-            
+                //Quitando posibles espacios en blanco del textbox (al inicio y al final)
+                txtNickname.Text = txtNickname.Text.Trim();
+                
+                if (txtNickname.Text.Equals(""))
+                throw new EmptyNickNameException("Ingresa tu nickname antes de jugar!");
+                
+                else
+                {
+                    string actualPlayer = txtNickname.Text.ToLower();
+                    GameData.player = actualPlayer;
+                    Parent.Parent.Text += "            PLAYER: "+actualPlayer;
+                    PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
+                    PanelControlator.uc = PanelControlator.game;
+                    PanelControlator.panel1.Controls.Add(PanelControlator.uc);   
+                    
+                    //Limpiando el txtNickname
+                    txtNickname.Text = "";
+                }
+            }
+            catch (EmptyNickNameException Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)

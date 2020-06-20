@@ -19,7 +19,7 @@ namespace Arkanoid.Controlador
             {
                 dt= ConnectionDB.ExecuteQuery("SELECT * FROM PLAYER");
             }
-            catch (Exception e)
+            catch (GetDataException Ex)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }
@@ -41,7 +41,7 @@ namespace Arkanoid.Controlador
                 string query = $"INSERT INTO PLAYER(nickname) VALUES ('{player}')";
                 ConnectionDB.ExecuteNonQuery(query);
             }
-            catch (Exception e)
+            catch (PlayerRegistrationException Ex)
             {
                 MessageBox.Show("Ha ocurrido un error!");
             }

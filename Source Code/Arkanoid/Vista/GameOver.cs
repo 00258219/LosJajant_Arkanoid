@@ -9,6 +9,9 @@ namespace Arkanoid
 {
     public partial class GameOver : Form
     {
+        private delegate void DelegateGameOver();
+        static DelegateGameOver myDelegateGameOver;
+        
         private int scoreTotal = 0;
         private int scoreBonus = 0;
         private int diffScore = 200;
@@ -95,6 +98,7 @@ namespace Arkanoid
             //Eliminando el user control game para volver a implementarlo 
             PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
             PanelControlator.uc = new Game();
+            PanelControlator.uc.Size = PanelControlator.panel1.Size;
             
             //Restableciendo los valores que hacen funcionar correctamente a Game
             GameReset();
@@ -103,19 +107,22 @@ namespace Arkanoid
             PanelControlator.panel1.Controls.Add(PanelControlator.uc);
             this.Hide();
         }
-        
+
         private void label5_Click(object sender, EventArgs e)
         {
             //Cambiando el user control dentro del Form 
             PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
-            PanelControlator.game=new Game();
-            
+            PanelControlator.game = new Game();
+            PanelControlator.game.Size = PanelControlator.panel1.Size;
+
             //Restableciendo los valores que hacen funcionar correctamente a Game
             GameReset();
-            
+
             //Agregando el nuevo UserControl
             PanelControlator.uc = PanelControlator.menu;
             PanelControlator.panel1.Controls.Add(PanelControlator.uc);
+            PanelControlator.panel1.Parent.Text = "Arkanoid by Jajan'tGames";
+            
             this.Hide();
         }
         
@@ -128,7 +135,6 @@ namespace Arkanoid
         private void GameReset()
         {
             //Restableciendo los valores necesarios para que Game funcione correctamente
-            PanelControlator.uc.Size = PanelControlator.panel1.Size;
             GameData.scoreBlocks = 0;
             GameData.StartGame=false;
             GameData.life = 3;

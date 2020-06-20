@@ -5,6 +5,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Arkanoid.Properties;
 using System.Windows.Input;
+using Arkanoid.Controlador;
 using ContentAlignment = System.Drawing.ContentAlignment;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 using Arkanoid.Modelo;
@@ -19,13 +20,11 @@ namespace Arkanoid
         public static bool trapped = true, isEmpty=false;
         private Action FinishGame, WinningGame;
 
-        //Variable
+        //Lista que identifica a los bloques
         List<BlockPB> blocksList = new List<BlockPB>();
         
         //Agregando delegates 
-
         private delegate void MyDelegate();
-
         static MyDelegate ballActions,timeActions;
         
         public Game()
@@ -39,17 +38,19 @@ namespace Arkanoid
             ballActions += Bounces;
             //Suscribiendo la accion de inicio de tiempo
             timeActions = startTimePlayer;
-            //suscriendo acciones de finishgame and wingame
+            //suscribiendo acciones de finishgame and wingame
             FinishGame = () =>
             {
                 GameData.timePlayer = 150 - Convert.ToInt32(Math.Floor(currentTime));
                 timePlayer.Stop();
+                GameData.tmrPlayer = false;
                 NewGameOver();
             };
             WinningGame = () =>
             {
                 GameData.timePlayer = 150 - Convert.ToInt32(Math.Floor(currentTime));
                 timePlayer.Stop();
+                GameData.tmrPlayer = false;
                 GameData.winner = true;
                 GameData.AddScoreDB();
                 //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
@@ -129,8 +130,10 @@ namespace Arkanoid
             int valueY = tlp4.Top;
             int valueX = tlp4.Left;
             var blockSize = tlp4.Controls[0].Size;
+            
             //Quitamos el tlp del userControl
             Controls.Remove(tlp4);
+            
             //Recorremos el controls de tlp4 que es quien contiene los bloques
             foreach (var i in tlp4.Controls)
             {
@@ -169,6 +172,7 @@ namespace Arkanoid
             timePlayer.Interval = 70; //version 1.0
             //timePlayer.Interval=1; version 2.0
             timePlayer.Start();
+            GameData.tmrPlayer = true;
         }
         
         //Funcion que realiza el movimiento de la plataforma, ya sea de lado izquierdo o derecho, con o sin la pelota
@@ -179,25 +183,86 @@ namespace Arkanoid
             var plat = Controls[1];
             var ball = Controls[3];
             var limitRight = ClientSize.Width - plat.Width;
-            if (left && (plat.Left > 0))
+
+            try
             {
-                plat.Left -= speed;
-                if (trapped)
-                    ball.Left -= speed;
+                if (left && (plat.Left > 0))
+                {
+                    plat.Left -= speed;
+                    if (trapped)
+                        ball.Left -= speed;
+                }
+                else if(left == false && (plat.Left < limitRight))
+                {
+                    plat.Left += speed;
+                    if (trapped)
+                        ball.Left += speed;
+                }
             }
-            else if(left == false && (plat.Left < limitRight))
+            catch (OutOfBoundsException Ex)
             {
-                plat.Left += speed;
-                if (trapped)
-                    ball.Left += speed;
+                DialogResult dr = MessageBox.Show(Ex.Message);
+                if (dr == DialogResult.OK)
+                {
+                    //Regresando la plataforma al centro
+                    pictureBox4.Top = Height - pictureBox4.Height - 80;
+                    pictureBox4.Left = (Width / 2) - (pictureBox4.Width / 2);
+                }
             }
         }
         
         //Evento para el movimiento de la plataforma e inicio del juego
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Space) {
+            try
+            {
+                //Cuando presione ESC se pausará el juego
+                if (Keyboard.IsKeyDown(Key.Escape))
+                    throw new GamePausedException("Juego en pausa, presione ACEPTAR para continuar");
                 
+                //Cuando minimice la pantalla, se pondrá en pausa
+                if(GameData.StartGame==true && GameData.tmrPlayer==false)
+                    throw new MinimizingPauseException("Juego en pausa, presione ACEPTAR para continuar");
+                
+                //Detectar SPACE para comenzar el juego
+                if(GameData.StartGame==false && !Keyboard.IsKeyDown(Key.Space) && 
+                   !Keyboard.IsKeyDown(Key.Escape) && !Keyboard.IsKeyDown(Key.Left) && 
+                   !Keyboard.IsKeyDown(Key.Right) && !Keyboard.IsKeyDown(Key.A) && 
+                   !Keyboard.IsKeyDown(Key.D))
+                    throw new StartOfTheGameException("Presiona SPACE para jugar");
+            }
+            catch (GamePausedException Ex)
+            {
+                timePlayer.Stop();
+                GameData.tmrPlayer = false;
+
+                DialogResult dR = MessageBox.Show(Ex.Message);
+                
+                if (dR == DialogResult.OK && GameData.StartGame==true)
+                {
+                    timePlayer.Start();
+                    GameData.tmrPlayer = true;
+                    timeActions.Invoke();
+                }
+            }
+            catch (StartOfTheGameException Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+            catch (MinimizingPauseException Ex)
+            {
+                DialogResult dR = MessageBox.Show(Ex.Message);
+                
+                if (dR == DialogResult.OK && GameData.StartGame==true)
+                {
+                    timePlayer.Start();
+                    GameData.tmrPlayer = true;
+                    timeActions.Invoke();
+                }   
+            }
+            
+
+            if (e.KeyCode == Keys.Space) {
                 //Inicio de tiempo de jugador e inicio de conteo para tiempo de partida
                 timeActions.Invoke();
                 GameData.StartGame = true;
@@ -214,10 +279,10 @@ namespace Arkanoid
             //movimiento a la izquierda
             if (Keyboard.IsKeyDown(Key.A) || Keyboard.IsKeyDown(Key.Left))
                 plataformMove(true);
+            
             //movimiento a la derecha
             else if(Keyboard.IsKeyDown(Key.D) || Keyboard.IsKeyDown(Key.Right))
                 plataformMove(false);
-
         }
         
         private void Game_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -233,6 +298,7 @@ namespace Arkanoid
                     break;
             }
         }
+        
         //funcion que verifica el tiempo restante de juego
         private void RemainingTimePlayer()
         {
@@ -289,6 +355,7 @@ namespace Arkanoid
                 GameData.life--;
                 timePlayer.Stop();
                 
+                
                 switch (GameData.life)
                 {
                     case 2:
@@ -321,7 +388,7 @@ namespace Arkanoid
             {
                 //version 1.0
                 pictureBox5.Top -= (pictureBox5.Bottom - pictureBox4.Top);
-                GameData.ySpeed = -random.Next(13, 19);
+                GameData.ySpeed = -random.Next(13, 23);
                 
                 //GameData.ySpeed = -(rnd.Next(3,6)); version 2.0
                 
@@ -331,14 +398,13 @@ namespace Arkanoid
             //Condicion para conocer si el bloque esta activo y existen colisiones
                 if (Collisions())
                 {
-                    
                     GameData.ySpeed = -GameData.ySpeed; //Cambia la direccion al chocar
                     
                     if (GameData.remainingBlocks==0)
                     {
-                        WinningGame?.Invoke();
+                        WinningGame?.Invoke(); 
                     }
-            }
+                }
         }
 
         //Método que muestra la ventana de GameOver y deja el fondo oscuro
@@ -378,7 +444,7 @@ namespace Arkanoid
                 
                 //Se mostrará dde esta forma, ya que deja inabilitado el form del fondo, y a su vez esperará
                 //una respuesta para volver a la normalidad (form no oscurecido)
-                gameOver.ShowDialog(this);
+                gameOver.ShowDialog();
             }
         }
         
@@ -386,7 +452,6 @@ namespace Arkanoid
         private bool Collisions()
         {
             //Detecta que haya al menos una colision
-            bool aCollision = false;
             foreach (var block in blocksList)
             {
                 //Condicion para conocer si el bloque esta activo y existe colision
@@ -398,10 +463,21 @@ namespace Arkanoid
                     // Verificando golpes y puntaje
                     block.Beaten(scoreLabel);
  
-                    aCollision = true; //Si hay colisiones su valor cambia
+                    return true; //Si hay colisiones su valor cambia
                 }
             }
-            return aCollision;
+            return false;
+        }
+        
+        //Método que se usará con el delegate de Form para pausar el juego al minimizar
+        //la pantalla
+        public void StopTimerPlayer()
+        {
+            if (GameData.StartGame == true)
+            {
+                timePlayer.Stop();
+                GameData.tmrPlayer = false;
+            }
         }
     }
 }

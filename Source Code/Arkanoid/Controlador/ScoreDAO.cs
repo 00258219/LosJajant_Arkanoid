@@ -11,7 +11,7 @@ namespace Arkanoid.Controlador
 
         //Método encargada de guardar en una lista el nickname de los mejores 10 puntajes
         //ordenados de mayor a menor
-        public static List<string> getNickName()
+        public static List<string> GetNickName()
         {
             List<string> listScore = new List<string>();
             DataTable dt = null;
@@ -34,7 +34,7 @@ namespace Arkanoid.Controlador
         
         //Método encargada de guardar en una lista el score de los mejores 10 puntajes
         //ordenados de mayor a menor
-        public static List<string> getScore()
+        public static List<string> GetScore()
         {
             List<string> listScore = new List<string>();
             DataTable dt = null;

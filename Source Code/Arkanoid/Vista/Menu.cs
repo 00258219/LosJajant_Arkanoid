@@ -1,16 +1,6 @@
-﻿/*
- * User control para el inicio del juego
- * version: 1.0.1
- * Responsable: Cortez Amaya Henry Alexander (00095119)
-*/
-
-
-using System;
-using System.ComponentModel;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Threading;
 using Arkanoid.Controlador;
 
 namespace Arkanoid
@@ -21,66 +11,72 @@ namespace Arkanoid
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+            
+        }
+        
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            DoubleBuffered = true;
+            pbLogo.Image = Image.FromFile("../../Resources/logo.png");
         }
 
         /*
          * Evento MouseHover: Crear el efecto de entrada en un boton
          * Evento MouseLeave: Quita el efecto al estar afuera de un boton
         */
-        private void labelPlay_MouseHover(object sender, EventArgs e)
+        private void LblPlay_MouseHover(object sender, EventArgs e)
         {
         
-            labelPlay.BackColor =  Color.FromArgb(100,Color.Black);
+            lblPlay.BackColor =  Color.FromArgb(100,Color.Black);
         }
 
-        private void labelPlay_MouseLeave(object sender, EventArgs e)
+        private void LblPlay_MouseLeave(object sender, EventArgs e)
         {
         
-            labelPlay.BackColor=Color.Transparent;
+            lblPlay.BackColor=Color.Transparent;
         }
 
-        private void labelTop_MouseHover(object sender, EventArgs e)
+        private void LblTop_MouseHover(object sender, EventArgs e)
         {
-            labelTop.BackColor = Color.FromArgb(100,Color.Black);
+            lblTop.BackColor = Color.FromArgb(100,Color.Black);
         }
 
-        private void labelTop_MouseLeave(object sender, EventArgs e)
+        private void LblTop_MouseLeave(object sender, EventArgs e)
         {
-            labelTop.BackColor=Color.Transparent;
+            lblTop.BackColor=Color.Transparent;
         }
 
-        private void labelExit_MouseHover(object sender, EventArgs e)
+        private void LblExit_MouseHover(object sender, EventArgs e)
         {
-            labelExit.BackColor = Color.FromArgb(100,Color.Black);
+            lblExit.BackColor = Color.FromArgb(100,Color.Black);
         }
 
-        private void labelExit_MouseLeave(object sender, EventArgs e)
+        private void LblExit_MouseLeave(object sender, EventArgs e)
         {
-            labelExit.BackColor=Color.Transparent;
+            lblExit.BackColor=Color.Transparent;
         }
         //funcionamiento del click en 'Play'
-        private void labelPlay_Click(object sender, EventArgs e)
+        private void LblPlay_Click(object sender, EventArgs e)
         {
             //cambiando el componente que esta dentro del panel en el Form1 
-            PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
-            PanelControlator.uc = PanelControlator.playeregister;
-            PanelControlator.panel1.Controls.Add(PanelControlator.uc);
+            PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
+            PanelControlator.currentUc = PanelControlator.playerRegisterUc;
+            PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
         }
 
         //funcionamiento del click en 'Top10'
-        private void labelTop_Click(object sender, EventArgs e)
+        private void LblTop_Click(object sender, EventArgs e)
         { 
             //cambiando el componente que esta dentro del panel en el Form1 
-            PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
-            PanelControlator.uc = PanelControlator.top10;
-            PanelControlator.panel1.Controls.Add(PanelControlator.uc);
+            PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
+            PanelControlator.currentUc = PanelControlator.top10Uc;
+            PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
         }
         
         //funcionamiento del click en 'Exit'
-        private void labelExit_Click(object sender, EventArgs e)
+        private void LblExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        
     }
 }

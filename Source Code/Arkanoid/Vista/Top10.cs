@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Arkanoid.Controlador;
-using Arkanoid.Modelo;
-using Arkanoid.Properties;
 
 namespace Arkanoid
 {
@@ -19,10 +16,10 @@ namespace Arkanoid
         {
             DoubleBuffered = true;
             Dock = DockStyle.Fill;
-            pictureBox1.Image = Resources.logo;
-            labTop10.BackColor = Color.FromArgb(125, labTop10.BackColor);
-            labPlayers.BackColor = Color.FromArgb(125, labTop10.BackColor);
-            labScore.BackColor = Color.FromArgb(125, labTop10.BackColor);
+            pbLogo.Image = Image.FromFile("../../Resources/logo.png");
+            lblTop10.BackColor = Color.FromArgb(125, lblTop10.BackColor);
+            lblPlayers.BackColor = Color.FromArgb(125, lblTop10.BackColor);
+            lblScore.BackColor = Color.FromArgb(125, lblTop10.BackColor);
             BestPlayer(); //Imprime los diez puntajes mas altos
         }
 
@@ -30,12 +27,12 @@ namespace Arkanoid
         private void BestPlayer()
         {
             //Inializando los textos
-            labPlayers.Text = "\n   Players\n";
-            labScore.Text = "\nScore\n";
+            lblPlayers.Text = "\n   Players\n";
+            lblScore.Text = "\nScore\n";
             
             // Guardando los diez jugadores con su respectivo puntaje
-            var PlayerList = ScoreDAO.getNickName();
-            var ScoreList = ScoreDAO.getScore();
+            var PlayerList = ScoreDAO.GetNickName();
+            var ScoreList = ScoreDAO.GetScore();
             
             //Llenando los textos con los jugadores
             for (int i = 0; i < PlayerList.Count; i++)
@@ -44,24 +41,25 @@ namespace Arkanoid
                 switch (i)
                 {
                     case 0:
-                        labPlayers.Text += $"{i + 1}   " + PlayerList[i] + "\n";
+                        lblPlayers.Text += $"{i + 1}   " + PlayerList[i] + "\n";
                         break;
-                    case 9:labPlayers.Text += $"{i + 1} " + PlayerList[i] + "\n";
+                    case 9:lblPlayers.Text += $"{i + 1} " + PlayerList[i] + "\n";
                             break;
-                    default: labPlayers.Text += $"{i + 1}  " + PlayerList[i] + "\n";
+                    default: lblPlayers.Text += $"{i + 1}  " + PlayerList[i] + "\n";
                         break;
                 }
-                labScore.Text += ScoreList[i] + "\n";
+                lblScore.Text += ScoreList[i] + "\n";
             }
         }
     
-        //Metodo para regresar al menu principal
-        private void btnback_Click(object sender, EventArgs e)
+        //Metodo para regresar al menuUc principal
+        private void BtnBack_Click(object sender, EventArgs e)
         {
+            BestPlayer();
             //cambiando el componente que esta dentro del panel en el Form1 
-            PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
-            PanelControlator.uc = PanelControlator.menu;
-            PanelControlator.panel1.Controls.Add(PanelControlator.uc);
+            PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
+            PanelControlator.currentUc = PanelControlator.menuUc;
+            PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
         }
     }
 }

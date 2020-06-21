@@ -83,9 +83,9 @@ namespace Arkanoid.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap block1t {
+        internal static System.Drawing.Bitmap block1hit1 {
             get {
-                object obj = ResourceManager.GetObject("block1t", resourceCulture);
+                object obj = ResourceManager.GetObject("block1hit1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Arkanoid.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap block2t {
+        internal static System.Drawing.Bitmap block2hit2 {
             get {
-                object obj = ResourceManager.GetObject("block2t", resourceCulture);
+                object obj = ResourceManager.GetObject("block2hit2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Arkanoid.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap block3t {
+        internal static System.Drawing.Bitmap block3hit3 {
             get {
-                object obj = ResourceManager.GetObject("block3t", resourceCulture);
+                object obj = ResourceManager.GetObject("block3hit3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Arkanoid.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap block5t {
+        internal static System.Drawing.Bitmap block5hit5 {
             get {
-                object obj = ResourceManager.GetObject("block5t", resourceCulture);
+                object obj = ResourceManager.GetObject("block5hit5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

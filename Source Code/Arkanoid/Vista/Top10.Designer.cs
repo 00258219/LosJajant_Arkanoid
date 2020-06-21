@@ -31,128 +31,128 @@ namespace Arkanoid
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbltop10 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnback = new System.Windows.Forms.Button();
-            this.labPlayers = new System.Windows.Forms.Label();
-            this.labScore = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labTop10 = new System.Windows.Forms.Label();
-            this.lbltop10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
+            this.tlpBase = new System.Windows.Forms.TableLayoutPanel();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.lblPlayers = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.lblTop10 = new System.Windows.Forms.Label();
+            this.tlpBase.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbltop10
+            // tlpBase
             // 
-            this.lbltop10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.lbltop10.ColumnCount = 6;
-            this.lbltop10.ColumnStyles.Add(
+            this.tlpBase.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlpBase.ColumnCount = 6;
+            this.tlpBase.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.08428F));
-            this.lbltop10.ColumnStyles.Add(
+            this.tlpBase.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.35763F));
-            this.lbltop10.ColumnStyles.Add(
+            this.tlpBase.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.542141F));
-            this.lbltop10.ColumnStyles.Add(
+            this.tlpBase.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.89522F));
-            this.lbltop10.ColumnStyles.Add(
+            this.tlpBase.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.150342F));
-            this.lbltop10.ColumnStyles.Add(
+            this.tlpBase.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.74641F));
-            this.lbltop10.ColumnStyles.Add(
+            this.tlpBase.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.lbltop10.Controls.Add(this.btnback, 0, 0);
-            this.lbltop10.Controls.Add(this.labPlayers, 1, 2);
-            this.lbltop10.Controls.Add(this.labScore, 3, 2);
-            this.lbltop10.Controls.Add(this.pictureBox1, 4, 0);
-            this.lbltop10.Controls.Add(this.labTop10, 1, 0);
-            this.lbltop10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbltop10.Location = new System.Drawing.Point(0, 0);
-            this.lbltop10.Margin = new System.Windows.Forms.Padding(0);
-            this.lbltop10.Name = "lbltop10";
-            this.lbltop10.RowCount = 4;
-            this.lbltop10.RowStyles.Add(
+            this.tlpBase.Controls.Add(this.btnBack, 0, 0);
+            this.tlpBase.Controls.Add(this.lblPlayers, 1, 2);
+            this.tlpBase.Controls.Add(this.lblScore, 3, 2);
+            this.tlpBase.Controls.Add(this.pbLogo, 4, 0);
+            this.tlpBase.Controls.Add(this.lblTop10, 1, 0);
+            this.tlpBase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpBase.Location = new System.Drawing.Point(0, 0);
+            this.tlpBase.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpBase.Name = "tlpBase";
+            this.tlpBase.RowCount = 4;
+            this.tlpBase.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.81481F));
-            this.lbltop10.RowStyles.Add(
+            this.tlpBase.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.053498F));
-            this.lbltop10.RowStyles.Add(
+            this.tlpBase.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.19728F));
-            this.lbltop10.RowStyles.Add(
+            this.tlpBase.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.835909F));
-            this.lbltop10.Size = new System.Drawing.Size(878, 729);
-            this.lbltop10.TabIndex = 0;
+            this.tlpBase.Size = new System.Drawing.Size(878, 729);
+            this.tlpBase.TabIndex = 0;
             // 
-            // btnback
+            // btnBack
             // 
-            this.btnback.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnback.Font = new System.Drawing.Font("Segoe UI Historic", 9F, System.Drawing.FontStyle.Bold,
+            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI Historic", 9F, System.Drawing.FontStyle.Bold,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btnback.Location = new System.Drawing.Point(27, 27);
-            this.btnback.Margin = new System.Windows.Forms.Padding(0);
-            this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(96, 53);
-            this.btnback.TabIndex = 4;
-            this.btnback.Text = "GO BACK";
-            this.btnback.UseVisualStyleBackColor = true;
-            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            this.btnBack.Location = new System.Drawing.Point(27, 27);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(96, 53);
+            this.btnBack.TabIndex = 4;
+            this.btnBack.Text = "GO BACK";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
-            // labPlayers
+            // lblPlayers
             // 
-            this.labPlayers.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (7)))), ((int) (((byte) (0)))),
+            this.lblPlayers.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (7)))), ((int) (((byte) (0)))),
                 ((int) (((byte) (48)))));
-            this.labPlayers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labPlayers.Font = new System.Drawing.Font("Blader", 36F, System.Drawing.FontStyle.Regular,
+            this.lblPlayers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPlayers.Font = new System.Drawing.Font("Blader", 36F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labPlayers.ForeColor = System.Drawing.Color.White;
-            this.labPlayers.Location = new System.Drawing.Point(153, 174);
-            this.labPlayers.Name = "labPlayers";
-            this.labPlayers.Padding = new System.Windows.Forms.Padding(75, 0, 0, 0);
-            this.labPlayers.Size = new System.Drawing.Size(322, 526);
-            this.labPlayers.TabIndex = 2;
-            this.labPlayers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPlayers.ForeColor = System.Drawing.Color.White;
+            this.lblPlayers.Location = new System.Drawing.Point(153, 174);
+            this.lblPlayers.Name = "lblPlayers";
+            this.lblPlayers.Padding = new System.Windows.Forms.Padding(75, 0, 0, 0);
+            this.lblPlayers.Size = new System.Drawing.Size(322, 526);
+            this.lblPlayers.TabIndex = 2;
+            this.lblPlayers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // labScore
+            // lblScore
             // 
-            this.labScore.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (7)))), ((int) (((byte) (0)))),
+            this.lblScore.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (7)))), ((int) (((byte) (0)))),
                 ((int) (((byte) (48)))));
-            this.lbltop10.SetColumnSpan(this.labScore, 2);
-            this.labScore.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labScore.Font = new System.Drawing.Font("Blader", 36F, System.Drawing.FontStyle.Regular,
+            this.tlpBase.SetColumnSpan(this.lblScore, 2);
+            this.lblScore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblScore.Font = new System.Drawing.Font("Blader", 36F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labScore.ForeColor = System.Drawing.Color.White;
-            this.labScore.Location = new System.Drawing.Point(556, 174);
-            this.labScore.Name = "labScore";
-            this.labScore.Size = new System.Drawing.Size(170, 526);
-            this.labScore.TabIndex = 3;
-            this.labScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblScore.ForeColor = System.Drawing.Color.White;
+            this.lblScore.Location = new System.Drawing.Point(556, 174);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(170, 526);
+            this.lblScore.TabIndex = 3;
+            this.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // pbLogo
             // 
-            this.lbltop10.SetColumnSpan(this.pictureBox1, 2);
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(675, 6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0, 6, 6, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(197, 102);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.tlpBase.SetColumnSpan(this.pbLogo, 2);
+            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogo.Location = new System.Drawing.Point(675, 6);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(0, 6, 6, 0);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(197, 102);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 5;
+            this.pbLogo.TabStop = false;
             // 
-            // labTop10
+            // lblTop10
             // 
-            this.labTop10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labTop10.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (7)))), ((int) (((byte) (0)))),
+            this.lblTop10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTop10.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (7)))), ((int) (((byte) (0)))),
                 ((int) (((byte) (48)))));
-            this.lbltop10.SetColumnSpan(this.labTop10, 3);
-            this.labTop10.Font = new System.Drawing.Font("Blader", 48F, System.Drawing.FontStyle.Regular,
+            this.tlpBase.SetColumnSpan(this.lblTop10, 3);
+            this.lblTop10.Font = new System.Drawing.Font("Blader", 48F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labTop10.ForeColor = System.Drawing.Color.White;
-            this.labTop10.Location = new System.Drawing.Point(176, 32);
-            this.labTop10.Margin = new System.Windows.Forms.Padding(0);
-            this.labTop10.Name = "labTop10";
-            this.lbltop10.SetRowSpan(this.labTop10, 2);
-            this.labTop10.Size = new System.Drawing.Size(472, 110);
-            this.labTop10.TabIndex = 6;
-            this.labTop10.Text = "TOP 10";
-            this.labTop10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTop10.ForeColor = System.Drawing.Color.White;
+            this.lblTop10.Location = new System.Drawing.Point(176, 32);
+            this.lblTop10.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTop10.Name = "lblTop10";
+            this.tlpBase.SetRowSpan(this.lblTop10, 2);
+            this.lblTop10.Size = new System.Drawing.Size(472, 110);
+            this.lblTop10.TabIndex = 6;
+            this.lblTop10.Text = "TOP 10";
+            this.lblTop10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Top10
             // 
@@ -160,22 +160,22 @@ namespace Arkanoid
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.lbltop10);
+            this.Controls.Add(this.tlpBase);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Top10";
             this.Size = new System.Drawing.Size(878, 729);
             this.Load += new System.EventHandler(this.Top10_Load);
-            this.lbltop10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
+            this.tlpBase.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.pbLogo)).EndInit();
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Button btnback;
-        private System.Windows.Forms.Label labPlayers;
-        private System.Windows.Forms.Label labScore;
-        private System.Windows.Forms.Label labTop10;
-        private System.Windows.Forms.TableLayoutPanel lbltop10;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label lblPlayers;
+        private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Label lblTop10;
+        private System.Windows.Forms.TableLayoutPanel tlpBase;
+        private System.Windows.Forms.PictureBox pbLogo;
 
         #endregion
     }

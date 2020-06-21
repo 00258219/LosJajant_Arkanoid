@@ -192,10 +192,10 @@
   <ItemGroup>
     <Content Include="Resources\background.png" />
     <Content Include="Resources\ball.png" />
-    <Content Include="Resources\block1t.png" />
-    <Content Include="Resources\block2t.png" />
-    <Content Include="Resources\block3t.png" />
-    <Content Include="Resources\block5t.png" />
+    <Content Include="Resources\block1hit1.png" />
+    <Content Include="Resources\block2hit2.png" />
+    <Content Include="Resources\block3hit3.png" />
+    <Content Include="Resources\block5hit5.png" />
     <Content Include="Resources\gameBackground.png" />
     <Content Include="Resources\heartf.png" />
     <Content Include="Resources\heartn.png" />

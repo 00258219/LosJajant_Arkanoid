@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using Arkanoid.Modelo;
 
 namespace Arkanoid.Controlador
 {
@@ -8,11 +7,12 @@ namespace Arkanoid.Controlador
     //funcionen los eventos clicks de cada boton de los UserControls donde cambiara de panel.
     public static class PanelControlator
     {
-        public static Menu menu = new Menu();
-        public static Top10 top10 = new Top10();
-        public static PlayerRegister playeregister = new PlayerRegister();
-        public static Game game = new Game();
-        public static UserControl uc = new UserControl();
-        public static Panel panel1 = new Panel();
+        public static Panel mainPnl = new Panel();
+        public static UserControl currentUc = new UserControl();
+
+        public static Menu menuUc = new Menu();
+        public static Top10 top10Uc = new Top10();
+        public static PlayerRegister playerRegisterUc = new PlayerRegister();
+        public static Game gameUc = new Game();
     }
 }

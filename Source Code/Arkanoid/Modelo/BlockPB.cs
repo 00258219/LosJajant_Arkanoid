@@ -1,81 +1,48 @@
 ﻿using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Arkanoid.Controlador;
 
 namespace Arkanoid.Modelo
 {
     public class BlockPB : PictureBox
     {
         public int Hits { get; set; }
-        private int Points;
+        private int points;
+        private string imageName;
         
-        public BlockPB(Image im, int hits) : base()
+        public BlockPB(int hits, Size size) : base()
         {
             //inicializar con los valores predeterminados y los de parametro
-            BackColor = Color.Azure;
-            Image = im;
             Hits = hits;
-            Points = hits * 1000;
-            Dock = DockStyle.Fill;
-           // Margin = new Padding(6, 0, 6, 8);
+            points = hits * 1000;
+            BackColor = Color.Transparent;
             SizeMode = PictureBoxSizeMode.StretchImage;
-        }
-
-        //Hace un efecto de parpadeo para poder denotar un golpe
-        private async void blinkBlock()
-        {
-            Image aux = Image;
-            Image = null;
-            await Task.Delay(300);
-            Image = aux;
+            imageName = "../../Resources/block"+hits+"hit";
+            Image = Image.FromFile(imageName+hits+".png");
+            Size = size;
         }
         
-        //Funcion que debe ocurrir cuando la pelota y el bloque colisionan.
-        //Necesita un label, este label es el que contiene el score, se necesita para cambiar su valor instantaneamente
-        //cuando el bloque es destruido.
+        //Funcion que debe ocurrir cuando la pelota y el bloque colisionan para restar hits y camibar el scoreZ
         public void Beaten(Label scoreGame)
         {
-            if (Hits > 0){
-                //blinkBlock(); 
-                Hits--;
-            }
-            // No estoy seguro si esto serviria como para que no vuelva a rebotar en este block (probar que funcione!)
+            if (Hits > 0)
+                Hits--; //resta un hit si aun tiene
+            
+            // Cambiando al estado para que no se pueda rebotar mas en este bloque
             if (Hits == 0)
             {
                 GameData.remainingBlocks--;
-                GameData.scoreBlocks += Points;
-                scoreGame.Text = GameData.scoreBlocks.ToString("D7");
-                Points = 0;
+                GameData.scoreBlocks += points;
+                scoreGame.Text = "SCORE : " + GameData.scoreBlocks.ToString("D7");
+                points = 0;
                 Visible = false;
                 Enabled = false;
             }
-        }
-        //Se encarga de cambiar la imagen de los bloques al colisionar
-        public void CollisionImage(int xPosition)
-        {
-            int im = Hits - 1; //Detecta cuantos hit quedan
-            
-            //xPosition guarda la ubicacion del bloque actual
-            switch (xPosition)
+            else
             {
-                  
-                case 148: //Bloques grises
-                    if(im>=1)
-                        Image=Image.FromFile("../../Resources/BloqueGris"+im+".png");
-                    break;
-               
-                case 198: //Bloques azules
-                    if(im>=1)
-                        Image=Image.FromFile("../../Resources/BloqueAzul"+im+".png");
-                    break;
-               
-                case 248: //Bloques rosados
-                    if(im>=1)
-                        Image=Image.FromFile("../../Resources/BloqueRosa"+im+".png"); 
-                    break; 
+                //cambiando la imagien, si ha recibido un hit y si aun no tiene 0 Hits
+                Image = Image.FromFile(imageName+Hits+".png"); 
             }
+            
         }
-        
     }
 }

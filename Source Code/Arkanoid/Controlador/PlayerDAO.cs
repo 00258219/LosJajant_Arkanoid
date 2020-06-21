@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Arkanoid.Modelo;
@@ -10,7 +9,7 @@ namespace Arkanoid.Controlador
     {
         
         //Método que permite el acceso a la base de datos para identificar jugadores existentes
-        public static List<Player> getPlayer()
+        public static List<Player> GetPlayer()
         {
             DataTable dt = null;
             List<Player> listPlayer = new List<Player>();
@@ -34,7 +33,7 @@ namespace Arkanoid.Controlador
         }
 
         //Método que agrega un jugador a la base de datos
-        public static void insertPlayer(string player)
+        public static void InsertPlayer(string player)
         {
             try
             {

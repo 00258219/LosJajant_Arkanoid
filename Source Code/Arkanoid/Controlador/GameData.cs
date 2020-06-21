@@ -4,33 +4,28 @@ namespace Arkanoid.Modelo
 {
     public static class GameData
     {
-        // Boleano que verifica la ejecucion del juego
-        public static bool StartGame = false;
-        // Boleano que verifica si el timer está activo o no
-        public static bool tmrPlayer = false;
-        //Velocidades con las cuales se movera la pelota
-        public static int xSpeed =15, ySpeed =-(xSpeed-1); //version 1.0
-        
-        //public static int xSpeed =4, ySpeed =-(xSpeed-1); version 2.0
-        
-        //Tambien guardaremos el usuario que este actualmente jugando,
+        //Manejo del nombre del jugador
         public static string player = "";
-        //el puntuaje del usuario que esta jugando,
+
+        //Inizializando variables del juego
         public static int scoreBlocks = 0;
-        //el numero de vidas restantes del jugador
         public static int life = 3;
-        //y el tiempo que tarda en jugar
-        public static int timePlayer = 0;
-        //variable para saber si gano o no
-        public static bool winner = false;
-        //guarda los bloques restantes
         public static int remainingBlocks = 24;
+        public static double currentTime = 150.00; //2 mins y 30 seg
+        public static bool trapped = true; //si la pelota se mueve junto a la plataforma
+        public static bool StartGame = false;
+        public static bool activeTimer = false;
+        public static int timePlayed = 0;
+        public static bool winner = false;
+        
+        //Velocidades con las cuales se movera la pelota
+        public static int xSpeed =15, ySpeed =-(xSpeed-1);
 
         //funcion para calcular los puntos extras
         public static int BonusPoints()
         {
             int bonusPoints = 0, bonustime = 0;
-            bonustime = (150-timePlayer)*200;
+            bonustime = (150 - timePlayed) * 200;
             bonusPoints = bonustime * life;
             return bonusPoints;
         }
@@ -38,7 +33,7 @@ namespace Arkanoid.Modelo
         //funcion para registrar el puntaje en la base de datos
         public static void AddScoreDB()
         {
-            foreach(Player user in PlayerDAO.getPlayer())
+            foreach(Player user in PlayerDAO.GetPlayer())
             {
                 if (user.nickname.Equals(player))
                 {
@@ -46,8 +41,9 @@ namespace Arkanoid.Modelo
                     return;
                 }
             }
-            PlayerDAO.insertPlayer(player);
+            PlayerDAO.InsertPlayer(player);
             ScoreDAO.AddScore(scoreBlocks+BonusPoints(), player);
         }
+        
     }
 }

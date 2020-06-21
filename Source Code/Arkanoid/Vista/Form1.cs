@@ -1,8 +1,6 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
-using Arkanoid.Controlador;
-using Arkanoid.Modelo;
-using Arkanoid.Properties;
 using static Arkanoid.Controlador.PanelControlator;
 
 namespace Arkanoid
@@ -20,16 +18,18 @@ namespace Arkanoid
         private void Form1_Load(object sender, EventArgs e)
         {
             DoubleBuffered = true;
-            BackgroundImage = Resources.background;
+            BackgroundImage = Image.FromFile("../../Resources/background.png");
+            
             //Cambiando el size de cada userControl
-            game.Size = panel1.Size;
-            menu.Size = panel1.Size;
-            top10.Size = panel1.Size;
-            playeregister.Size = panel1.Size;
+            menuUc.Size = pnlBase.Size;
+            top10Uc.Size = pnlBase.Size;
+            playerRegisterUc.Size = pnlBase.Size;
+            gameUc.Size = pnlBase.Size;
+
             //Agregando componente al panel mediante la clase controladora
-            PanelControlator.panel1 = panel1;
-            PanelControlator.panel1.Controls.Add(menu);
-            uc = menu;
+            mainPnl = pnlBase;
+            mainPnl.Controls.Add(menuUc);
+            currentUc = menuUc;
         }
         
         //Cuando se deja maximimazada la ventana aun ocurren dos cosas que queremos evitar y es el movimiento de la
@@ -81,22 +81,17 @@ namespace Arkanoid
         //Permite que la ventana luego de estar minimizada, al abrirla se maximice siempre
         private void Form1_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState==FormWindowState.Normal)
+            if (WindowState==FormWindowState.Normal)
             {
-                this.WindowState = FormWindowState.Maximized;
+                WindowState = FormWindowState.Maximized;
             }
 
-            if (this.WindowState == FormWindowState.Minimized)
+            if (WindowState == FormWindowState.Minimized)
             {
-                myDelegate += game.StopTimerPlayer;
+                myDelegate += gameUc.StopTimerPlayer;
                 myDelegate.Invoke();
             }
         }
-
-        //Resetea el nombre del jugador en la parte superior de la ventana
-        public void ParentTextReset()
-        {
-            Parent.Parent.Text += "";
-        }
+        
     }
 }

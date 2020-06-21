@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 using Arkanoid.Controlador;
 using Arkanoid.Modelo;
@@ -31,7 +30,7 @@ namespace Arkanoid
             BackgroundImageLayout = ImageLayout.Stretch;
             
             //Calculando el puntaje total
-            if (GameData.winner==true)
+            if (GameData.winner)
                 scoreBonus = GameData.BonusPoints();
             else
                 scoreBonus = 0;
@@ -95,33 +94,33 @@ namespace Arkanoid
 
         private void label4_Click(object sender, EventArgs e)
         {
-            //Eliminando el user control game para volver a implementarlo 
-            PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
-            PanelControlator.uc = new Game();
-            PanelControlator.uc.Size = PanelControlator.panel1.Size;
+            //Eliminando el user control gameUc para volver a implementarlo 
+            PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
+            PanelControlator.currentUc = new Game();
+            PanelControlator.currentUc.Size = PanelControlator.mainPnl.Size;
             
             //Restableciendo los valores que hacen funcionar correctamente a Game
             GameReset();
             
             //Agregando el nuevo UserControl
-            PanelControlator.panel1.Controls.Add(PanelControlator.uc);
+            PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
             this.Hide();
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
             //Cambiando el user control dentro del Form 
-            PanelControlator.panel1.Controls.Remove(PanelControlator.uc);
-            PanelControlator.game = new Game();
-            PanelControlator.game.Size = PanelControlator.panel1.Size;
+            PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
+            PanelControlator.gameUc = new Game();
+            PanelControlator.gameUc.Size = PanelControlator.mainPnl.Size;
 
             //Restableciendo los valores que hacen funcionar correctamente a Game
             GameReset();
 
             //Agregando el nuevo UserControl
-            PanelControlator.uc = PanelControlator.menu;
-            PanelControlator.panel1.Controls.Add(PanelControlator.uc);
-            PanelControlator.panel1.Parent.Text = "Arkanoid by Jajan'tGames";
+            PanelControlator.currentUc = PanelControlator.menuUc;
+            PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
+            PanelControlator.mainPnl.Parent.Text = "Arkanoid by Jajan'tGames";
             
             this.Hide();
         }
@@ -138,12 +137,11 @@ namespace Arkanoid
             GameData.scoreBlocks = 0;
             GameData.StartGame=false;
             GameData.life = 3;
-            Game.trapped = true;
+            GameData.trapped = true;
             GameData.remainingBlocks = 24;
             GameData.winner = false;
         }
         
-
         //Método encargado de realizar la animacion de sumar puntos
         private void timerPoints_Tick(object sender, EventArgs e)
         {

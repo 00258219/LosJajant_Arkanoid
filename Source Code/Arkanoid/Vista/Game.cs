@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
-using Arkanoid.Properties;
 using System.Windows.Input;
 using Arkanoid.Controlador;
-using ContentAlignment = System.Drawing.ContentAlignment;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 using Arkanoid.Modelo;
 
@@ -14,188 +11,214 @@ namespace Arkanoid
 {
     public sealed partial class Game : UserControl
     {
-        //variable que guarda el tiempo de juego
-        private double currentTime = 150.00; //2 mins y 30 seg
-        //variable que describe si la pelota esta fijada con la plataforma
-        public static bool trapped = true, isEmpty=false;
-        private Action FinishGame, WinningGame;
-
-        //Lista que identifica a los bloques
-        List<BlockPB> blocksList = new List<BlockPB>();
+    
+        #region Initialize components code
         
-        //Agregando delegates 
+        //Inizializando componentes del juego
+        private Panel scorePnl = new Panel();
+        private Label scoreLbl = new Label();
+        private Label lives = new Label();
+        private PictureBox life1 = new PictureBox();
+        private PictureBox life2 = new PictureBox();
+        private PictureBox life3 = new PictureBox();
+        private PictureBox plataform = new PictureBox();
+        private PictureBox ball = new PictureBox();
+        private Label timeLbl = new Label();
+        
+        #endregion
+        
+        //Lista de los bloques en el juego
+        private List<BlockPB> blocksList = new List<BlockPB>();
+        
+        //Agregando delegates  y actions
+        private Action LoadGame, WinningGame, FinishGame;
         private delegate void MyDelegate();
-        static MyDelegate ballActions,timeActions;
-        
+        static MyDelegate ballActions, timeActions;
+
         public Game()
         {
             InitializeComponent(); 
             Dock = DockStyle.Fill;
             DoubleBuffered = true;
+            
+            #region Assigning to Actions
+            
+            //Suscribiendo las acciones
+            LoadGame = () =>
+            {
+                LoadScorePanel();
+                LoadPlataform_Ball_Time();
+                LoadBlocks();
+                Focus();
+            };
+            
+            timeActions = StartTimeGame;
 
-            //Suscribiendo las acciones de la pelota
             ballActions = BallMoves;
             ballActions += Bounces;
-            //Suscribiendo la accion de inicio de tiempo
-            timeActions = startTimePlayer;
-            //suscribiendo acciones de finishgame and wingame
-            FinishGame = () =>
-            {
-                GameData.timePlayer = 150 - Convert.ToInt32(Math.Floor(currentTime));
-                timePlayer.Stop();
-                GameData.tmrPlayer = false;
-                NewGameOver();
-            };
+            
             WinningGame = () =>
             {
-                GameData.timePlayer = 150 - Convert.ToInt32(Math.Floor(currentTime));
-                timePlayer.Stop();
-                GameData.tmrPlayer = false;
+                GameData.timePlayed = 150 - Convert.ToInt32(Math.Floor(GameData.currentTime));
+                timeGame.Stop();
+                GameData.activeTimer = false;
                 GameData.winner = true;
                 GameData.AddScoreDB();
                 //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
                 //mientras esté abierto GameOver
                 NewGameOver();
             };
+            
+            FinishGame = () =>
+            {
+                GameData.timePlayed = 150 - Convert.ToInt32(Math.Floor(GameData.currentTime));
+                timeGame.Stop();
+                GameData.activeTimer = false;
+                NewGameOver();
+            };
+            
+            #endregion
+            
         }
+        
         public void Game_Load(object sender, EventArgs e)
         {
-            //cargando las imagenes y fondos
-            tableLayoutPanel2.BackColor = Color.FromArgb(70, tableLayoutPanel2.BackColor);
-            BackgroundImage = Resources.gameBackground;
-            life1.Image = Resources.heartf;
-            life2.Image = Resources.heartf;
-            life3.Image = Resources.heartf;
-            pictureBox4.Image = Resources.plataform;
-            pictureBox5.Image = Resources.ball;
-
-            //Debemos quitar el tableyout para el movimiento de la pelota y plataforma, asi que guardamos
-            //los componentes importantes
-            var tlp2 = tableLayoutPanel2;
-            var pb4 = pictureBox4;
-            var pb5 = pictureBox5;
-            var tlp4 = tableLayoutPanel4;
+            BackgroundImage = Image.FromFile("../../Resources/gameBackground.png");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            LoadGame?.Invoke(); 
+        }
+        
+        private void LoadScorePanel()
+        {
+            #region Codigo para cargar todo el panel del score
+            scorePnl.BackColor = Color.FromArgb(70, Color.Gray);
+            scorePnl.Top = (int) (Height * 0.04);
+            scorePnl.Left = (int) (Width * 0.02);
+            scorePnl.Height = (int) (Height * 0.10);
+            scorePnl.Width = (int) (Width * 0.96);
+            Controls.Add(scorePnl);
             
-            var tlp2size = tableLayoutPanel2.Size;
-            var tlp4size = tableLayoutPanel4.Size;
-             //posiciones pelota y plataforma
-             pb4.Top = Height - pb4.Height - 80;
-             pb4.Left = (Width / 2) - (pb4.Width / 2);
-
-             pb5.Height = pb5.Width = pictureBox5.Height = pictureBox5.Width;
-             pb5.Top = pb5.Top - pb5.Height;
-             pb5.Left = pb4.Left + (pb4.Width / 2) - (pb5.Width / 2);
-            //Borramos todos lo componentes que esten en este userControl
-            Controls.Clear();
-            
-            //creando label de tiempo
-            var labelTime = new Label();
-            labelTime.Name = "labelTime";
-            labelTime.BackColor = Color.FromArgb(130, 7,0,48);
-            labelTime.Size = tlp2.Controls[4].Size;
-            labelTime.Height -= pb4.Height/2;
-            labelTime.Location = new Point( tlp2.Controls[5].Location.X, pb4.Location.Y+pb4.Height);
-            labelTime.Font = new Font("Blader", 30F, FontStyle.Regular, 
+            scoreLbl.BackColor = Color.Transparent;
+            scoreLbl.Font = new Font("Blader", 36F, FontStyle.Regular, 
                 GraphicsUnit.Point, ((byte) (0)));
-            labelTime.ForeColor = Color.White;
-            labelTime.TextAlign = ContentAlignment.MiddleCenter;
-            labelTime.Text = currentTime.ToString();
+            scoreLbl.ForeColor = Color.White;
+            scoreLbl.Text = "SCORE : "+GameData.scoreBlocks.ToString("D7");
+            scoreLbl.TextAlign = ContentAlignment.MiddleCenter;
+            scoreLbl.Height = scorePnl.Height;
+            scoreLbl.Width = (int) (Width * 0.40);
             
-            //Agregamos los importantes
-            tlp2.Dock = DockStyle.None;
-            tlp2.Size = tlp2size;
-            Controls.Add(tlp2);//[0]score
-            Controls.Add(pb4);//[1]plataforma
-            Controls.Add(labelTime);//[2]tiempo
-            Controls.Add(pb5);//[3]pelota
-            tlp4.Dock = DockStyle.None;
-            tlp4.Size = tlp4size;
-            Controls.Add(tlp4);//[4]los bloques
+            lives.BackColor = Color.Transparent;
+            lives.Font = new Font("Blader", 36F, FontStyle.Regular, 
+                GraphicsUnit.Point, ((byte) (0)));
+            lives.ForeColor = Color.White;
+            lives.Text = "LIVES : ";
+            lives.TextAlign = ContentAlignment.MiddleRight;
+            scoreLbl.Left = scoreLbl.Width;
+            lives.Height = scorePnl.Height;
+            lives.Width = (int) (Width * 0.36);
+            
+            life1.BackColor = life2.BackColor = life3.BackColor =  Color.Transparent;
+            life1.SizeMode = life2.SizeMode = life3.SizeMode = PictureBoxSizeMode.Zoom;
+            life1.Image = life2.Image = life3.Image = Image.FromFile("../../Resources/heartf.png");
+            life1.Height = life2.Height = life3.Height = (int) (scorePnl.Height * 0.6);
+            life1.Top = life2.Top = life3.Top = (int) (scorePnl.Height * 0.2);
+            life1.Width = life2.Width = life3.Width = (int) (Width * 0.06);
 
-            //Hacer que la pelota inicie justo arriba de la plataforma y ajustando la posicion de los bloques
-            pb5.Location = new Point(pb5.Location.X, pb4.Location.Y-pb5.Height);
-            tlp4.Location = new Point(tlp4.Location.X, tlp4.Location.Y+100);
+            scorePnl.Controls.Add(scoreLbl);
+            scorePnl.Controls.Add(lives);
+            scorePnl.Controls.Add(life1);
+            scorePnl.Controls.Add(life2);
+            scorePnl.Controls.Add(life3);
 
-            //colocando los bloques en el juego
-            fillRowBlock(Resources.block5t, 5, 0, tlp4);
-            fillRowBlock(Resources.block3t, 3, 1, tlp4);
-            fillRowBlock(Resources.block2t, 2, 2, tlp4);
-            fillRowBlock(Resources.block1t, 1, 3, tlp4);
-            
-            //Iniciar puntaje
-            scoreLabel.Text = GameData.scoreBlocks.ToString("D7");
-
-            //Removiendo el TableLayoutPanel que contiene los bloques
-            //Guardamos la ubicacion y tamaño que deben llevar
-            int valueY = tlp4.Top;
-            int valueX = tlp4.Left;
-            var blockSize = tlp4.Controls[0].Size;
-            
-            //Quitamos el tlp del userControl
-            Controls.Remove(tlp4);
-            
-            //Recorremos el controls de tlp4 que es quien contiene los bloques
-            foreach (var i in tlp4.Controls)
-            {
-                BlockPB blockAux = (BlockPB) i;
-                blockAux.Dock = DockStyle.None;
-                blocksList.Add(blockAux);//lo agregamos a una lista simple
-            }
-
-            foreach (var i in blocksList)//recorremos la lista simple que contiene los bloques
-            {
-                Controls.Add(i);//los agregamos al UserControl
-                i.Size = blockSize;
-                i.Top += valueY;
-                i.Left += valueX;
-            }
-            
-            Focus();
+            scoreLbl.Left = 0;
+            lives.Left = scoreLbl.Width;
+            life1.Left = lives.Left + lives.Width;
+            life2.Left = life1.Left + life1.Width;
+            life3.Left = life2.Left + life2.Width;
+            #endregion
         }
-       
-        
-        //Esta funcion rellana cada fila de un tableLayout que contendra los bloques del juego.
-        private void fillRowBlock(Image im, int hits, int rowN, TableLayoutPanel tlp)
+
+        private void LoadPlataform_Ball_Time()
         {
-            for (int i = 0; i < 6; i++)
-            {
-                PictureBox pb = new BlockPB(im, hits);
-                tlp.Controls.Add(pb, i+1, rowN);
-            }
+            #region Codigo para cargar la plataforma, pelota y tiempo
+            plataform.BackColor = Color.Transparent;
+            plataform.SizeMode = PictureBoxSizeMode.StretchImage;
+            plataform.Image = Image.FromFile("../../Resources/plataform.png");
+            plataform.Height = (int) (Height * 0.04);
+            plataform.Width = (int) (Width * 0.16);
+            Controls.Add(plataform);
+            plataform.Top = (int) (Height * 0.90);
+            plataform.Left = (Width / 2) - (plataform.Width / 2);
+            
+            ball.BackColor = Color.Transparent;
+            ball.SizeMode = PictureBoxSizeMode.StretchImage;
+            ball.Image = Image.FromFile("../../Resources/ball.png");
+            ball.Height = (int) (Height * 0.05);
+            ball.Width = (int) (Height * 0.05);
+            Controls.Add(ball);
+            ball.Top = plataform.Top - ball.Height;
+            ball.Left = (Width / 2) - (ball.Width / 2);
+            
+            timeLbl.BackColor = Color.FromArgb(130, 7,0,48);
+            timeLbl.Font = new Font("Blader", 30F, FontStyle.Regular, 
+                GraphicsUnit.Point, ((byte) (0)));
+            timeLbl.ForeColor = Color.White;
+            timeLbl.TextAlign = ContentAlignment.MiddleCenter;
+            timeLbl.Text = "150";
+            timeLbl.Height = (int) (Height * 0.10) - plataform.Height;
+            timeLbl.Width = (int) (Width * 0.12);
+            Controls.Add(timeLbl);
+            timeLbl.Top = (int) (Height * 0.90) + plataform.Height;
+            timeLbl.Left = (int) (Width * 0.85);
+            #endregion
         }
-        
-        
-        //Metodo que inicia los movimientos de la pelota;
-        private void startTimePlayer()
+
+        private void LoadBlocks()
         {
-            timePlayer.Enabled = true;
-            timePlayer.Interval = 70; //version 1.0
-            //timePlayer.Interval=1; version 2.0
-            timePlayer.Start();
-            GameData.tmrPlayer = true;
+            #region Codigo para cargar todos los bloques
+            
+            //Variables auxilares para la generacion de bloques
+            int columns = 6, rows = 4;
+            int top = (int) (Height * 0.22), left = (int) (Width * 0.08);
+            Size blockSize = new Size( (int) (Width * 0.13),(int) (Height * 0.05));
+
+            var hitsBlocks = new List<int>() {5, 3, 2, 1};
+            
+            //Instanciacion y adicin al UC
+            BlockPB blockAux;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    blockAux = new BlockPB(hitsBlocks[i], blockSize);
+                    Controls.Add(blockAux);
+                    blockAux.Top = top + (blockSize.Height * i) + (i * (int) (Width * 0.01));
+                    blockAux.Left = left + (blockSize.Width * j) + (j * (int) (Width * 0.01));
+                    
+                    blocksList.Add(blockAux);
+                }
+            }
+            
+            #endregion
         }
         
-        //Funcion que realiza el movimiento de la plataforma, ya sea de lado izquierdo o derecho, con o sin la pelota
-        //fijada, por medio de variables booleanas
-        private void plataformMove(bool left)
+        //Funcion que realiza el movimiento de la plataforma, con o sin la pelota fijada
+        private void PlataformMOVE(bool left)
         {
             var speed = 15;
-            var plat = Controls[1];
-            var ball = Controls[3];
-            var limitRight = ClientSize.Width - plat.Width;
-
+            
             try
             {
-                if (left && (plat.Left > 0))
+                if (left && (plataform.Left > 0))
                 {
-                    plat.Left -= speed;
-                    if (trapped)
+                    plataform.Left -= speed;
+                    if (GameData.trapped)
                         ball.Left -= speed;
                 }
-                else if(left == false && (plat.Left < limitRight))
+                else if(left == false && (plataform.Left < (ClientSize.Width - plataform.Width)))
                 {
-                    plat.Left += speed;
-                    if (trapped)
+                    plataform.Left += speed;
+                    if (GameData.trapped)
                         ball.Left += speed;
                 }
             }
@@ -205,8 +228,7 @@ namespace Arkanoid
                 if (dr == DialogResult.OK)
                 {
                     //Regresando la plataforma al centro
-                    pictureBox4.Top = Height - pictureBox4.Height - 80;
-                    pictureBox4.Left = (Width / 2) - (pictureBox4.Width / 2);
+                    plataform.Left = (Width / 2) - (plataform.Width / 2);
                 }
             }
         }
@@ -221,7 +243,7 @@ namespace Arkanoid
                     throw new GamePausedException("Juego en pausa, presione ACEPTAR para continuar");
                 
                 //Cuando minimice la pantalla, se pondrá en pausa
-                if(GameData.StartGame==true && GameData.tmrPlayer==false)
+                if(GameData.StartGame && GameData.activeTimer==false)
                     throw new MinimizingPauseException("Juego en pausa, presione ACEPTAR para continuar");
                 
                 //Detectar SPACE para comenzar el juego
@@ -233,15 +255,15 @@ namespace Arkanoid
             }
             catch (GamePausedException Ex)
             {
-                timePlayer.Stop();
-                GameData.tmrPlayer = false;
+                timeGame.Stop();
+                GameData.activeTimer = false;
 
                 DialogResult dR = MessageBox.Show(Ex.Message);
                 
                 if (dR == DialogResult.OK && GameData.StartGame==true)
                 {
-                    timePlayer.Start();
-                    GameData.tmrPlayer = true;
+                    timeGame.Start();
+                    GameData.activeTimer = true;
                     timeActions.Invoke();
                 }
             }
@@ -253,36 +275,33 @@ namespace Arkanoid
             {
                 DialogResult dR = MessageBox.Show(Ex.Message);
                 
-                if (dR == DialogResult.OK && GameData.StartGame==true)
+                if (dR == DialogResult.OK && GameData.StartGame)
                 {
-                    timePlayer.Start();
-                    GameData.tmrPlayer = true;
+                    timeGame.Start();
+                    GameData.activeTimer = true;
                     timeActions.Invoke();
                 }   
             }
             
-
+            //Iniciar el juego con la tecla space
             if (e.KeyCode == Keys.Space) {
-                //Inicio de tiempo de jugador e inicio de conteo para tiempo de partida
                 timeActions.Invoke();
                 GameData.StartGame = true;
-                trapped = false; //Cambiar la condicion para que se muevan independientemente
+                GameData.trapped = false; //Cambiar la condicion para que la pelota se mueva independientemente
             }
 
-            //Si tiene las siguientes dos teclas presionadas que la plataforma se detenga
+            //Si tienes alguna de las siguientes dos teclas presionadas que la plataforma se detenga
             if ((Keyboard.IsKeyDown(Key.Left) && Keyboard.IsKeyDown(Key.Right))||
                 (Keyboard.IsKeyDown(Key.A) && Keyboard.IsKeyDown(Key.D))||
                 (Keyboard.IsKeyDown(Key.A) && Keyboard.IsKeyDown(Key.Right))||
                 (Keyboard.IsKeyDown(Key.Left) && Keyboard.IsKeyDown(Key.D)))
                 return;
             
-            //movimiento a la izquierda
             if (Keyboard.IsKeyDown(Key.A) || Keyboard.IsKeyDown(Key.Left))
-                plataformMove(true);
+                PlataformMOVE(true); //movimiento a la izquierda
             
-            //movimiento a la derecha
             else if(Keyboard.IsKeyDown(Key.D) || Keyboard.IsKeyDown(Key.Right))
-                plataformMove(false);
+                PlataformMOVE(false); //movimiento a la derecha
         }
         
         private void Game_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -299,50 +318,58 @@ namespace Arkanoid
             }
         }
         
+        //Metodo que inicia el tiempo del juego
+        private void StartTimeGame()
+        {
+            timeGame.Enabled = true;
+            timeGame.Interval = 70;
+            timeGame.Start();
+            GameData.activeTimer = true;
+        }
+        
+        //Metodo que realiza lleva a cabo los movimientos de la pelota
+        private void TimeGame_Tick(object sender, EventArgs e)
+        {
+            RemainingTimePlayer();
+            
+            if (!GameData.StartGame) //Si el juego no ha iniciado no realiza moviemientos de la pelota
+                return;
+            
+            ballActions.Invoke();
+        }
+
         //funcion que verifica el tiempo restante de juego
         private void RemainingTimePlayer()
         {
-            if (currentTime <= 1)
+            if (GameData.currentTime <= 1)
             {
                 FinishGame?.Invoke();
             }
             else
             {
-                currentTime-=0.07;
+                GameData.currentTime-=0.07;
                 //mostrar el tiempo restante
-                Controls[2].Text = Convert.ToInt32(Math.Floor(currentTime)).ToString("D3");
+                timeLbl.Text = Convert.ToInt32(Math.Floor(GameData.currentTime)).ToString("D3");
             }
         }
         
-        //Metodo que realiza lleva a cabo los movimientos de la pelota
-        private void timePlayer_Tick(object sender, EventArgs e)
-        {
-            RemainingTimePlayer();
-            //Si el juego no ha inicia no realiza moviemientos de la pelota
-            if (!GameData.StartGame)
-                return;
-            
-            ballActions.Invoke();
-            
-        }
-
         //Metodo para realizar los movimientos de la pelota
         private void BallMoves()
         {
-            pictureBox5.Left += GameData.xSpeed;
-            pictureBox5.Top += GameData.ySpeed;
+            ball.Left += GameData.xSpeed;
+            ball.Top += GameData.ySpeed;
         }
         
-        //Metodo para reposicionar la pelota y la plataforma al centro cuando se  pierde una vida
-        
+        //Metodo para reposicionar la pelota y la plataforma al centro cuando se pierde una vida
         private void Relocation()
         {
-            Controls[1].Left = (Width / 2) - (Controls[1].Width / 2);
-            Controls[3].Top = Controls[1].Top - Controls[3].Height;
-            Controls[3].Left = Controls[1].Left + (Controls[1].Width / 2) - (Controls[3].Width / 2);
-            trapped = true;
+            plataform.Left = (Width / 2) - (plataform.Width / 2);
+            ball.Top = plataform.Top - ball.Height;
+            ball.Left = plataform.Left + (plataform.Width / 2) - (ball.Width / 2);
+            GameData.trapped = true;
         }
 
+        // ReSharper disable once CommentTypo
         //Metodo que se encarga de revisar las colisiones
         private void Bounces()
         {
@@ -350,11 +377,10 @@ namespace Arkanoid
             Random random= new Random();
             
             //verifica si la pelota cae al vacio
-            if (pictureBox5.Bottom > Height)
+            if (ball.Bottom > Height)
             {
                 GameData.life--;
-                timePlayer.Stop();
-                
+                timeGame.Stop();
                 
                 switch (GameData.life)
                 {
@@ -374,37 +400,47 @@ namespace Arkanoid
             }
             
             //Genera un rebote en la parte superior
-            if(pictureBox5.Top<tableLayoutPanel2.Bottom)
+            if(ball.Top<scorePnl.Bottom)
                 GameData.ySpeed = -GameData.ySpeed;
             
             //Condicion para que rebote cuando colisione con el borde
-            if(pictureBox5.Left<0 || pictureBox5.Right>Width){
+            if(ball.Left<0 || ball.Right>Width){
                 GameData.xSpeed = -GameData.xSpeed;
                 return;
             }
             
             // Condicion para que la pelota rebote con la plataforma
-            if (pictureBox5.Bounds.IntersectsWith(pictureBox4.Bounds))
+            if (ball.Bounds.IntersectsWith(plataform.Bounds))
             {
-                //version 1.0
-                pictureBox5.Top -= (pictureBox5.Bottom - pictureBox4.Top);
-                GameData.ySpeed = -random.Next(13, 23);
-                
-                //GameData.ySpeed = -(rnd.Next(3,6)); version 2.0
-                
+                ball.Top -= (ball.Bottom - plataform.Top);
+                GameData.ySpeed = -random.Next(14, 28);
                 return;
             }
             
             //Condicion para conocer si el bloque esta activo y existen colisiones
-                if (Collisions())
+            if (Collisions())
+            {
+                GameData.ySpeed = -GameData.ySpeed; //Cambia la direccion al chocar
+                
+                if (GameData.remainingBlocks==0)
+                    WinningGame?.Invoke();
+            }
+        }
+        
+        //Método que verifica todas las colisiones que pueden haber en un mismo momento.
+        private bool Collisions()
+        {
+            //Detecta que haya al menos una colision
+            foreach (var block in blocksList)
+            {
+                //Condicion para conocer si el bloque esta activo y existe colision
+                if (block.Enabled && ball.Bounds.IntersectsWith(block.Bounds))
                 {
-                    GameData.ySpeed = -GameData.ySpeed; //Cambia la direccion al chocar
-                    
-                    if (GameData.remainingBlocks==0)
-                    {
-                        WinningGame?.Invoke(); 
-                    }
+                    block.Beaten(scoreLbl); //Golpeando el bloque
+                    return true; //Si hay colisiones su valor cambia
                 }
+            }
+            return false;
         }
 
         //Método que muestra la ventana de GameOver y deja el fondo oscuro
@@ -412,20 +448,20 @@ namespace Arkanoid
         {
             //Tomando una "captura" del form completo con sus controles existentes
             //bmp se convierte en una "copia" de nuestro form Game
-            Bitmap bmp = new Bitmap(this.ClientRectangle.Width, this.ClientRectangle.Height);
+            Bitmap bmp = new Bitmap(ClientRectangle.Width, ClientRectangle.Height);
             
             using (Graphics G = Graphics.FromImage(bmp))
             {
                 G.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
-                G.CopyFromScreen(this.PointToScreen(new Point(0, 0)),
-                    new Point(0, 0), this.ClientRectangle.Size);
+                G.CopyFromScreen(PointToScreen(new Point(0, 0)),
+                    new Point(0, 0), ClientRectangle.Size);
                 
                 //Haciendo oscuro el fondo
                 Color darken = Color.FromArgb(220, Color.Black);
                 using (Brush brsh = new SolidBrush(darken))
                 {
                     //Coloreando el fondo de la copia del Form
-                    G.FillRectangle(brsh, this.ClientRectangle);
+                    G.FillRectangle(brsh, ClientRectangle);
                 }
             }
 
@@ -433,9 +469,9 @@ namespace Arkanoid
             using (Panel p = new Panel())
             {
                 p.Location = new Point(0, 0);
-                p.Size = this.ClientRectangle.Size;
+                p.Size = ClientRectangle.Size;
                 p.BackgroundImage = bmp;
-                this.Controls.Add(p);
+                Controls.Add(p);
                 p.BringToFront();
 
                 //Mostrando el Game Over
@@ -448,36 +484,15 @@ namespace Arkanoid
             }
         }
         
-        //Método que verifica todas las colisiones que pueden haber en un mismo momento.
-        private bool Collisions()
-        {
-            //Detecta que haya al menos una colision
-            foreach (var block in blocksList)
-            {
-                //Condicion para conocer si el bloque esta activo y existe colision
-                if (block.Enabled && Controls[3].Bounds.IntersectsWith(block.Bounds))
-                {
-                    //Realiza el cambio de imagen cuando hay colision
-                    block.CollisionImage(block.Top);
-                     
-                    // Verificando golpes y puntaje
-                    block.Beaten(scoreLabel);
- 
-                    return true; //Si hay colisiones su valor cambia
-                }
-            }
-            return false;
-        }
-        
-        //Método que se usará con el delegate de Form para pausar el juego al minimizar
-        //la pantalla
+        //Método que se usará con el delegate de Form para pausar el juego al minimizar la pantalla
         public void StopTimerPlayer()
         {
-            if (GameData.StartGame == true)
+            if (GameData.StartGame)
             {
-                timePlayer.Stop();
-                GameData.tmrPlayer = false;
+                timeGame.Stop();
+                GameData.activeTimer = false;
             }
         }
+        
     }
 }

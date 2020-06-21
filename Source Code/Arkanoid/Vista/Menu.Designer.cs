@@ -31,115 +31,132 @@ namespace Arkanoid
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelExit = new System.Windows.Forms.Label();
-            this.labelTop = new System.Windows.Forms.Label();
-            this.labelPlay = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
+            this.tlpBase = new System.Windows.Forms.TableLayoutPanel();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.lblExit = new System.Windows.Forms.Label();
+            this.lblTop = new System.Windows.Forms.Label();
+            this.lblPlay = new System.Windows.Forms.Label();
+            this.tlpBase.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tlpBase
             // 
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.labelExit, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.labelTop, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.labelPlay, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.99999F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.000008F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38981F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38981F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.39038F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.829998F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(748, 514);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tlpBase.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlpBase.ColumnCount = 1;
+            this.tlpBase.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpBase.Controls.Add(this.pbLogo, 0, 0);
+            this.tlpBase.Controls.Add(this.lblExit, 0, 4);
+            this.tlpBase.Controls.Add(this.lblTop, 0, 3);
+            this.tlpBase.Controls.Add(this.lblPlay, 0, 2);
+            this.tlpBase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpBase.Location = new System.Drawing.Point(0, 0);
+            this.tlpBase.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpBase.Name = "tlpBase";
+            this.tlpBase.RowCount = 6;
+            this.tlpBase.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.99999F));
+            this.tlpBase.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.000008F));
+            this.tlpBase.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38981F));
+            this.tlpBase.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38981F));
+            this.tlpBase.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.39038F));
+            this.tlpBase.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.829998F));
+            this.tlpBase.Size = new System.Drawing.Size(873, 593);
+            this.tlpBase.TabIndex = 0;
             // 
-            // pictureBox1
+            // pbLogo
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.pictureBox1.Image = ((System.Drawing.Image) (resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(44, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(660, 148);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbLogo.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
+                                                       System.Windows.Forms.AnchorStyles.Bottom)));
+            this.pbLogo.Location = new System.Drawing.Point(51, 3);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(770, 171);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
             // 
-            // labelExit
+            // lblExit
             // 
-            this.labelExit.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.labelExit.BackColor = System.Drawing.Color.Transparent;
-            this.labelExit.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labelExit.ForeColor = System.Drawing.Color.White;
-            this.labelExit.Location = new System.Drawing.Point(132, 377);
-            this.labelExit.Name = "labelExit";
-            this.labelExit.Size = new System.Drawing.Size(483, 99);
-            this.labelExit.TabIndex = 3;
-            this.labelExit.Text = "exit";
-            this.labelExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelExit.Click += new System.EventHandler(this.labelExit_Click);
-            this.labelExit.MouseLeave += new System.EventHandler(this.labelExit_MouseLeave);
-            this.labelExit.MouseHover += new System.EventHandler(this.labelExit_MouseHover);
+            this.lblExit.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
+                                                       System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblExit.BackColor = System.Drawing.Color.Transparent;
+            this.lblExit.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblExit.ForeColor = System.Drawing.Color.White;
+            this.lblExit.Location = new System.Drawing.Point(155, 434);
+            this.lblExit.Name = "lblExit";
+            this.lblExit.Size = new System.Drawing.Size(563, 114);
+            this.lblExit.TabIndex = 3;
+            this.lblExit.Text = "exit";
+            this.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblExit.Click += new System.EventHandler(this.LblExit_Click);
+            this.lblExit.MouseLeave += new System.EventHandler(this.LblExit_MouseLeave);
+            this.lblExit.MouseHover += new System.EventHandler(this.LblExit_MouseHover);
             // 
-            // labelTop
+            // lblTop
             // 
-            this.labelTop.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.labelTop.BackColor = System.Drawing.Color.Transparent;
-            this.labelTop.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labelTop.ForeColor = System.Drawing.Color.White;
-            this.labelTop.Location = new System.Drawing.Point(60, 278);
-            this.labelTop.Name = "labelTop";
-            this.labelTop.Size = new System.Drawing.Size(628, 99);
-            this.labelTop.TabIndex = 2;
-            this.labelTop.Text = "Top 10";
-            this.labelTop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelTop.Click += new System.EventHandler(this.labelTop_Click);
-            this.labelTop.MouseLeave += new System.EventHandler(this.labelTop_MouseLeave);
-            this.labelTop.MouseHover += new System.EventHandler(this.labelTop_MouseHover);
+            this.lblTop.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
+                                                       System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblTop.BackColor = System.Drawing.Color.Transparent;
+            this.lblTop.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblTop.ForeColor = System.Drawing.Color.White;
+            this.lblTop.Location = new System.Drawing.Point(70, 320);
+            this.lblTop.Name = "lblTop";
+            this.lblTop.Size = new System.Drawing.Size(733, 114);
+            this.lblTop.TabIndex = 2;
+            this.lblTop.Text = "Top 10";
+            this.lblTop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTop.Click += new System.EventHandler(this.LblTop_Click);
+            this.lblTop.MouseLeave += new System.EventHandler(this.LblTop_MouseLeave);
+            this.lblTop.MouseHover += new System.EventHandler(this.LblTop_MouseHover);
             // 
-            // labelPlay
+            // lblPlay
             // 
-            this.labelPlay.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.labelPlay.BackColor = System.Drawing.Color.Transparent;
-            this.labelPlay.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labelPlay.ForeColor = System.Drawing.Color.White;
-            this.labelPlay.Location = new System.Drawing.Point(196, 179);
-            this.labelPlay.Name = "labelPlay";
-            this.labelPlay.Size = new System.Drawing.Size(355, 99);
-            this.labelPlay.TabIndex = 1;
-            this.labelPlay.Text = "Play";
-            this.labelPlay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelPlay.Click += new System.EventHandler(this.labelPlay_Click);
-            this.labelPlay.MouseLeave += new System.EventHandler(this.labelPlay_MouseLeave);
-            this.labelPlay.MouseHover += new System.EventHandler(this.labelPlay_MouseHover);
+            this.lblPlay.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
+                                                       System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblPlay.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlay.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblPlay.ForeColor = System.Drawing.Color.White;
+            this.lblPlay.Location = new System.Drawing.Point(229, 206);
+            this.lblPlay.Name = "lblPlay";
+            this.lblPlay.Size = new System.Drawing.Size(414, 114);
+            this.lblPlay.TabIndex = 1;
+            this.lblPlay.Text = "Play";
+            this.lblPlay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPlay.Click += new System.EventHandler(this.LblPlay_Click);
+            this.lblPlay.MouseLeave += new System.EventHandler(this.LblPlay_MouseLeave);
+            this.lblPlay.MouseHover += new System.EventHandler(this.LblPlay_MouseHover);
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tlpBase);
             this.Name = "Menu";
-            this.Size = new System.Drawing.Size(748, 514);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
+            this.Size = new System.Drawing.Size(873, 593);
+            this.Load += new System.EventHandler(this.Menu_Load);
+            this.tlpBase.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.pbLogo)).EndInit();
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Label labelExit;
-        private System.Windows.Forms.Label labelPlay;
-        private System.Windows.Forms.Label labelTop;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label lblExit;
+        private System.Windows.Forms.Label lblPlay;
+        private System.Windows.Forms.Label lblTop;
+        private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.TableLayoutPanel tlpBase;
 
         #endregion
     }

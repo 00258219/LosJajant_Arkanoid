@@ -1,0 +1,13 @@
+CREATE TABLE player(
+nickname VARCHAR(10) NOT NULL PRIMARY KEY
+);
+
+CREATE TABLE score(
+id_score SERIAL NOT NULL PRIMARY KEY,
+score INT NOT NULL,
+nickname VARCHAR(10) NOT NULL,
+);
+
+ALTER TABLE score
+ADD CONSTRAINT fk_scorexplayer
+FOREIGN KEY (nickname) REFERENCES player(nickname);

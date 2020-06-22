@@ -29,9 +29,20 @@ namespace Arkanoid
             #region Lógica del puntaje a mostrar
             //verificando puntaje bonus
             if (GameData.winner)
+            {
+                System.Media.SoundPlayer winner = new System.Media.SoundPlayer
+                    ("../../Resources/winner.wav");
+                winner.Play();
                 scoreBonus = GameData.BonusPoints();
+            }
             else
+            {
+                System.Media.SoundPlayer loser = new System.Media.SoundPlayer
+                    ("../../Resources/lose.wav");
+                loser.Play();
                 scoreBonus = 0;
+            }
+
             scoreTotal = GameData.scoreBlocks;
             
             //Mostrando mensaje de "GANASTE" o "PERDISTE" según vidas

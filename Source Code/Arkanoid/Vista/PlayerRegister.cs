@@ -22,7 +22,7 @@ namespace Arkanoid
             ActiveControl = txtNickname.box;
         }
         
-        //Con las siguientes 2 funciones emulamos un hover para el label que esta representando a un boton
+        #region Eventos que permite ser interactivo al label
         private void LblStart_MouseEnter(object sender, EventArgs e)
         {
             lblStart.BackColor = Color.FromArgb(125, 7, 0, 48);
@@ -32,9 +32,9 @@ namespace Arkanoid
         {
             lblStart.BackColor = Color.Transparent;
         }
+        #endregion
 
-        //Con este evento Click guarademos el nombre del jugador en una clase estatica
-        //para luego mandarlo a la base de datos y tambien cambiaremos al panel Game
+        //Evento encargado de asignar el nombre del jugador 
         private void LblStart_Click(object sender, EventArgs e)
         {
             try
@@ -45,18 +45,21 @@ namespace Arkanoid
                 if (txtNickname.Text.Equals(""))
                  throw new EmptyNickNameException("Ingresa tu nickname antes de jugar!");
                 
-                else
-                {
-                    string actualPlayer = txtNickname.Text.ToLower();
-                    GameData.player = actualPlayer;
-                    Parent.Parent.Text += "            PLAYER: "+actualPlayer;
-                    PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
-                    PanelControlator.currentUc = PanelControlator.gameUc;
-                    PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);   
-                    
-                    //Limpiando el txtNickname
-                    txtNickname.Text = "";
-                }
+                //Se convierte el texto a minúsculas y se otorga a player
+                string actualPlayer = txtNickname.Text.ToLower();
+                GameData.player = actualPlayer;
+                
+                //Se coloca el nombre del jugador en la parte superior de la pantalla
+                Parent.Parent.Text += "            PLAYER: "+actualPlayer;
+                
+                //Cambiando el componente actual que se encuentra dentro del panel
+                PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
+                PanelControlator.currentUc = PanelControlator.gameUc;
+                PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc); 
+                
+                //Limpiando el txtNickname
+                txtNickname.Text = "";
+                
             }
             catch (EmptyNickNameException Ex)
             {

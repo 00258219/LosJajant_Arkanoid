@@ -7,7 +7,6 @@ namespace Arkanoid.Controlador
 {
     public static class PlayerDAO
     {
-        
         //Método que permite el acceso a la base de datos para identificar jugadores existentes
         public static List<Player> GetPlayers()
         {

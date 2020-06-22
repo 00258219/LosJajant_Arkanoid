@@ -5,6 +5,7 @@ namespace Arkanoid.Controlador
 {
     public static class ConnectionDB
     {
+        #region Datos para acceder a la base de datos
         private static readonly string host = "ec2-52-44-166-58.compute-1.amazonaws.com";
 
         private static readonly string database = "dc353pq438duni";
@@ -16,6 +17,7 @@ namespace Arkanoid.Controlador
         private static readonly string sConnection=
             $"Host={host};Port=5432;User Id={userId};Password={password};Database={database};" +
             $"sslmode=Require;Trust Server Certificate=true";
+        #endregion
         
         public static DataTable ExecuteQuery(string query)
         {

@@ -19,11 +19,8 @@ namespace Arkanoid
             DoubleBuffered = true;
             pbLogo.Image = Image.FromFile("../../Resources/logo.png");
         }
-
-        /*
-         * Evento MouseHover: Crear el efecto de entrada en un boton
-         * Evento MouseLeave: Quita el efecto al estar afuera de un boton
-        */
+        
+        #region Eventos que permiten ser interactivos a los labels 
         private void LblPlay_MouseHover(object sender, EventArgs e)
         {
         
@@ -55,7 +52,8 @@ namespace Arkanoid
         {
             lblExit.BackColor=Color.Transparent;
         }
-        //funcionamiento del click en 'Play'
+        #endregion
+        
         private void LblPlay_Click(object sender, EventArgs e)
         {
             //cambiando el componente que esta dentro del panel en el FrmMain 
@@ -63,17 +61,15 @@ namespace Arkanoid
             PanelControlator.currentUc = PanelControlator.playerRegisterUc;
             PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
         }
-
-        //funcionamiento del click en 'Top10'
+        
         private void LblTop_Click(object sender, EventArgs e)
         { 
             //cambiando el componente que esta dentro del panel en el FrmMain 
             PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
-            PanelControlator.currentUc = PanelControlator.top10Uc;
+            PanelControlator.currentUc = new Top10();
             PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
         }
         
-        //funcionamiento del click en 'Exit'
         private void LblExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

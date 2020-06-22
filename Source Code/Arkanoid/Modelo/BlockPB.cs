@@ -11,7 +11,7 @@ namespace Arkanoid.Modelo
         
         public BlockPB(int hits, Size size) : base()
         {
-            //inicializar con los valores predeterminados y los de parametro
+            //Inicializar con los valores predeterminados y los de parametro
             this.hits = hits;
             points = hits * 1000;
             BackColor = Color.Transparent;
@@ -21,7 +21,7 @@ namespace Arkanoid.Modelo
             Size = size;
         }
         
-        //Funcion que debe ocurrir cuando la pelota y el bloque colisionan para restar hits y camibar el scoreZ
+        //Método que debe ocurrir cuando la pelota y el bloque colisionan para restar hits y camibar el scoreZ
         public void Beaten(Label scoreGame)
         {
             if (hits > 0)

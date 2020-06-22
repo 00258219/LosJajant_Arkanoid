@@ -19,13 +19,14 @@ namespace Arkanoid
         
         private void GameOver_Load(object sender, EventArgs e)
         {
-            #region background
+            #region Background
             //Cargando la imagen de fondo y acomodando su tamaño
             DoubleBuffered = true;
             BackgroundImage = Image.FromFile("../../Resources/FondoEstrellas.jpg");
             BackgroundImageLayout = ImageLayout.Stretch;
             #endregion
             
+            #region Lógica del puntaje a mostrar
             //verificando puntaje bonus
             if (GameData.winner)
                 scoreBonus = GameData.BonusPoints();
@@ -47,6 +48,7 @@ namespace Arkanoid
             
             //Activando el timer
             tmrPoints.Enabled = true;
+            #endregion
             
             #region Opacidad de los labes 
             //Creando efecto de opacidad en algunos labels
@@ -58,7 +60,7 @@ namespace Arkanoid
             #endregion
         }
 
-        #region Métodos que simulan el Huver de los labels correspondientes, para simular un botón interactivo
+        #region Eventos que permiten ser interactivos a los labels
 
         private void LblPlayAgain_MouseEnter(object sender, EventArgs e)
         {
@@ -91,6 +93,7 @@ namespace Arkanoid
         }
         #endregion
 
+        
         private void LblPlayAgain_Click(object sender, EventArgs e)
         {
             //Eliminando el user control gameUc para volver a implementarlo 

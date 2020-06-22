@@ -30,7 +30,7 @@ namespace Arkanoid
         //Lista de los bloques en el juego
         private List<BlockPB> blocksList = new List<BlockPB>();
         
-        //Agregando delegates  y actions
+        //Agregando actions
         private Action LoadGame, WinningGame, FinishGame, BallActions;
 
         public Game()
@@ -39,7 +39,7 @@ namespace Arkanoid
             Dock = DockStyle.Fill;
             DoubleBuffered = true;
             
-            #region Assigning to Actions
+            #region Asignando las acciones
             
             //Suscribiendo las acciones
             LoadGame = () =>
@@ -55,18 +55,19 @@ namespace Arkanoid
             
             WinningGame = () =>
             {
+                //Al ganar el juego, se indica que el jugador gana, se para el tiempo del juego y
+                //se llama la ventana GameOver
                 timeGame.Stop();
                 GameData.timePlayed = Convert.ToInt32(Math.Floor(GameData.currentTime));
                 GameData.activeTimer = false;
                 GameData.winner = true;
                 GameData.RegisterPlayer();
-                //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
-                //mientras esté abierto GameOver
                 NewGameOver();
             };
             
             FinishGame = () =>
             {
+                //Al perder el juego, basta con llamar la ventana GameOver
                 timeGame.Stop();
                 GameData.timePlayed = Convert.ToInt32(Math.Floor(GameData.currentTime));
                 GameData.activeTimer = false;
@@ -86,7 +87,7 @@ namespace Arkanoid
         
         private void LoadScorePanel() 
         {
-            #region Codigo para cargar todo el panel del score
+            #region Código para cargar todo el panel del score
             scorePnl.BackColor = Color.FromArgb(70, Color.Gray);
             scorePnl.Top = (int) (Height * 0.04);
             scorePnl.Left = (int) (Width * 0.02);
@@ -136,7 +137,7 @@ namespace Arkanoid
 
         private void LoadPlataform_Ball_Time()
         {
-            #region Codigo para cargar la plataforma, pelota y tiempo
+            #region Código para cargar la plataforma, pelota y tiempo
             plataform.BackColor = Color.Transparent;
             plataform.SizeMode = PictureBoxSizeMode.StretchImage;
             plataform.Image = Image.FromFile("../../Resources/plataform.png");
@@ -171,7 +172,7 @@ namespace Arkanoid
 
         private void LoadBlocks()
         {
-            #region Codigo para cargar todos los bloques
+            #region Código para cargar todos los bloques
             
             //Variables auxilares para la generacion de bloques
             int columns = 6, rows = 4;
@@ -198,9 +199,10 @@ namespace Arkanoid
             #endregion
         }
         
-        //Funcion que realiza el movimiento de la plataforma, con o sin la pelota fijada
+        //Método que realiza el movimiento de la plataforma, con o sin la pelota fijada
         private void PlataformMove(bool left)
         {
+            #region Movimiento de la plataforma
             var speed = 15;
             
             try
@@ -227,11 +229,13 @@ namespace Arkanoid
                     plataform.Left = (Width / 2) - (plataform.Width / 2);
                 }
             }
+            #endregion
         }
         
         //Evento para el movimiento de la plataforma e inicio del juego
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
+            #region Excepciones de pausado e inicio del juego
             try
             {
                 //Cuando presione ESC se pausará el juego
@@ -278,6 +282,7 @@ namespace Arkanoid
                     StartTimeGame();
                 }   
             }
+            #endregion
             
             //Iniciar el juego con la tecla space
             if (e.KeyCode == Keys.Space) {
@@ -293,16 +298,17 @@ namespace Arkanoid
                 (Keyboard.IsKeyDown(Key.Left) && Keyboard.IsKeyDown(Key.D)))
                 return;
             
+            //Movimiento a la izquierda
             if (Keyboard.IsKeyDown(Key.A) || Keyboard.IsKeyDown(Key.Left))
-                PlataformMove(true); //movimiento a la izquierda
-            
+                PlataformMove(true);
+            //Movimiento a la derecha
             else if(Keyboard.IsKeyDown(Key.D) || Keyboard.IsKeyDown(Key.Right))
-                PlataformMove(false); //movimiento a la derecha
+                PlataformMove(false);
         }
         
+        //Método que ayuda a detectar las arrow keys cuando es precionada
         private void Game_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            //Esto ayuda a detectar las arrow keys cuando es precionada
             switch (e.KeyCode)
             {
                 case Keys.Up:
@@ -314,7 +320,7 @@ namespace Arkanoid
             }
         }
         
-        //Metodo que inicia el tiempo del juego
+        //Método que inicia el tiempo del juego
         private void StartTimeGame()
         {
             timeGame.Enabled = true;
@@ -323,7 +329,7 @@ namespace Arkanoid
             GameData.activeTimer = true;
         }
         
-        //Metodo que realiza lleva a cabo los movimientos de la pelota
+        //Método que lleva a cabo los movimientos de la pelota
         private void TimeGame_Tick(object sender, EventArgs e)
         {
             GameRemainingTime();
@@ -334,7 +340,7 @@ namespace Arkanoid
             BallActions.Invoke();
         }
 
-        //funcion que verifica el tiempo restante de juego
+        //Método que verifica el tiempo restante de juego
         private void GameRemainingTime()
         {
             if (GameData.currentTime <= 1)
@@ -349,14 +355,14 @@ namespace Arkanoid
             }
         }
         
-        //Metodo para realizar los movimientos de la pelota
+        //Método para realizar los movimientos de la pelota
         private void BallMoves()
         {
             ball.Left += GameData.xSpeed;
             ball.Top += GameData.ySpeed;
         }
         
-        //Metodo para reposicionar la pelota y la plataforma al centro cuando se pierde una vida
+        //Método para reposicionar la pelota y la plataforma al centro cuando se pierde una vida
         private void Relocation()
         {
             plataform.Left = (Width / 2) - (plataform.Width / 2);
@@ -365,12 +371,13 @@ namespace Arkanoid
             GameData.trapped = true;
         }
 
-        // ReSharper disable once CommentTypo
         //Metodo que se encarga de revisar las colisiones
         private void Bounces()
         {
             //Random para el rebote
             Random random= new Random();
+            
+            #region Cargado de vidas
             
             //verifica si la pelota cae al vacio
             if (ball.Bottom > Height)
@@ -394,6 +401,9 @@ namespace Arkanoid
                         break;
                 }
             }
+            #endregion
+            
+            #region Posibles Rebotes
             
             //Genera un rebote en la parte superior
             if(ball.Top<scorePnl.Bottom)
@@ -421,6 +431,7 @@ namespace Arkanoid
                 if (GameData.remainingBlocks==0)
                     WinningGame?.Invoke();
             }
+            #endregion
         }
         
         //Método que verifica todas las colisiones que pueden haber en un mismo momento.
@@ -443,7 +454,7 @@ namespace Arkanoid
         private void NewGameOver()
         {
             //Tomando una "captura" del form completo con sus controles existentes
-            //bmp se convierte en una "copia" de nuestro form Game
+            //bmp se convierte en una "copia" del form Game
             Bitmap bmp = new Bitmap(ClientRectangle.Width, ClientRectangle.Height);
             
             using (Graphics G = Graphics.FromImage(bmp))

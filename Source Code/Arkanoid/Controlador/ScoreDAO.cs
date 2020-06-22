@@ -7,7 +7,7 @@ namespace Arkanoid.Controlador
     public static class ScoreDAO
     {
 
-        //Método encargada de guardar en una lista el nickname de los mejores 10 puntajes
+        //Método encargado de guardar en una lista el nickname de los mejores 10 puntajes
         //ordenados de mayor a menor
         public static List<string> GetNickNames()
         {
@@ -30,7 +30,7 @@ namespace Arkanoid.Controlador
             return listScore;
         }
         
-        //Método encargada de guardar en una lista el score de los mejores 10 puntajes
+        //Método encargado de guardar en una lista el score de los mejores 10 puntajes
         //ordenados de mayor a menor
         public static List<string> GetScores()
         {

@@ -1,10 +1,10 @@
-﻿using System;
-using Arkanoid.Controlador;
+﻿using Arkanoid.Controlador;
 
 namespace Arkanoid.Modelo
 {
     public static class GameData
     {
+        #region Variables
         //Manejo del nombre del jugador
         public static string player = "";
 
@@ -21,8 +21,9 @@ namespace Arkanoid.Modelo
         
         //Velocidades con las cuales se movera la pelota
         public static int xSpeed =15, ySpeed =-(xSpeed-1);
-
-        //funcion para calcular los puntos extras
+        #endregion
+        
+        //Método para calcular los puntos extras
         public static int BonusPoints()
         {
             int bonusPoints = 0, bonustime = 0;
@@ -33,7 +34,7 @@ namespace Arkanoid.Modelo
             return bonusPoints;
         }
         
-        //Funcion para registrar el usuario y puntaje en la base de datos
+        //Método para registrar el usuario y puntaje en la base de datos
         public static void RegisterPlayer()
         {
             foreach(Player user in PlayerDAO.GetPlayers())

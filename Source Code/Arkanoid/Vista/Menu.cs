@@ -54,6 +54,7 @@ namespace Arkanoid
         }
         #endregion
         
+        //Permite acceder al registro del usuario
         private void LblPlay_Click(object sender, EventArgs e)
         {
             //cambiando el componente que esta dentro del panel en el FrmMain 
@@ -62,6 +63,7 @@ namespace Arkanoid
             PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
         }
         
+        //Permite acceder al top 10 de jugadores
         private void LblTop_Click(object sender, EventArgs e)
         { 
             //cambiando el componente que esta dentro del panel en el FrmMain 
@@ -70,6 +72,7 @@ namespace Arkanoid
             PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
         }
         
+        //Cierra el programa
         private void LblExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

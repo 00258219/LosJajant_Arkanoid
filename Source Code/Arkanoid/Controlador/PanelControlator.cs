@@ -10,6 +10,7 @@ namespace Arkanoid.Controlador
         public static Panel mainPnl = new Panel();
         public static UserControl currentUc = new UserControl();
 
+        //Guarda todos los user control que existen para su uso
         public static Menu menuUc = new Menu();
         public static Top10 top10Uc = new Top10();
         public static PlayerRegister playerRegisterUc = new PlayerRegister();

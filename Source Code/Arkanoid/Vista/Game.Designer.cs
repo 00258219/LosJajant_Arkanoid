@@ -32,12 +32,12 @@ namespace Arkanoid
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timeGame = new System.Windows.Forms.Timer(this.components);
+            this.tmrGame = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // timeGame
             // 
-            this.timeGame.Tick += new System.EventHandler(this.TimeGame_Tick);
+            this.tmrGame.Tick += new System.EventHandler(this.TmrGame_Tick);
             // 
             // Game
             // 
@@ -54,7 +54,7 @@ namespace Arkanoid
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Timer timeGame;
+        private System.Windows.Forms.Timer tmrGame;
 
         #endregion
     }

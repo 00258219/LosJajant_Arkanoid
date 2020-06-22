@@ -51,7 +51,7 @@ namespace Arkanoid
                 
                 //Se coloca el nombre del jugador en la parte superior de la pantalla
                 Parent.Parent.Text += "            PLAYER: "+actualPlayer;
-                
+
                 //Cambiando el componente actual que se encuentra dentro del panel
                 PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
                 PanelControlator.currentUc = PanelControlator.gameUc;

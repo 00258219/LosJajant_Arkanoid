@@ -6,12 +6,12 @@ using Arkanoid.Modelo;
 
 namespace Arkanoid
 {
-    public partial class GameOver : Form
+    public partial class FrmGameOver : Form
     {
         private int scoreTotal = 0;
         private int scoreBonus = 0;
         private int diffScore = 200;
-        public GameOver()
+        public FrmGameOver()
         {
             InitializeComponent();
             tmrPoints.Interval = 1;
@@ -32,14 +32,21 @@ namespace Arkanoid
                 scoreBonus = GameData.BonusPoints();
             else
                 scoreBonus = 0;
-            scoreTotal = GameData.scoreBlocks;// + scoreBonus;
-           
+            scoreTotal = GameData.scoreBlocks;
+            
             //Mostrando mensaje de "GANASTE" o "PERDISTE" según vidas
-            if (GameData.winner) lblMessage.Text = "Ganaste!";
-            else if (GameData.life == 3) lblMessage.Text = "Muy bien!";
-            else if (GameData.life == 2) lblMessage.Text = "Bien hecho!";
-            else if (GameData.life == 1) lblMessage.Text = "Por Poco!";
-            else lblMessage.Text = "Perdiste!";
+            switch (GameData.life)
+                {
+                    case 3: lblMessage.Text = "Muy bien!";
+                        break;
+                    case 2: lblMessage.Text = "Bien hecho!";
+                        break;
+                    case 1: lblMessage.Text = "Por Poco!";
+                        break;
+                    default: lblMessage.Text = "Perdiste!";
+                        break;
+                }
+            
             
             //Mostrando el puntaje en la ventana
             lblScore.Text = "Score: " + GameData.scoreBlocks.ToString();

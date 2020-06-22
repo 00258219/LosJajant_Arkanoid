@@ -30,7 +30,7 @@ namespace Arkanoid
             currentUc = menuUc;
         }
 
-        //Método que encargado de verificar los cambios de tamaño que la ventana sufre
+        //Evento que encargado de verificar los cambios de tamaño que la ventana sufre
         private void FrmMain_Resize(object sender, EventArgs e)
         {
             //Si la ventana no está maximizada, se maximizará

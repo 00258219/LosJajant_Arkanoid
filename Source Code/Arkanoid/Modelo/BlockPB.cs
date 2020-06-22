@@ -39,7 +39,7 @@ namespace Arkanoid.Modelo
             }
             else
             {
-                //cambiando la imagien, si ha recibido un hit y si aun no tiene 0 hits
+                //cambiando la imagen, si ha recibido un hit y si aun no tiene 0 hits
                 Image = Image.FromFile(imageName + hits + ".png");
             }
         }

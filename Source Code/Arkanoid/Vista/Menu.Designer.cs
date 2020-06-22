@@ -44,7 +44,8 @@ namespace Arkanoid
             // 
             this.tlpBase.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tlpBase.ColumnCount = 1;
-            this.tlpBase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpBase.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpBase.Controls.Add(this.pbLogo, 0, 0);
             this.tlpBase.Controls.Add(this.lblExit, 0, 4);
             this.tlpBase.Controls.Add(this.lblTop, 0, 3);
@@ -54,34 +55,45 @@ namespace Arkanoid
             this.tlpBase.Margin = new System.Windows.Forms.Padding(0);
             this.tlpBase.Name = "tlpBase";
             this.tlpBase.RowCount = 6;
-            this.tlpBase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.99999F));
-            this.tlpBase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.000008F));
-            this.tlpBase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38981F));
-            this.tlpBase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38981F));
-            this.tlpBase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.39038F));
-            this.tlpBase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.829998F));
-            this.tlpBase.Size = new System.Drawing.Size(748, 514);
+            this.tlpBase.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.99999F));
+            this.tlpBase.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.000008F));
+            this.tlpBase.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38981F));
+            this.tlpBase.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.38981F));
+            this.tlpBase.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.39038F));
+            this.tlpBase.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.829998F));
+            this.tlpBase.Size = new System.Drawing.Size(873, 593);
             this.tlpBase.TabIndex = 0;
             // 
             // pbLogo
             // 
-            this.pbLogo.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.pbLogo.Location = new System.Drawing.Point(44, 3);
+            this.pbLogo.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
+                                                       System.Windows.Forms.AnchorStyles.Bottom)));
+            this.pbLogo.Location = new System.Drawing.Point(51, 3);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(660, 148);
+            this.pbLogo.Size = new System.Drawing.Size(770, 171);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
             // 
             // lblExit
             // 
-            this.lblExit.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblExit.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
+                                                       System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblExit.BackColor = System.Drawing.Color.Transparent;
-            this.lblExit.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblExit.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblExit.ForeColor = System.Drawing.Color.White;
-            this.lblExit.Location = new System.Drawing.Point(132, 377);
+            this.lblExit.Location = new System.Drawing.Point(155, 434);
             this.lblExit.Name = "lblExit";
-            this.lblExit.Size = new System.Drawing.Size(483, 99);
+            this.lblExit.Size = new System.Drawing.Size(563, 114);
             this.lblExit.TabIndex = 3;
             this.lblExit.Text = "exit";
             this.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -91,13 +103,16 @@ namespace Arkanoid
             // 
             // lblTop
             // 
-            this.lblTop.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblTop.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
+                                                       System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblTop.BackColor = System.Drawing.Color.Transparent;
-            this.lblTop.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblTop.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblTop.ForeColor = System.Drawing.Color.White;
-            this.lblTop.Location = new System.Drawing.Point(60, 278);
+            this.lblTop.Location = new System.Drawing.Point(70, 320);
             this.lblTop.Name = "lblTop";
-            this.lblTop.Size = new System.Drawing.Size(628, 99);
+            this.lblTop.Size = new System.Drawing.Size(733, 114);
             this.lblTop.TabIndex = 2;
             this.lblTop.Text = "Top 10";
             this.lblTop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -107,13 +122,16 @@ namespace Arkanoid
             // 
             // lblPlay
             // 
-            this.lblPlay.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblPlay.Anchor =
+                ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top |
+                                                       System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblPlay.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlay.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.lblPlay.Font = new System.Drawing.Font("Blader", 75F, System.Drawing.FontStyle.Regular,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblPlay.ForeColor = System.Drawing.Color.White;
-            this.lblPlay.Location = new System.Drawing.Point(196, 179);
+            this.lblPlay.Location = new System.Drawing.Point(229, 206);
             this.lblPlay.Name = "lblPlay";
-            this.lblPlay.Size = new System.Drawing.Size(355, 99);
+            this.lblPlay.Size = new System.Drawing.Size(414, 114);
             this.lblPlay.TabIndex = 1;
             this.lblPlay.Text = "Play";
             this.lblPlay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -123,11 +141,11 @@ namespace Arkanoid
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tlpBase);
             this.Name = "Menu";
-            this.Size = new System.Drawing.Size(748, 514);
+            this.Size = new System.Drawing.Size(873, 593);
             this.Load += new System.EventHandler(this.Menu_Load);
             this.tlpBase.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.pbLogo)).EndInit();

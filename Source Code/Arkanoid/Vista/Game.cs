@@ -7,6 +7,7 @@ using Arkanoid.Controlador;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 using Arkanoid.Modelo;
 
+
 namespace Arkanoid
 {
     public sealed partial class Game : UserControl
@@ -57,7 +58,7 @@ namespace Arkanoid
             {
                 //Al ganar el juego, se indica que el jugador gana, se para el tiempo del juego y
                 //se llama la ventana GameOver
-                timeGame.Stop();
+                tmrGame.Stop();
                 GameData.timePlayed = Convert.ToInt32(Math.Floor(GameData.currentTime));
                 GameData.activeTimer = false;
                 GameData.winner = true;
@@ -68,9 +69,10 @@ namespace Arkanoid
             FinishGame = () =>
             {
                 //Al perder el juego, basta con llamar la ventana GameOver
-                timeGame.Stop();
+                tmrGame.Stop();
                 GameData.timePlayed = Convert.ToInt32(Math.Floor(GameData.currentTime));
                 GameData.activeTimer = false;
+                GameData.life = 0;
                 NewGameOver();
             };
             
@@ -255,14 +257,14 @@ namespace Arkanoid
             }
             catch (GamePausedException Ex)
             {
-                timeGame.Stop();
+                tmrGame.Stop();
                 GameData.activeTimer = false;
 
                 DialogResult dR = MessageBox.Show(Ex.Message);
                 
                 if (dR == DialogResult.OK && GameData.startGame==true)
                 {
-                    timeGame.Start();
+                    tmrGame.Start();
                     GameData.activeTimer = true;
                     StartTimeGame();
                 }
@@ -277,7 +279,7 @@ namespace Arkanoid
                 
                 if (dR == DialogResult.OK && GameData.startGame)
                 {
-                    timeGame.Start();
+                    tmrGame.Start();
                     GameData.activeTimer = true;
                     StartTimeGame();
                 }   
@@ -323,14 +325,14 @@ namespace Arkanoid
         //Método que inicia el tiempo del juego
         private void StartTimeGame()
         {
-            timeGame.Enabled = true;
-            timeGame.Interval = 70;
-            timeGame.Start();
+            tmrGame.Enabled = true;
+            tmrGame.Interval = 70;
+            tmrGame.Start();
             GameData.activeTimer = true;
         }
         
         //Método que lleva a cabo los movimientos de la pelota
-        private void TimeGame_Tick(object sender, EventArgs e)
+        private void TmrGame_Tick(object sender, EventArgs e)
         {
             GameRemainingTime();
             
@@ -383,7 +385,7 @@ namespace Arkanoid
             if (ball.Bottom > Height)
             {
                 GameData.life--;
-                timeGame.Stop();
+                tmrGame.Stop();
                 
                 switch (GameData.life)
                 {
@@ -434,17 +436,17 @@ namespace Arkanoid
             #endregion
         }
         
-        //Método que verifica todas las colisiones que pueden haber en un mismo momento.
+        //Método que verifica la colision de peloa y bloques en mismo momento.
         private bool Collisions()
         {
-            //Detecta que haya al menos una colision
+            //Detectar que bloque esta colisionando
             foreach (var block in blocksList)
             {
                 //Condicion para conocer si el bloque esta activo y existe colision
                 if (block.Enabled && ball.Bounds.IntersectsWith(block.Bounds))
                 {
                     block.Beaten(scoreLbl); //Golpeando el bloque
-                    return true; //Si hay colisiones su valor cambia
+                    return true; 
                 }
             }
             return false;
@@ -482,7 +484,7 @@ namespace Arkanoid
                 p.BringToFront();
 
                 //Mostrando el Game Over
-                GameOver gameOver = new GameOver();
+                FrmGameOver gameOver = new FrmGameOver();
                 gameOver.StartPosition = FormStartPosition.CenterParent;
                 
                 //Se mostrará dde esta forma, ya que deja inabilitado el form del fondo, y a su vez esperará
@@ -496,7 +498,7 @@ namespace Arkanoid
         {
             if (GameData.startGame)
             {
-                timeGame.Stop();
+                tmrGame.Stop();
                 GameData.activeTimer = false;
             }
         }

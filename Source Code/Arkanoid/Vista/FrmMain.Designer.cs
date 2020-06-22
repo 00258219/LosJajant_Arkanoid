@@ -1,11 +1,13 @@
-﻿namespace Arkanoid
+﻿using System.ComponentModel;
+
+namespace Arkanoid
 {
-    partial class Form1
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -30,7 +32,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+                new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.pnlBase = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -43,7 +45,7 @@
             this.pnlBase.Size = new System.Drawing.Size(845, 441);
             this.pnlBase.TabIndex = 0;
             // 
-            // Form1
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -53,11 +55,11 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "FrmMain";
             this.Text = "Arkanoid by Jajan\'tGames";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Resize += new System.EventHandler(this.Form1_Resize);
+            this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.Resize += new System.EventHandler(this.FrmMain_Resize);
             this.ResumeLayout(false);
         }
 

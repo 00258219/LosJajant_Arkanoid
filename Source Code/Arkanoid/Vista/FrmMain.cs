@@ -5,21 +5,19 @@ using static Arkanoid.Controlador.PanelControlator;
 
 namespace Arkanoid
 {
-    public partial class Form1 : Form
+    public partial class FrmMain : Form
     {
-        private delegate void DelegateForm();
-        static DelegateForm myDelegate;
-        public Form1()
+        public FrmMain()
         {
             InitializeComponent();
             MaximizeBox = false;
         }
-        
-        private void Form1_Load(object sender, EventArgs e)
+
+        private void FrmMain_Load(object sender, EventArgs e)
         {
             DoubleBuffered = true;
             BackgroundImage = Image.FromFile("../../Resources/background.png");
-            
+
             //Cambiando el size de cada userControl
             menuUc.Size = pnlBase.Size;
             top10Uc.Size = pnlBase.Size;
@@ -31,13 +29,24 @@ namespace Arkanoid
             mainPnl.Controls.Add(menuUc);
             currentUc = menuUc;
         }
-        
+
+        private void FrmMain_Resize(object sender, EventArgs e)
+        {
+            if (WindowState==FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+            }
+
+            if (WindowState == FormWindowState.Minimized)
+            {
+                gameUc.StopTimerPlayer();
+            }
+        }
         //Cuando se deja maximimazada la ventana aun ocurren dos cosas que queremos evitar y es el movimiento de la
         //ventana y el minimizado por doble clic en la barra superior, entonces recibimos esas acciones y evitamos
         //que hagan cambios, osea las suprimimos.
         protected override void WndProc(ref Message m)
-        {  
-            const int SC_MINIMIZE = 0xF020;
+        {
             const int wmSyscommand = 0x0112;
             const int scMove = 0xF010;
             const int wmNclbuttondblclk = 0x00A3;
@@ -48,15 +57,10 @@ namespace Arkanoid
                     if (command == scMove)
                         return;
                     
-                    /*//Minimizar perzonalizado
-                    if (m.WParam == (IntPtr)SC_MINIMIZE)
-                        MessageBox.Show("Hacer lo que quieras en vez de minimizar");*/
-
                     base.WndProc(ref m);
                     break;
             }
-
-
+            
             if (m.Msg == wmNclbuttondblclk)
             {
                 m.Result = IntPtr.Zero;
@@ -67,7 +71,7 @@ namespace Arkanoid
             base.WndProc(ref m);
         }
         
-        //La funcion que paso Walter
+        //funcion para mejorar la carga de los componentes
         protected override CreateParams CreateParams
         {
             get
@@ -77,21 +81,5 @@ namespace Arkanoid
                 return cp;
             }
         }
-
-        //Permite que la ventana luego de estar minimizada, al abrirla se maximice siempre
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-            if (WindowState==FormWindowState.Normal)
-            {
-                WindowState = FormWindowState.Maximized;
-            }
-
-            if (WindowState == FormWindowState.Minimized)
-            {
-                myDelegate += gameUc.StopTimerPlayer;
-                myDelegate.Invoke();
-            }
-        }
-        
     }
 }

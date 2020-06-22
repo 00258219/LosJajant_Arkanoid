@@ -8,8 +8,6 @@ namespace Arkanoid
 {
     public partial class PlayerRegister : UserControl
     {
-        private delegate void MyDelegatePlayerRegiser(object sender, EventArgs e);
-        private static MyDelegatePlayerRegiser clickSimulator;
         public PlayerRegister()
         {
             InitializeComponent();
@@ -25,19 +23,19 @@ namespace Arkanoid
         }
         
         //Con las siguientes 2 funciones emulamos un hover para el label que esta representando a un boton
-        private void LblButton_MouseEnter(object sender, EventArgs e)
+        private void LblStart_MouseEnter(object sender, EventArgs e)
         {
-            lblButton.BackColor = Color.FromArgb(125, 7, 0, 48);
+            lblStart.BackColor = Color.FromArgb(125, 7, 0, 48);
         }
 
-        private void LblButton_MouseLeave(object sender, EventArgs e)
+        private void LblStart_MouseLeave(object sender, EventArgs e)
         {
-            lblButton.BackColor = Color.Transparent;
+            lblStart.BackColor = Color.Transparent;
         }
 
         //Con este evento Click guarademos el nombre del jugador en una clase estatica
         //para luego mandarlo a la base de datos y tambien cambiaremos al panel Game
-        private void LblButton_Click(object sender, EventArgs e)
+        private void LblStart_Click(object sender, EventArgs e)
         {
             try
             {
@@ -45,7 +43,7 @@ namespace Arkanoid
                 txtNickname.Text = txtNickname.Text.Trim();
                 
                 if (txtNickname.Text.Equals(""))
-                throw new EmptyNickNameException("Ingresa tu nickname antes de jugar!");
+                 throw new EmptyNickNameException("Ingresa tu nickname antes de jugar!");
                 
                 else
                 {
@@ -65,13 +63,12 @@ namespace Arkanoid
                 MessageBox.Show(Ex.Message);
             }
         }
-
         private void BtnBack_Click(object sender, EventArgs e)
         {
             //Limpiando el texto si se habia escrito algo
             txtNickname.Text = "";
             
-            //cambiando el componente que esta dentro del panel en el Form1 
+            //cambiando el componente que esta dentro del panel en el FrmMain 
             PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
             PanelControlator.currentUc = PanelControlator.menuUc;
             PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);

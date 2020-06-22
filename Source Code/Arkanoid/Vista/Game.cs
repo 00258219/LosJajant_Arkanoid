@@ -31,9 +31,7 @@ namespace Arkanoid
         private List<BlockPB> blocksList = new List<BlockPB>();
         
         //Agregando delegates  y actions
-        private Action LoadGame, WinningGame, FinishGame;
-        private delegate void MyDelegate();
-        static MyDelegate ballActions, timeActions;
+        private Action LoadGame, WinningGame, FinishGame, BallActions;
 
         public Game()
         {
@@ -52,18 +50,16 @@ namespace Arkanoid
                 Focus();
             };
             
-            timeActions = StartTimeGame;
-
-            ballActions = BallMoves;
-            ballActions += Bounces;
+            BallActions = BallMoves;
+            BallActions += Bounces;
             
             WinningGame = () =>
             {
-                GameData.timePlayed = 150 - Convert.ToInt32(Math.Floor(GameData.currentTime));
                 timeGame.Stop();
+                GameData.timePlayed = Convert.ToInt32(Math.Floor(GameData.currentTime));
                 GameData.activeTimer = false;
                 GameData.winner = true;
-                GameData.AddScoreDB();
+                GameData.RegisterPlayer();
                 //Mostrando el Form GameOver de esta manera, inabilita el uso del Form Game
                 //mientras esté abierto GameOver
                 NewGameOver();
@@ -71,8 +67,8 @@ namespace Arkanoid
             
             FinishGame = () =>
             {
-                GameData.timePlayed = 150 - Convert.ToInt32(Math.Floor(GameData.currentTime));
                 timeGame.Stop();
+                GameData.timePlayed = Convert.ToInt32(Math.Floor(GameData.currentTime));
                 GameData.activeTimer = false;
                 NewGameOver();
             };
@@ -81,14 +77,14 @@ namespace Arkanoid
             
         }
         
-        public void Game_Load(object sender, EventArgs e)
+        private void Game_Load(object sender, EventArgs e)
         {
             BackgroundImage = Image.FromFile("../../Resources/gameBackground.png");
             BackgroundImageLayout = ImageLayout.Stretch;
             LoadGame?.Invoke(); 
         }
         
-        private void LoadScorePanel()
+        private void LoadScorePanel() 
         {
             #region Codigo para cargar todo el panel del score
             scorePnl.BackColor = Color.FromArgb(70, Color.Gray);
@@ -203,7 +199,7 @@ namespace Arkanoid
         }
         
         //Funcion que realiza el movimiento de la plataforma, con o sin la pelota fijada
-        private void PlataformMOVE(bool left)
+        private void PlataformMove(bool left)
         {
             var speed = 15;
             
@@ -243,11 +239,11 @@ namespace Arkanoid
                     throw new GamePausedException("Juego en pausa, presione ACEPTAR para continuar");
                 
                 //Cuando minimice la pantalla, se pondrá en pausa
-                if(GameData.StartGame && GameData.activeTimer==false)
+                if(GameData.startGame && GameData.activeTimer==false)
                     throw new MinimizingPauseException("Juego en pausa, presione ACEPTAR para continuar");
                 
                 //Detectar SPACE para comenzar el juego
-                if(GameData.StartGame==false && !Keyboard.IsKeyDown(Key.Space) && 
+                if(GameData.startGame==false && !Keyboard.IsKeyDown(Key.Space) && 
                    !Keyboard.IsKeyDown(Key.Escape) && !Keyboard.IsKeyDown(Key.Left) && 
                    !Keyboard.IsKeyDown(Key.Right) && !Keyboard.IsKeyDown(Key.A) && 
                    !Keyboard.IsKeyDown(Key.D))
@@ -260,11 +256,11 @@ namespace Arkanoid
 
                 DialogResult dR = MessageBox.Show(Ex.Message);
                 
-                if (dR == DialogResult.OK && GameData.StartGame==true)
+                if (dR == DialogResult.OK && GameData.startGame==true)
                 {
                     timeGame.Start();
                     GameData.activeTimer = true;
-                    timeActions.Invoke();
+                    StartTimeGame();
                 }
             }
             catch (StartOfTheGameException Ex)
@@ -275,18 +271,18 @@ namespace Arkanoid
             {
                 DialogResult dR = MessageBox.Show(Ex.Message);
                 
-                if (dR == DialogResult.OK && GameData.StartGame)
+                if (dR == DialogResult.OK && GameData.startGame)
                 {
                     timeGame.Start();
                     GameData.activeTimer = true;
-                    timeActions.Invoke();
+                    StartTimeGame();
                 }   
             }
             
             //Iniciar el juego con la tecla space
             if (e.KeyCode == Keys.Space) {
-                timeActions.Invoke();
-                GameData.StartGame = true;
+                StartTimeGame();
+                GameData.startGame = true;
                 GameData.trapped = false; //Cambiar la condicion para que la pelota se mueva independientemente
             }
 
@@ -298,10 +294,10 @@ namespace Arkanoid
                 return;
             
             if (Keyboard.IsKeyDown(Key.A) || Keyboard.IsKeyDown(Key.Left))
-                PlataformMOVE(true); //movimiento a la izquierda
+                PlataformMove(true); //movimiento a la izquierda
             
             else if(Keyboard.IsKeyDown(Key.D) || Keyboard.IsKeyDown(Key.Right))
-                PlataformMOVE(false); //movimiento a la derecha
+                PlataformMove(false); //movimiento a la derecha
         }
         
         private void Game_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -330,16 +326,16 @@ namespace Arkanoid
         //Metodo que realiza lleva a cabo los movimientos de la pelota
         private void TimeGame_Tick(object sender, EventArgs e)
         {
-            RemainingTimePlayer();
+            GameRemainingTime();
             
-            if (!GameData.StartGame) //Si el juego no ha iniciado no realiza moviemientos de la pelota
+            if (!GameData.startGame) //Si el juego no ha iniciado no realiza moviemientos de la pelota
                 return;
             
-            ballActions.Invoke();
+            BallActions.Invoke();
         }
 
         //funcion que verifica el tiempo restante de juego
-        private void RemainingTimePlayer()
+        private void GameRemainingTime()
         {
             if (GameData.currentTime <= 1)
             {
@@ -487,12 +483,11 @@ namespace Arkanoid
         //Método que se usará con el delegate de Form para pausar el juego al minimizar la pantalla
         public void StopTimerPlayer()
         {
-            if (GameData.StartGame)
+            if (GameData.startGame)
             {
                 timeGame.Stop();
                 GameData.activeTimer = false;
             }
         }
-        
     }
 }

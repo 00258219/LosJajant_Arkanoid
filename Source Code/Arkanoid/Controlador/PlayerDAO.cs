@@ -9,7 +9,7 @@ namespace Arkanoid.Controlador
     {
         
         //Método que permite el acceso a la base de datos para identificar jugadores existentes
-        public static List<Player> GetPlayer()
+        public static List<Player> GetPlayers()
         {
             DataTable dt = null;
             List<Player> listPlayer = new List<Player>();

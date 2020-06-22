@@ -58,7 +58,7 @@ namespace Arkanoid
         //funcionamiento del click en 'Play'
         private void LblPlay_Click(object sender, EventArgs e)
         {
-            //cambiando el componente que esta dentro del panel en el Form1 
+            //cambiando el componente que esta dentro del panel en el FrmMain 
             PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
             PanelControlator.currentUc = PanelControlator.playerRegisterUc;
             PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
@@ -67,7 +67,7 @@ namespace Arkanoid
         //funcionamiento del click en 'Top10'
         private void LblTop_Click(object sender, EventArgs e)
         { 
-            //cambiando el componente que esta dentro del panel en el Form1 
+            //cambiando el componente que esta dentro del panel en el FrmMain 
             PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
             PanelControlator.currentUc = PanelControlator.top10Uc;
             PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);

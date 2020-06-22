@@ -1,4 +1,5 @@
-﻿using Arkanoid.Controlador;
+﻿using System;
+using Arkanoid.Controlador;
 
 namespace Arkanoid.Modelo
 {
@@ -13,7 +14,7 @@ namespace Arkanoid.Modelo
         public static int remainingBlocks = 24;
         public static double currentTime = 150.00; //2 mins y 30 seg
         public static bool trapped = true; //si la pelota se mueve junto a la plataforma
-        public static bool StartGame = false;
+        public static bool startGame = false;
         public static bool activeTimer = false;
         public static int timePlayed = 0;
         public static bool winner = false;
@@ -25,15 +26,17 @@ namespace Arkanoid.Modelo
         public static int BonusPoints()
         {
             int bonusPoints = 0, bonustime = 0;
-            bonustime = (150 - timePlayed) * 200;
+            
+            bonustime = timePlayed*200;
             bonusPoints = bonustime * life;
+            
             return bonusPoints;
         }
         
-        //funcion para registrar el puntaje en la base de datos
-        public static void AddScoreDB()
+        //Funcion para registrar el usuario y puntaje en la base de datos
+        public static void RegisterPlayer()
         {
-            foreach(Player user in PlayerDAO.GetPlayer())
+            foreach(Player user in PlayerDAO.GetPlayers())
             {
                 if (user.nickname.Equals(player))
                 {
@@ -44,6 +47,5 @@ namespace Arkanoid.Modelo
             PlayerDAO.InsertPlayer(player);
             ScoreDAO.AddScore(scoreBlocks+BonusPoints(), player);
         }
-        
     }
 }

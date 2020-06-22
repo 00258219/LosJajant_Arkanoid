@@ -8,98 +8,96 @@ namespace Arkanoid
 {
     public partial class GameOver : Form
     {
-        private delegate void DelegateGameOver();
-        static DelegateGameOver myDelegateGameOver;
-        
         private int scoreTotal = 0;
         private int scoreBonus = 0;
         private int diffScore = 200;
         public GameOver()
         {
             InitializeComponent();
-            timerPoints.Interval = 1;
+            tmrPoints.Interval = 1;
         }
-
-        //Método que se realiza cuando este formulario carga, agregando el BackGround y el color de fondo 
-        //de los labels
+        
         private void GameOver_Load(object sender, EventArgs e)
         {
+            #region background
             //Cargando la imagen de fondo y acomodando su tamaño
             DoubleBuffered = true;
             BackgroundImage = Image.FromFile("../../Resources/FondoEstrellas.jpg");
             BackgroundImageLayout = ImageLayout.Stretch;
+            #endregion
             
-            //Calculando el puntaje total
+            //verificando puntaje bonus
             if (GameData.winner)
                 scoreBonus = GameData.BonusPoints();
             else
                 scoreBonus = 0;
             scoreTotal = GameData.scoreBlocks;// + scoreBonus;
-
+           
             //Mostrando mensaje de "GANASTE" o "PERDISTE" según vidas
-            if (GameData.winner) label1.Text = "Ganaste!";
-            else if (GameData.life == 3) label1.Text = "Muy bien!";
-            else if (GameData.life == 2) label1.Text = "Bien hecho!";
-            else if (GameData.life == 1) label1.Text = "Por Poco!";
-            else label1.Text = "Perdiste!";
+            if (GameData.winner) lblMessage.Text = "Ganaste!";
+            else if (GameData.life == 3) lblMessage.Text = "Muy bien!";
+            else if (GameData.life == 2) lblMessage.Text = "Bien hecho!";
+            else if (GameData.life == 1) lblMessage.Text = "Por Poco!";
+            else lblMessage.Text = "Perdiste!";
             
             //Mostrando el puntaje en la ventana
-            label3.Text = "Score: " + GameData.scoreBlocks.ToString();
-            label7.Text = "Bonus: " + scoreBonus.ToString();
-            label8.Text = "Total: " + scoreTotal.ToString();
+            lblScore.Text = "Score: " + GameData.scoreBlocks.ToString();
+            lblBonus.Text = "Bonus: " + scoreBonus.ToString();
+            lblTotal.Text = "Total: " + scoreTotal.ToString();
             
             //Activando el timer
-            timerPoints.Enabled = true;
-
+            tmrPoints.Enabled = true;
+            
+            #region Opacidad de los labes 
             //Creando efecto de opacidad en algunos labels
-            label1.BackColor = Color.FromArgb(100, 5, 235, 179);
-            label2.BackColor = Color.FromArgb(125, Color.Red);
-            label4.BackColor = Color.FromArgb(125, 7, 0, 48);
-            label5.BackColor = Color.FromArgb(125, 7, 0, 48);
-            label6.BackColor = Color.FromArgb(125, 7, 0, 48);
+            lblMessage.BackColor = Color.FromArgb(100, 5, 235, 179);
+            lblGameOver.BackColor = Color.FromArgb(125, Color.Red);
+            lblPlayAgain.BackColor = Color.FromArgb(125, 7, 0, 48);
+            lblMenu.BackColor = Color.FromArgb(125, 7, 0, 48);
+            lblExit.BackColor = Color.FromArgb(125, 7, 0, 48);
+            #endregion
         }
 
         #region Métodos que simulan el Huver de los labels correspondientes, para simular un botón interactivo
 
-        private void label4_MouseEnter(object sender, EventArgs e)
+        private void LblPlayAgain_MouseEnter(object sender, EventArgs e)
         {
-            label4.BackColor = Color.FromArgb(125, 29, 5, 175);
+            lblPlayAgain.BackColor = Color.FromArgb(125, 29, 5, 175);
         }
 
-        private void label4_MouseLeave(object sender, EventArgs e)
+        private void LblPlayAgain_MouseLeave(object sender, EventArgs e)
         {
-            label4.BackColor = Color.FromArgb(125, 7, 0, 48);
+            lblPlayAgain.BackColor = Color.FromArgb(125, 7, 0, 48);
         }
 
-        private void label5_MouseEnter(object sender, EventArgs e)
+        private void LblMenu_MouseEnter(object sender, EventArgs e)
         {
-            label5.BackColor = Color.FromArgb(125, 29, 5, 175);
+            lblMenu.BackColor = Color.FromArgb(125, 29, 5, 175);
         }
 
-        private void label5_MouseLeave(object sender, EventArgs e)
+        private void LblMenu_MouseLeave(object sender, EventArgs e)
         {
-            label5.BackColor = Color.FromArgb(125, 7, 0, 48);
+            lblMenu.BackColor = Color.FromArgb(125, 7, 0, 48);
         }
         
-        private void label6_MouseEnter(object sender, EventArgs e)
+        private void LblExit_MouseEnter(object sender, EventArgs e)
         {
-            label6.BackColor = Color.FromArgb(125, 29, 5, 175);
+            lblExit.BackColor = Color.FromArgb(125, 29, 5, 175);
         }
 
-        private void label6_MouseLeave(object sender, EventArgs e)
+        private void LblExit_MouseLeave(object sender, EventArgs e)
         {
-            label6.BackColor = Color.FromArgb(125, 7, 0, 48);
+            lblExit.BackColor = Color.FromArgb(125, 7, 0, 48);
         }
         #endregion
 
-        private void label4_Click(object sender, EventArgs e)
+        private void LblPlayAgain_Click(object sender, EventArgs e)
         {
             //Eliminando el user control gameUc para volver a implementarlo 
             PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
             PanelControlator.currentUc = new Game();
             PanelControlator.currentUc.Size = PanelControlator.mainPnl.Size;
             
-            //Restableciendo los valores que hacen funcionar correctamente a Game
             GameReset();
             
             //Agregando el nuevo UserControl
@@ -107,43 +105,42 @@ namespace Arkanoid
             this.Hide();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void LblMenu_Click(object sender, EventArgs e)
         {
             //Cambiando el user control dentro del Form 
             PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
             PanelControlator.gameUc = new Game();
             PanelControlator.gameUc.Size = PanelControlator.mainPnl.Size;
-
-            //Restableciendo los valores que hacen funcionar correctamente a Game
+            
             GameReset();
 
             //Agregando el nuevo UserControl
             PanelControlator.currentUc = PanelControlator.menuUc;
             PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
             PanelControlator.mainPnl.Parent.Text = "Arkanoid by Jajan'tGames";
-            
             this.Hide();
         }
         
-        private void label6_Click(object sender, EventArgs e)
+        private void LblExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        //Método encargado de restablecer el UserControl Game 
+        //Método encargado de restablecer los valores necesarios para que Game funcione correctamente
         private void GameReset()
         {
-            //Restableciendo los valores necesarios para que Game funcione correctamente
             GameData.scoreBlocks = 0;
-            GameData.StartGame=false;
+            GameData.startGame=false;
             GameData.life = 3;
             GameData.trapped = true;
             GameData.remainingBlocks = 24;
             GameData.winner = false;
+            GameData.currentTime = 150;
+            
         }
         
         //Método encargado de realizar la animacion de sumar puntos
-        private void timerPoints_Tick(object sender, EventArgs e)
+        private void TmrPoints_Tick(object sender, EventArgs e)
         {
             //Realizando cuenta regresiva hasta cero
             if (scoreBonus != 0)
@@ -158,12 +155,12 @@ namespace Arkanoid
                 scoreTotal += diffScore;
 
                 //Actualiza los labels
-                label7.Text = "Bonus: " + scoreBonus.ToString();
-                label8.Text = "Total: " + scoreTotal.ToString();
+                lblBonus.Text = "Bonus: " + scoreBonus.ToString();
+                lblTotal.Text = "Total: " + scoreTotal.ToString();
             }
             else
             {
-                timerPoints.Stop();
+                tmrPoints.Stop();
             }
         }
     }

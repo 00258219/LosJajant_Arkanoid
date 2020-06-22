@@ -33,7 +33,7 @@ namespace Arkanoid
         {
             this.tlpBase = new System.Windows.Forms.TableLayoutPanel();
             this.txtNickname = new AltoControls.AltoTextBox();
-            this.lblButton = new System.Windows.Forms.Label();
+            this.lblStart = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.tlpBase.SuspendLayout();
@@ -46,7 +46,7 @@ namespace Arkanoid
             this.tlpBase.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpBase.Controls.Add(this.txtNickname, 0, 2);
-            this.tlpBase.Controls.Add(this.lblButton, 0, 3);
+            this.tlpBase.Controls.Add(this.lblStart, 0, 3);
             this.tlpBase.Controls.Add(this.lblUser, 0, 1);
             this.tlpBase.Controls.Add(this.btnBack, 0, 0);
             this.tlpBase.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -81,23 +81,23 @@ namespace Arkanoid
             this.txtNickname.Size = new System.Drawing.Size(789, 102);
             this.txtNickname.TabIndex = 0;
             // 
-            // lblButton
+            // lblStart
             // 
-            this.lblButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblButton.BackColor = System.Drawing.Color.Transparent;
-            this.lblButton.Font = new System.Drawing.Font("Blader", 60F, System.Drawing.FontStyle.Regular,
+            this.lblStart.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblStart.BackColor = System.Drawing.Color.Transparent;
+            this.lblStart.Font = new System.Drawing.Font("Blader", 60F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.lblButton.ForeColor = System.Drawing.Color.White;
-            this.lblButton.Location = new System.Drawing.Point(100, 313);
-            this.lblButton.Margin = new System.Windows.Forms.Padding(100, 12, 100, 12);
-            this.lblButton.Name = "lblButton";
-            this.lblButton.Size = new System.Drawing.Size(716, 128);
-            this.lblButton.TabIndex = 3;
-            this.lblButton.Text = "COMENZAR";
-            this.lblButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblButton.Click += new System.EventHandler(this.LblButton_Click);
-            this.lblButton.MouseEnter += new System.EventHandler(this.LblButton_MouseEnter);
-            this.lblButton.MouseLeave += new System.EventHandler(this.LblButton_MouseLeave);
+            this.lblStart.ForeColor = System.Drawing.Color.White;
+            this.lblStart.Location = new System.Drawing.Point(100, 313);
+            this.lblStart.Margin = new System.Windows.Forms.Padding(100, 12, 100, 12);
+            this.lblStart.Name = "lblStart";
+            this.lblStart.Size = new System.Drawing.Size(716, 128);
+            this.lblStart.TabIndex = 3;
+            this.lblStart.Text = "COMENZAR";
+            this.lblStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStart.Click += new System.EventHandler(this.LblStart_Click);
+            this.lblStart.MouseEnter += new System.EventHandler(this.LblStart_MouseEnter);
+            this.lblStart.MouseLeave += new System.EventHandler(this.LblStart_MouseLeave);
             // 
             // lblUser
             // 
@@ -142,7 +142,7 @@ namespace Arkanoid
 
         private System.Windows.Forms.TableLayoutPanel tlpBase;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label lblButton;
+        private System.Windows.Forms.Label lblStart;
         private System.Windows.Forms.Label lblUser;
         private AltoControls.AltoTextBox txtNickname;
 

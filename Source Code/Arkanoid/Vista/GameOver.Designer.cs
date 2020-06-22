@@ -32,324 +32,325 @@ namespace Arkanoid
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.timerPoints = new System.Windows.Forms.Timer(this.components);
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
+            this.tlp1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblMessage = new System.Windows.Forms.Label();
+            this.tpl2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblGameOver = new System.Windows.Forms.Label();
+            this.tlp3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblPlayAgain = new System.Windows.Forms.Label();
+            this.tlp4 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblMenu = new System.Windows.Forms.Label();
+            this.tlp5 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblExit = new System.Windows.Forms.Label();
+            this.tpl6 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.lblBonus = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.tmrPoints = new System.Windows.Forms.Timer(this.components);
+            this.tlp1.SuspendLayout();
+            this.tpl2.SuspendLayout();
+            this.tlp3.SuspendLayout();
+            this.tlp4.SuspendLayout();
+            this.tlp5.SuspendLayout();
+            this.tpl6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tlp1
             // 
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(
+            this.tlp1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlp1.BackColor = System.Drawing.Color.Transparent;
+            this.tlp1.ColumnCount = 3;
+            this.tlp1.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.709402F));
-            this.tableLayoutPanel1.ColumnStyles.Add(
+            this.tlp1.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98.2906F));
-            this.tableLayoutPanel1.ColumnStyles.Add(
+            this.tlp1.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 1, 9);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 1, 11);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 1, 5);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 13;
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.Controls.Add(this.lblMessage, 1, 1);
+            this.tlp1.Controls.Add(this.tpl2, 1, 3);
+            this.tlp1.Controls.Add(this.tlp3, 1, 7);
+            this.tlp1.Controls.Add(this.tlp4, 1, 9);
+            this.tlp1.Controls.Add(this.tlp5, 1, 11);
+            this.tlp1.Controls.Add(this.tpl6, 1, 5);
+            this.tlp1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tlp1.Location = new System.Drawing.Point(0, 0);
+            this.tlp1.Name = "tlp1";
+            this.tlp1.RowCount = 13;
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.376936F));
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.00689F));
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.376936F));
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.401033F));
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.376936F));
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.47332F));
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.376936F));
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.777969F));
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.376936F));
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.29432F));
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.376936F));
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.571428F));
-            this.tableLayoutPanel1.RowStyles.Add(
+            this.tlp1.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.6044F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(545, 670);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tlp1.Size = new System.Drawing.Size(545, 670);
+            this.tlp1.TabIndex = 0;
             // 
-            // label1
+            // lblMessage
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Blader", 58.25F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(514, 107);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Bien Hecho!";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMessage.Font = new System.Drawing.Font("Blader", 58.25F);
+            this.lblMessage.ForeColor = System.Drawing.Color.White;
+            this.lblMessage.Location = new System.Drawing.Point(12, 9);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(514, 107);
+            this.lblMessage.TabIndex = 0;
+            this.lblMessage.Text = "Bien Hecho!";
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel2
+            // tpl2
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(
+            this.tpl2.ColumnCount = 3;
+            this.tpl2.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(
+            this.tpl2.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 301F));
-            this.tableLayoutPanel2.ColumnStyles.Add(
+            this.tpl2.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-            this.tableLayoutPanel2.ColumnStyles.Add(
+            this.tpl2.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(
+            this.tpl2.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 301F));
-            this.tableLayoutPanel2.ColumnStyles.Add(
+            this.tpl2.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-            this.tableLayoutPanel2.Controls.Add(this.label2, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 128);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(
+            this.tpl2.Controls.Add(this.lblGameOver, 1, 0);
+            this.tpl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tpl2.Location = new System.Drawing.Point(12, 128);
+            this.tpl2.Name = "tpl2";
+            this.tpl2.RowCount = 1;
+            this.tpl2.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(
+            this.tpl2.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(514, 43);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.tpl2.Size = new System.Drawing.Size(514, 43);
+            this.tpl2.TabIndex = 1;
             // 
-            // label2
+            // lblGameOver
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Blader", 28F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(105, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(295, 43);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "- Game Over -";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblGameOver.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblGameOver.Font = new System.Drawing.Font("Blader", 28F);
+            this.lblGameOver.ForeColor = System.Drawing.Color.White;
+            this.lblGameOver.Location = new System.Drawing.Point(105, 0);
+            this.lblGameOver.Name = "lblGameOver";
+            this.lblGameOver.Size = new System.Drawing.Size(295, 43);
+            this.lblGameOver.TabIndex = 0;
+            this.lblGameOver.Text = "- Game Over -";
+            this.lblGameOver.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel3
+            // tlp3
             // 
-            this.tableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(
+            this.tlp3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlp3.ColumnCount = 3;
+            this.tlp3.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.08491F));
-            this.tableLayoutPanel3.ColumnStyles.Add(
+            this.tlp3.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.91509F));
-            this.tableLayoutPanel3.ColumnStyles.Add(
+            this.tlp3.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
-            this.tableLayoutPanel3.ColumnStyles.Add(
+            this.tlp3.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.08491F));
-            this.tableLayoutPanel3.ColumnStyles.Add(
+            this.tlp3.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.91509F));
-            this.tableLayoutPanel3.ColumnStyles.Add(
+            this.tlp3.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel3.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 366);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(
+            this.tlp3.Controls.Add(this.lblPlayAgain, 1, 0);
+            this.tlp3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp3.Location = new System.Drawing.Point(12, 366);
+            this.tlp3.Name = "tlp3";
+            this.tlp3.RowCount = 1;
+            this.tlp3.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(
+            this.tlp3.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(514, 53);
-            this.tableLayoutPanel3.TabIndex = 3;
+            this.tlp3.Size = new System.Drawing.Size(514, 53);
+            this.tlp3.TabIndex = 3;
             // 
-            // label4
+            // lblPlayAgain
             // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Blader", 30F, System.Drawing.FontStyle.Regular,
+            this.lblPlayAgain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPlayAgain.Font = new System.Drawing.Font("Blader", 30F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(53, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(396, 53);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Volver a jugar";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            this.label4.MouseEnter += new System.EventHandler(this.label4_MouseEnter);
-            this.label4.MouseLeave += new System.EventHandler(this.label4_MouseLeave);
+            this.lblPlayAgain.ForeColor = System.Drawing.Color.White;
+            this.lblPlayAgain.Location = new System.Drawing.Point(53, 0);
+            this.lblPlayAgain.Name = "lblPlayAgain";
+            this.lblPlayAgain.Size = new System.Drawing.Size(396, 53);
+            this.lblPlayAgain.TabIndex = 0;
+            this.lblPlayAgain.Text = "Volver a jugar";
+            this.lblPlayAgain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPlayAgain.Click += new System.EventHandler(this.LblPlayAgain_Click);
+            this.lblPlayAgain.MouseEnter += new System.EventHandler(this.LblPlayAgain_MouseEnter);
+            this.lblPlayAgain.MouseLeave += new System.EventHandler(this.LblPlayAgain_MouseLeave);
             // 
-            // tableLayoutPanel4
+            // tlp4
             // 
-            this.tableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(
+            this.tlp4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlp4.ColumnCount = 3;
+            this.tlp4.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.61321F));
-            this.tableLayoutPanel4.ColumnStyles.Add(
+            this.tlp4.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.3868F));
-            this.tableLayoutPanel4.ColumnStyles.Add(
+            this.tlp4.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
-            this.tableLayoutPanel4.ColumnStyles.Add(
+            this.tlp4.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.61321F));
-            this.tableLayoutPanel4.ColumnStyles.Add(
+            this.tlp4.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.3868F));
-            this.tableLayoutPanel4.ColumnStyles.Add(
+            this.tlp4.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
-            this.tableLayoutPanel4.Controls.Add(this.label5, 1, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(12, 434);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(
+            this.tlp4.Controls.Add(this.lblMenu, 1, 0);
+            this.tlp4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp4.Location = new System.Drawing.Point(12, 434);
+            this.tlp4.Name = "tlp4";
+            this.tlp4.RowCount = 1;
+            this.tlp4.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(
+            this.tlp4.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(514, 56);
-            this.tableLayoutPanel4.TabIndex = 4;
+            this.tlp4.Size = new System.Drawing.Size(514, 56);
+            this.tlp4.TabIndex = 4;
             // 
-            // label5
+            // lblMenu
             // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Blader", 30F, System.Drawing.FontStyle.Regular,
+            this.lblMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMenu.Font = new System.Drawing.Font("Blader", 30F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(51, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(398, 56);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Menu Principal";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            this.label5.MouseEnter += new System.EventHandler(this.label5_MouseEnter);
-            this.label5.MouseLeave += new System.EventHandler(this.label5_MouseLeave);
+            this.lblMenu.ForeColor = System.Drawing.Color.White;
+            this.lblMenu.Location = new System.Drawing.Point(51, 0);
+            this.lblMenu.Name = "lblMenu";
+            this.lblMenu.Size = new System.Drawing.Size(398, 56);
+            this.lblMenu.TabIndex = 0;
+            this.lblMenu.Text = "Menu Principal";
+            this.lblMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMenu.Click += new System.EventHandler(this.LblMenu_Click);
+            this.lblMenu.MouseEnter += new System.EventHandler(this.LblMenu_MouseEnter);
+            this.lblMenu.MouseLeave += new System.EventHandler(this.LblMenu_MouseLeave);
             // 
-            // tableLayoutPanel5
+            // tlp5
             // 
-            this.tableLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(
+            this.tlp5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlp5.ColumnCount = 3;
+            this.tlp5.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.23529F));
-            this.tableLayoutPanel5.ColumnStyles.Add(
+            this.tlp5.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.76471F));
-            this.tableLayoutPanel5.ColumnStyles.Add(
+            this.tlp5.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
-            this.tableLayoutPanel5.ColumnStyles.Add(
+            this.tlp5.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.23529F));
-            this.tableLayoutPanel5.ColumnStyles.Add(
+            this.tlp5.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.76471F));
-            this.tableLayoutPanel5.ColumnStyles.Add(
+            this.tlp5.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
-            this.tableLayoutPanel5.Controls.Add(this.label6, 1, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(12, 505);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(
+            this.tlp5.Controls.Add(this.lblExit, 1, 0);
+            this.tlp5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlp5.Location = new System.Drawing.Point(12, 505);
+            this.tlp5.Name = "tlp5";
+            this.tlp5.RowCount = 1;
+            this.tlp5.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.RowStyles.Add(
+            this.tlp5.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(514, 51);
-            this.tableLayoutPanel5.TabIndex = 5;
+            this.tlp5.Size = new System.Drawing.Size(514, 51);
+            this.tlp5.TabIndex = 5;
             // 
-            // label6
+            // lblExit
             // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Blader", 30F, System.Drawing.FontStyle.Regular,
+            this.lblExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblExit.Font = new System.Drawing.Font("Blader", 30F, 
+                System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(122, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(234, 51);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Salir";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            this.label6.MouseEnter += new System.EventHandler(this.label6_MouseEnter);
-            this.label6.MouseLeave += new System.EventHandler(this.label6_MouseLeave);
+            this.lblExit.ForeColor = System.Drawing.Color.White;
+            this.lblExit.Location = new System.Drawing.Point(122, 0);
+            this.lblExit.Name = "lblExit";
+            this.lblExit.Size = new System.Drawing.Size(234, 51);
+            this.lblExit.TabIndex = 0;
+            this.lblExit.Text = "Salir";
+            this.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblExit.Click += new System.EventHandler(this.LblExit_Click);
+            this.lblExit.MouseEnter += new System.EventHandler(this.LblExit_MouseEnter);
+            this.lblExit.MouseLeave += new System.EventHandler(this.LblExit_MouseLeave);
             // 
-            // tableLayoutPanel6
+            // tpl6
             // 
-            this.tableLayoutPanel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(
+            this.tpl6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tpl6.ColumnCount = 1;
+            this.tpl6.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label7, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label8, 0, 2);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(12, 186);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 3;
-            this.tableLayoutPanel6.RowStyles.Add(
+            this.tpl6.Controls.Add(this.lblScore, 0, 0);
+            this.tpl6.Controls.Add(this.lblBonus, 0, 1);
+            this.tpl6.Controls.Add(this.lblTotal, 0, 2);
+            this.tpl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tpl6.Location = new System.Drawing.Point(12, 186);
+            this.tpl6.Name = "tpl6";
+            this.tpl6.RowCount = 3;
+            this.tpl6.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.98592F));
-            this.tableLayoutPanel6.RowStyles.Add(
+            this.tpl6.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.69014F));
-            this.tableLayoutPanel6.RowStyles.Add(
+            this.tpl6.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.32394F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(514, 165);
-            this.tableLayoutPanel6.TabIndex = 6;
+            this.tpl6.Size = new System.Drawing.Size(514, 165);
+            this.tpl6.TabIndex = 6;
             // 
-            // label3
+            // lblScore
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Blader", 25F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(508, 51);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Score:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblScore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblScore.Font = new System.Drawing.Font("Blader", 25F);
+            this.lblScore.ForeColor = System.Drawing.Color.White;
+            this.lblScore.Location = new System.Drawing.Point(3, 0);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(508, 51);
+            this.lblScore.TabIndex = 0;
+            this.lblScore.Text = "Score:";
+            this.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // lblBonus
             // 
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Blader", 25F);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 51);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(508, 52);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Bonus: ";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBonus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblBonus.Font = new System.Drawing.Font("Blader", 25F);
+            this.lblBonus.ForeColor = System.Drawing.Color.White;
+            this.lblBonus.Location = new System.Drawing.Point(3, 51);
+            this.lblBonus.Name = "lblBonus";
+            this.lblBonus.Size = new System.Drawing.Size(508, 52);
+            this.lblBonus.TabIndex = 1;
+            this.lblBonus.Text = "Bonus: ";
+            this.lblBonus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // lblTotal
             // 
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Blader", 39.75F, System.Drawing.FontStyle.Regular,
+            this.lblTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotal.Font = new System.Drawing.Font("Blader", 39.75F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(3, 103);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(508, 62);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Total: ";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTotal.ForeColor = System.Drawing.Color.White;
+            this.lblTotal.Location = new System.Drawing.Point(3, 103);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(508, 62);
+            this.lblTotal.TabIndex = 2;
+            this.lblTotal.Text = "Total: ";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timerPoints
+            // tmrPoints
             // 
-            this.timerPoints.Tick += new System.EventHandler(this.timerPoints_Tick);
+            this.tmrPoints.Tick += new System.EventHandler(this.TmrPoints_Tick);
             // 
             // GameOver
             // 
@@ -357,36 +358,36 @@ namespace Arkanoid
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(545, 563);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tlp1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "GameOver";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.GameOver_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tlp1.ResumeLayout(false);
+            this.tpl2.ResumeLayout(false);
+            this.tlp3.ResumeLayout(false);
+            this.tlp4.ResumeLayout(false);
+            this.tlp5.ResumeLayout(false);
+            this.tpl6.ResumeLayout(false);
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Timer timerPoints;
+        private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Label lblGameOver;
+        private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Label lblPlayAgain;
+        private System.Windows.Forms.Label lblMenu;
+        private System.Windows.Forms.Label lblExit;
+        private System.Windows.Forms.Label lblBonus;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.TableLayoutPanel tlp1;
+        private System.Windows.Forms.TableLayoutPanel tpl2;
+        private System.Windows.Forms.TableLayoutPanel tlp3;
+        private System.Windows.Forms.TableLayoutPanel tlp4;
+        private System.Windows.Forms.TableLayoutPanel tlp5;
+        private System.Windows.Forms.TableLayoutPanel tpl6;
+        private System.Windows.Forms.Timer tmrPoints;
 
         #endregion
     }

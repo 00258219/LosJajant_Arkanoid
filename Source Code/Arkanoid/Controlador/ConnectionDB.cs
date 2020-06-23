@@ -6,17 +6,30 @@ namespace Arkanoid.Controlador
     public static class ConnectionDB
     {
         #region Datos para acceder a la base de datos
+        
+        /*
+        //PARA LA BASE DE DATOS REMOTA CON HEROKU, CAMBIAR A ESTA SI QUIEREN JUGAR CON NUESTROS PUNTAJES
         private static readonly string host = "ec2-52-44-166-58.compute-1.amazonaws.com";
-
         private static readonly string database = "dc353pq438duni";
-
         private static readonly string userId = "fwausivxslwhcz";
-
         private static readonly string password = "f84e5348422d0a85a1bfca731578c72461258f0fa9cb0180077820ef4959d289";
-
         private static readonly string sConnection=
             $"Host={host};Port=5432;User Id={userId};Password={password};Database={database};" +
-            $"sslmode=Require;Trust Server Certificate=true";
+            $"sslmode=Require;Trust Server Certificate=true"; 
+        */
+        
+        //Base de Datos local
+        private static readonly string host = "127.0.0.1";
+
+        private static readonly string database = "arkanoidJajant";
+
+        private static readonly string userId = "postgres";
+
+        private static readonly string password = "123";
+
+        private static readonly string sConnection =
+            $"Host={host};Port=5432;User Id={userId};Password={password};Database={database};";
+        
         #endregion
         
         public static DataTable ExecuteQuery(string query)

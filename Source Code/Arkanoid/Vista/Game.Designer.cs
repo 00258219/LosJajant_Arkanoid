@@ -35,19 +35,19 @@ namespace Arkanoid
             this.tmrGame = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // timeGame
+            // tmrGame
             // 
             this.tmrGame.Tick += new System.EventHandler(this.TmrGame_Tick);
             // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Game";
-            this.Size = new System.Drawing.Size(741, 386);
+            this.Size = new System.Drawing.Size(864, 445);
             this.Load += new System.EventHandler(this.Game_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Game_PreviewKeyDown);

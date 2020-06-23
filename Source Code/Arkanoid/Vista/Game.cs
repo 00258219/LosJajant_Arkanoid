@@ -7,7 +7,6 @@ using Arkanoid.Controlador;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 using Arkanoid.Modelo;
 
-
 namespace Arkanoid
 {
     public sealed partial class Game : UserControl
@@ -49,6 +48,11 @@ namespace Arkanoid
                 LoadPlataform_Ball_Time();
                 LoadBlocks();
                 Focus();
+                
+                //seteando sonido al iniciar el juego
+                System.Media.SoundPlayer start = new System.Media.SoundPlayer
+                    ("../../Resources/Start.wav");
+                start.Play();
             };
             
             BallActions = BallMoves;
@@ -84,7 +88,7 @@ namespace Arkanoid
         {
             BackgroundImage = Image.FromFile("../../Resources/gameBackground.png");
             BackgroundImageLayout = ImageLayout.Stretch;
-            LoadGame?.Invoke(); 
+            LoadGame?.Invoke();
         }
         
         private void LoadScorePanel() 
@@ -287,10 +291,15 @@ namespace Arkanoid
             #endregion
             
             //Iniciar el juego con la tecla space
-            if (e.KeyCode == Keys.Space) {
+            if (GameData.startGame==false && e.KeyCode == Keys.Space) {
                 StartTimeGame();
                 GameData.startGame = true;
                 GameData.trapped = false; //Cambiar la condicion para que la pelota se mueva independientemente
+                
+                //seteando sonido al liberar la plataforma 
+                System.Media.SoundPlayer space = new System.Media.SoundPlayer
+                    ("../../Resources/space1.wav");
+                space.Play();
             }
 
             //Si tienes alguna de las siguientes dos teclas presionadas que la plataforma se detenga
@@ -370,12 +379,24 @@ namespace Arkanoid
             plataform.Left = (Width / 2) - (plataform.Width / 2);
             ball.Top = plataform.Top - ball.Height;
             ball.Left = plataform.Left + (plataform.Width / 2) - (ball.Width / 2);
+            GameData.xSpeed = 15; GameData.ySpeed =-(GameData.xSpeed-1);
             GameData.trapped = true;
+            GameData.startGame = false;
         }
 
         //Metodo que se encarga de revisar las colisiones
         private void Bounces()
         {
+            #region Seteando sonidos
+            //seteando sonido de caida, rebote y hit 
+            System.Media.SoundPlayer fall = new System.Media.SoundPlayer
+                ("../../Resources/Fall.wav");
+            System.Media.SoundPlayer bounce = new System.Media.SoundPlayer
+                ("../../Resources/Bounce.wav");
+            System.Media.SoundPlayer hit = new System.Media.SoundPlayer
+                ("../../Resources/Hit.wav");
+            #endregion
+
             //Random para el rebote
             Random random= new Random();
             
@@ -384,6 +405,7 @@ namespace Arkanoid
             //verifica si la pelota cae al vacio
             if (ball.Bottom > Height)
             {
+                fall.Play();
                 GameData.life--;
                 tmrGame.Stop();
                 
@@ -408,11 +430,16 @@ namespace Arkanoid
             #region Posibles Rebotes
             
             //Genera un rebote en la parte superior
-            if(ball.Top<scorePnl.Bottom)
+            if (ball.Top < scorePnl.Bottom)
+            {
+                bounce.Play();
                 GameData.ySpeed = -GameData.ySpeed;
-            
+            }
+
             //Condicion para que rebote cuando colisione con el borde
-            if(ball.Left<0 || ball.Right>Width){
+            if(ball.Left<0 || ball.Right>Width)
+            {
+                bounce.Play();
                 GameData.xSpeed = -GameData.xSpeed;
                 return;
             }
@@ -420,14 +447,16 @@ namespace Arkanoid
             // Condicion para que la pelota rebote con la plataforma
             if (ball.Bounds.IntersectsWith(plataform.Bounds))
             {
+                bounce.Play();
                 ball.Top -= (ball.Bottom - plataform.Top);
-                GameData.ySpeed = -random.Next(14, 28);
+                GameData.ySpeed = -random.Next(12, 20);
                 return;
             }
             
             //Condicion para conocer si el bloque esta activo y existen colisiones
             if (Collisions())
             {
+                hit.Play();
                 GameData.ySpeed = -GameData.ySpeed; //Cambia la direccion al chocar
                 
                 if (GameData.remainingBlocks==0)

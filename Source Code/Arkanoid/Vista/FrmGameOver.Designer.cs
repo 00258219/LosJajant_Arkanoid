@@ -65,7 +65,7 @@ namespace Arkanoid
             this.tlp1.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98.2906F));
             this.tlp1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlp1.Controls.Add(this.lblMessage, 1, 1);
             this.tlp1.Controls.Add(this.tpl2, 1, 3);
             this.tlp1.Controls.Add(this.tlp3, 1, 7);
@@ -111,7 +111,7 @@ namespace Arkanoid
             this.lblMessage.ForeColor = System.Drawing.Color.White;
             this.lblMessage.Location = new System.Drawing.Point(11, 9);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(504, 107);
+            this.lblMessage.Size = new System.Drawing.Size(500, 107);
             this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = "Bien Hecho!";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -138,7 +138,7 @@ namespace Arkanoid
             this.tpl2.RowCount = 1;
             this.tpl2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tpl2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tpl2.Size = new System.Drawing.Size(504, 43);
+            this.tpl2.Size = new System.Drawing.Size(500, 43);
             this.tpl2.TabIndex = 1;
             // 
             // lblGameOver
@@ -146,7 +146,7 @@ namespace Arkanoid
             this.lblGameOver.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblGameOver.Font = new System.Drawing.Font("Blader", 28F);
             this.lblGameOver.ForeColor = System.Drawing.Color.White;
-            this.lblGameOver.Location = new System.Drawing.Point(95, 0);
+            this.lblGameOver.Location = new System.Drawing.Point(91, 0);
             this.lblGameOver.Name = "lblGameOver";
             this.lblGameOver.Size = new System.Drawing.Size(295, 43);
             this.lblGameOver.TabIndex = 0;
@@ -162,7 +162,7 @@ namespace Arkanoid
             this.tlp3.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.91509F));
             this.tlp3.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tlp3.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.08491F));
             this.tlp3.ColumnStyles.Add(
@@ -176,7 +176,7 @@ namespace Arkanoid
             this.tlp3.RowCount = 1;
             this.tlp3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlp3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp3.Size = new System.Drawing.Size(504, 53);
+            this.tlp3.Size = new System.Drawing.Size(500, 53);
             this.tlp3.TabIndex = 3;
             // 
             // lblPlayAgain
@@ -185,9 +185,9 @@ namespace Arkanoid
             this.lblPlayAgain.Font = new System.Drawing.Font("Blader", 30F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblPlayAgain.ForeColor = System.Drawing.Color.White;
-            this.lblPlayAgain.Location = new System.Drawing.Point(51, 0);
+            this.lblPlayAgain.Location = new System.Drawing.Point(50, 0);
             this.lblPlayAgain.Name = "lblPlayAgain";
-            this.lblPlayAgain.Size = new System.Drawing.Size(379, 53);
+            this.lblPlayAgain.Size = new System.Drawing.Size(371, 53);
             this.lblPlayAgain.TabIndex = 0;
             this.lblPlayAgain.Text = "Volver a jugar";
             this.lblPlayAgain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -204,7 +204,7 @@ namespace Arkanoid
             this.tlp4.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.3868F));
             this.tlp4.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tlp4.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.61321F));
             this.tlp4.ColumnStyles.Add(
@@ -218,7 +218,7 @@ namespace Arkanoid
             this.tlp4.RowCount = 1;
             this.tlp4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlp4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp4.Size = new System.Drawing.Size(504, 56);
+            this.tlp4.Size = new System.Drawing.Size(500, 56);
             this.tlp4.TabIndex = 4;
             // 
             // lblMenu
@@ -227,9 +227,9 @@ namespace Arkanoid
             this.lblMenu.Font = new System.Drawing.Font("Blader", 30F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblMenu.ForeColor = System.Drawing.Color.White;
-            this.lblMenu.Location = new System.Drawing.Point(49, 0);
+            this.lblMenu.Location = new System.Drawing.Point(48, 0);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(381, 56);
+            this.lblMenu.Size = new System.Drawing.Size(373, 56);
             this.lblMenu.TabIndex = 0;
             this.lblMenu.Text = "Menu Principal";
             this.lblMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -246,7 +246,7 @@ namespace Arkanoid
             this.tlp5.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.76471F));
             this.tlp5.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 163F));
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
             this.tlp5.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.23529F));
             this.tlp5.ColumnStyles.Add(
@@ -260,7 +260,7 @@ namespace Arkanoid
             this.tlp5.RowCount = 1;
             this.tlp5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlp5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp5.Size = new System.Drawing.Size(504, 51);
+            this.tlp5.Size = new System.Drawing.Size(500, 51);
             this.tlp5.TabIndex = 5;
             // 
             // lblExit
@@ -269,9 +269,9 @@ namespace Arkanoid
             this.lblExit.Font = new System.Drawing.Font("Blader", 30F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblExit.ForeColor = System.Drawing.Color.White;
-            this.lblExit.Location = new System.Drawing.Point(116, 0);
+            this.lblExit.Location = new System.Drawing.Point(113, 0);
             this.lblExit.Name = "lblExit";
-            this.lblExit.Size = new System.Drawing.Size(221, 51);
+            this.lblExit.Size = new System.Drawing.Size(215, 51);
             this.lblExit.TabIndex = 0;
             this.lblExit.Text = "Salir";
             this.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -298,7 +298,7 @@ namespace Arkanoid
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.69014F));
             this.tpl6.RowStyles.Add(
                 new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.32394F));
-            this.tpl6.Size = new System.Drawing.Size(504, 165);
+            this.tpl6.Size = new System.Drawing.Size(500, 165);
             this.tpl6.TabIndex = 6;
             // 
             // lblScore
@@ -308,7 +308,7 @@ namespace Arkanoid
             this.lblScore.ForeColor = System.Drawing.Color.White;
             this.lblScore.Location = new System.Drawing.Point(3, 0);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(498, 51);
+            this.lblScore.Size = new System.Drawing.Size(494, 51);
             this.lblScore.TabIndex = 0;
             this.lblScore.Text = "Score:";
             this.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -320,7 +320,7 @@ namespace Arkanoid
             this.lblBonus.ForeColor = System.Drawing.Color.White;
             this.lblBonus.Location = new System.Drawing.Point(3, 51);
             this.lblBonus.Name = "lblBonus";
-            this.lblBonus.Size = new System.Drawing.Size(498, 52);
+            this.lblBonus.Size = new System.Drawing.Size(494, 52);
             this.lblBonus.TabIndex = 1;
             this.lblBonus.Text = "Bonus: ";
             this.lblBonus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -333,7 +333,7 @@ namespace Arkanoid
             this.lblTotal.ForeColor = System.Drawing.Color.White;
             this.lblTotal.Location = new System.Drawing.Point(3, 103);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(498, 62);
+            this.lblTotal.Size = new System.Drawing.Size(494, 62);
             this.lblTotal.TabIndex = 2;
             this.lblTotal.Text = "Total: ";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -342,7 +342,7 @@ namespace Arkanoid
             // 
             this.tmrPoints.Tick += new System.EventHandler(this.TmrPoints_Tick);
             // 
-            // GameOver
+            // FrmGameOver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -362,7 +362,7 @@ namespace Arkanoid
             this.tpl6.ResumeLayout(false);
             this.ResumeLayout(false);
         }
-        
+
         private System.Windows.Forms.Label lblBonus;
         private System.Windows.Forms.Label lblExit;
         private System.Windows.Forms.Label lblGameOver;

@@ -8,6 +8,9 @@ namespace Arkanoid
 {
     public partial class FrmGameOver : Form
     {
+        //seteando sonido de botones y variables de scores obtenidos
+        private  System.Media.SoundPlayer button = new System.Media.SoundPlayer
+            ("../../Resources/button.wav");
         private int scoreTotal = 0;
         private int scoreBonus = 0;
         private int diffScore = 200;
@@ -19,19 +22,34 @@ namespace Arkanoid
         
         private void GameOver_Load(object sender, EventArgs e)
         {
-            #region Background
+            #region  background
             //Cargando la imagen de fondo y acomodando su tamaño
             DoubleBuffered = true;
             BackgroundImage = Image.FromFile("../../Resources/FondoEstrellas.jpg");
             BackgroundImageLayout = ImageLayout.Stretch;
             #endregion
-            
+
             #region Lógica del puntaje a mostrar
             //verificando puntaje bonus
             if (GameData.winner)
+            {
+                //seteandp sonido al ganar
+                System.Media.SoundPlayer winner = new System.Media.SoundPlayer
+                    ("../../Resources/winner.wav");
+                winner.Play();
+                
                 scoreBonus = GameData.BonusPoints();
+            }
             else
+            {
+                //seteando sonido al perder
+                System.Media.SoundPlayer loser = new System.Media.SoundPlayer
+                    ("../../Resources/lose.wav");
+                loser.Play();
+                
                 scoreBonus = 0;
+            }
+
             scoreTotal = GameData.scoreBlocks;
             
             //Mostrando mensaje de "GANASTE" o "PERDISTE" según vidas
@@ -108,8 +126,10 @@ namespace Arkanoid
             PanelControlator.currentUc = new Game();
             PanelControlator.currentUc.Size = PanelControlator.mainPnl.Size;
             
-            GameReset();
+            button.Play();
             
+            GameReset();
+
             //Agregando el nuevo UserControl
             PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
             this.Hide();
@@ -122,6 +142,8 @@ namespace Arkanoid
             PanelControlator.gameUc = new Game();
             PanelControlator.gameUc.Size = PanelControlator.mainPnl.Size;
             
+            button.Play();
+            
             GameReset();
 
             //Agregando el nuevo UserControl
@@ -133,6 +155,7 @@ namespace Arkanoid
         
         private void LblExit_Click(object sender, EventArgs e)
         {
+            button.Play();
             Application.Exit();
         }
 
@@ -146,7 +169,8 @@ namespace Arkanoid
             GameData.remainingBlocks = 24;
             GameData.winner = false;
             GameData.currentTime = 150;
-            
+            GameData.xSpeed = 15; 
+            GameData.ySpeed =-(GameData.xSpeed-1);
         }
         
         //Método encargado de realizar la animacion de sumar puntos

@@ -63,6 +63,10 @@ namespace Arkanoid
             PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
             PanelControlator.currentUc = PanelControlator.menuUc;
             PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
+            //seteando sonido de boton 
+            System.Media.SoundPlayer button = new System.Media.SoundPlayer
+            ("../../Resources/button.wav");
+            button.Play();
         }
     }
 }

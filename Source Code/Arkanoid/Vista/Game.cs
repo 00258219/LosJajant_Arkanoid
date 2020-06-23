@@ -48,6 +48,8 @@ namespace Arkanoid
                 LoadPlataform_Ball_Time();
                 LoadBlocks();
                 Focus();
+                
+                //seteando sonido al iniciar el juego
                 System.Media.SoundPlayer start = new System.Media.SoundPlayer
                     ("../../Resources/Start.wav");
                 start.Play();
@@ -86,8 +88,7 @@ namespace Arkanoid
         {
             BackgroundImage = Image.FromFile("../../Resources/gameBackground.png");
             BackgroundImageLayout = ImageLayout.Stretch;
-            
-            LoadGame?.Invoke(); 
+            LoadGame?.Invoke();
         }
         
         private void LoadScorePanel() 
@@ -290,10 +291,15 @@ namespace Arkanoid
             #endregion
             
             //Iniciar el juego con la tecla space
-            if (e.KeyCode == Keys.Space) {
+            if (GameData.startGame==false && e.KeyCode == Keys.Space) {
                 StartTimeGame();
                 GameData.startGame = true;
                 GameData.trapped = false; //Cambiar la condicion para que la pelota se mueva independientemente
+                
+                //seteando sonido al liberar la plataforma 
+                System.Media.SoundPlayer space = new System.Media.SoundPlayer
+                    ("../../Resources/space1.wav");
+                space.Play();
             }
 
             //Si tienes alguna de las siguientes dos teclas presionadas que la plataforma se detenga
@@ -373,14 +379,16 @@ namespace Arkanoid
             plataform.Left = (Width / 2) - (plataform.Width / 2);
             ball.Top = plataform.Top - ball.Height;
             ball.Left = plataform.Left + (plataform.Width / 2) - (ball.Width / 2);
+            GameData.xSpeed = 15; GameData.ySpeed =-(GameData.xSpeed-1);
             GameData.trapped = true;
+            GameData.startGame = false;
         }
 
         //Metodo que se encarga de revisar las colisiones
         private void Bounces()
         {
             #region Seteando sonidos
-            //sonido de caida, rebote y hit 
+            //seteando sonido de caida, rebote y hit 
             System.Media.SoundPlayer fall = new System.Media.SoundPlayer
                 ("../../Resources/Fall.wav");
             System.Media.SoundPlayer bounce = new System.Media.SoundPlayer

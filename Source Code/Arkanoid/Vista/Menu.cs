@@ -7,6 +7,9 @@ namespace Arkanoid
 {
     public partial class Menu : UserControl
     {
+        //seteando sonido de botones 
+        private  System.Media.SoundPlayer button = new System.Media.SoundPlayer
+            ("../../Resources/button.wav");
         public Menu()
         {
             InitializeComponent();
@@ -61,6 +64,7 @@ namespace Arkanoid
             PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
             PanelControlator.currentUc = PanelControlator.playerRegisterUc;
             PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
+            button.Play();
         }
         
         //Permite acceder al top 10 de jugadores
@@ -70,11 +74,13 @@ namespace Arkanoid
             PanelControlator.mainPnl.Controls.Remove(PanelControlator.currentUc);
             PanelControlator.currentUc = new Top10();
             PanelControlator.mainPnl.Controls.Add(PanelControlator.currentUc);
+            button.Play();
         }
         
         //Cierra el programa
         private void LblExit_Click(object sender, EventArgs e)
         {
+            button.Play();
             Application.Exit();
         }
     }
